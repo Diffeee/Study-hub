@@ -520,7 +520,7 @@ P = 1355 × 20 = 2.71 × 10⁴ W</div>
 
 <script>
 (function(){
-  var DECKID='d5';
+  var DECKID='d5', CFG={"chips": [["All", 0, ""], ["Paper 1 (MCQ)", 1, "/1\\d"], ["Paper 2 (structured)", 1, "/2\\d"]], "srcintro": "Summarised from Cambridge 9702 Principal Examiner Reports: ", "reveal": "Try it first, then show the working", "padlab": "Your working · use your stylus"};
   var CARDS=[["Work", "Define work done", "Force × distance moved in the direction of the force"], ["Work", "Work done by force F at angle θ to displacement s", "W = Fs cos θ"], ["Work", "Define the joule", "Work done when 1 N moves its point of application 1 m in the direction of the force"], ["Work", "Work done by a force perpendicular to the motion", "Zero"], ["Work", "80 N at 30° pulls a sledge 50 m. Work done?", "3.46 × 10³ J"], ["Work", "Work done is equal to what?", "Energy transferred"], ["Energy", "State the principle of conservation of energy", "Energy cannot be created or destroyed, only transferred between forms; total energy of a closed system is constant"], ["Energy", "Derive ΔEp = mgΔh: what force do you use?", "F = mg (lifting at constant speed), so W = mgΔh"], ["Energy", "When is ΔEp = mgΔh valid?", "In a uniform gravitational field (small heights near Earth)"], ["Energy", "Derive Ek = ½mv² in one line", "W = Fs = ma × v²/2a = ½mv²"], ["Energy", "Speed doubles. What happens to KE?", "Multiplies by 4"], ["Energy", "1200 kg car from 10 to 20 m s⁻¹. ΔKE?", "1.8 × 10⁵ J"], ["Energy", "On a slope, which length goes in mgh?", "The vertical height"], ["Energy", "Speed after falling 0.45 m from rest (no friction)", "2.97 m s⁻¹ (√(2gh))"], ["Energy", "Does mass affect the speed gained falling with no resistance?", "No, m cancels in mgh = ½mv²"], ["Energy", "Object falls at terminal velocity. Energy transfer?", "GPE → thermal energy; KE stays constant"], ["Efficiency", "Define efficiency", "Useful energy output ÷ total energy input"], ["Efficiency", "Unit of efficiency", "None (ratio or %)"], ["Efficiency", "Motor: 5886 J useful, 8000 J input. Efficiency?", "73.6%"], ["Power", "Define power", "Work done per unit time"], ["Power", "Power equation from definition", "P = W/t"], ["Power", "Derive P = Fv", "P = W/t = Fs/t = Fv"], ["Power", "SI base units of the watt", "kg m² s⁻³"], ["Power", "Car at constant 25 m s⁻¹, resistance 800 N. Power?", "2.0 × 10⁴ W"], ["Power", "Condition for a car's top speed", "Driving force = resistive force (resultant force zero)"], ["Power", "Which force goes in P = Fv?", "The driving force, not the resultant"], ["Power", "60 kW car at 20 m s⁻¹. Driving force?", "3000 N"], ["Power", "60 kg student climbs 3.0 m in 4.0 s. Power?", "441 W"]], PPD=[["Jun 2023", "9702/21", "1(a)(i)", "Define power", "Some wrote force × velocity.", "P = Fv is a result. The definition is work done per unit time."], ["Nov 2022", "9702/21", "3(a)", "Define power and derive P = Fv", "Some gave \"force × velocity\" as the definition, and some \"derived\" P = Fv by only checking units.", "Derive from P = W/t, W = Fs, s/t = v."], ["Nov 2022", "9702/22", "1(a)", "Define work done", "Some used distance instead of displacement or left out the direction.", "Force × displacement in the direction of the force."], ["Jun 2023", "9702/13", "15", "Work done on a suitcase", "The most common wrong answer said work is done carrying it horizontally at constant speed.", "The vertical supporting force is perpendicular to the motion, so it does no work."], ["Nov 2023", "9702/13", "17", "Rate of loss of GPE when falling at constant speed", "C was the most popular wrong answer.", "Rate = mg × (Δh/Δt) = mgv."], ["Jun 2023", "9702/12", "16", "Constant power: F against v graph", "Half were correct. B was the most common wrong graph.", "P = Fv is constant, so F ∝ 1/v (a curve)."], ["Nov 2022", "9702/21", "3(c)", "Car on a slope: weight component and power", "Students used mg cos θ instead of mg sin θ, and some ignored the resistive force.", "Driving force = resistive force + mg sin θ. Then P = Fv."], ["Jun 2023", "9702/21 & /22", "2(c)", "Change in GPE and KE", "Some confused mass with weight (e.g. used W in place of m in ½mv²).", "ΔE_P = mgΔh, E_K = ½mv². Convert weight ÷ g to get mass."], ["Jun 2023", "9702/22", "3(b)(ii)", "Calculate power", "Very weak students confused power with work done.", "Power = work ÷ time, in W."], ["Nov 2022", "9702/22", "1(c)(i), 4(a)", "Power and kinetic energy", "Students did not convert kW to W or g to kg, and some forgot to square v.", "Convert units first. v is squared in KE."], ["Nov 2023", "9702/22", "3(c)", "GPE and work against friction", "Students substituted the wrong GPE change and started from the wrong work done.", "Energy in = energy out + work against friction."], ["Nov 2023", "9702/23", "2(b)", "What happens to the energy", "Some said \"energy decreased\".", "Be specific: kinetic energy decreased. Total energy is always conserved."], ["Nov 2022", "9702/23", "3(d)", "Energy changes with no resistance", "Many described heat losses even though the question said resistive forces were negligible.", "Follow the question's assumptions."], ["Mar 2024", "9702/12", "18", "Smallest change in kinetic energy", "Students found this hard.", "With no losses, ΔKE = −ΔGPE, so the smallest height change gives the smallest KE change."], ["Jun 2023", "9702/21", "2(c)(iii)", "Resultant force on a moving block", "A common answer was \"no resultant force at all\", but the weight still acts.", "Only zero in the direction where the forces cancel."]], QZD=[["Work done is defined as", ["force × distance", "force × displacement in the direction of the force", "force × time", "energy per second"], 1, "Direction matters. The question to ask is how far the object moves along the force.", "Nov 2022 9702/22 Q1(a)", false], ["A person carries a suitcase horizontally at constant speed. Work done on it by the upward supporting force?", ["mgd", "mg × speed", "zero", "depends on speed"], 2, "The force is perpendicular to the displacement, and cos 90° = 0.", "Jun 2023 9702/13 Q15", false], ["An object of mass m falls at constant speed v. Rate of loss of GPE?", ["½mv²", "mgv", "mg/v", "mv"], 1, "d(mgh)/dt = mg × (dh/dt) = mgv.", "Nov 2023 9702/13 Q17", true], ["A car's engine works at constant power. As its speed increases, the driving force", ["increases", "stays the same", "decreases", "is zero"], 2, "F = P/v. Bigger v means smaller F.", "Jun 2023 9702/12 Q16", false], ["The component of a car's weight down a slope of angle θ is", ["mg cos θ", "mg sin θ", "mg tan θ", "mg"], 1, "Check θ = 0: a flat road gives no force along it, so sin.", "Nov 2022 9702/21 Q3(c)(i)", false], ["The speed of a ball triples. Its kinetic energy", ["triples", "is 6 times bigger", "is 9 times bigger", "is unchanged"], 2, "KE ∝ v², and 3² = 9.", "", true], ["Power is defined as", ["force × velocity", "work done per unit time", "energy × time", "force per unit area"], 1, "P = Fv is derived from the definition, not the definition itself.", "Jun 2023 9702/21 Q1(a)(i)", false], ["A motor takes 500 W and lifts 20 kg at a steady 1.5 m s⁻¹. Efficiency?", ["59%", "69%", "85%", "170%"], 0, "Useful power = mgv = 20 × 9.81 × 1.5 = 294 W, and 294/500 = 59%.", "", true]], SRC=[["Nov 2022 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2022/9702_w22_er.pdf"], ["Jun 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2023/9702_s23_er.pdf"], ["Nov 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2023/9702_w23_er.pdf"], ["Mar 2024 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2024/9702_m24_er.pdf"]];
   function $(i){return document.getElementById(i);}
   function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;}
@@ -565,7 +565,7 @@ P = 1355 × 20 = 2.71 × 10⁴ W</div>
   /* title slide: what's inside */
   var ins=document.querySelector('[data-inside]');
   if(ins){
-    var nW=document.querySelectorAll('.work').length;
+    var nW=document.querySelectorAll('.work,.model').length;
     var tiles=[['learn',slides.filter(function(s){return s.dataset.sec==='learn';}).length,'concept slides'],['learn',nW,'worked examples'],['lab',slides.filter(function(s){return s.dataset.sec==='lab';}).length,'interactive lab'],['pp',PPD.length,'real past-paper traps'],['quiz',QZD.length,'quiz questions'],['fc',CARDS.length,'flashcards']];
     tiles.forEach(function(t){var b=el('button','sec-'+t[0]);b.type='button';b.appendChild(el('b',null,String(t[1])));b.appendChild(el('span',null,t[2]));b.onclick=function(){show(idx(t[0]));};ins.appendChild(b);});
   }
@@ -575,9 +575,9 @@ P = 1355 × 20 = 2.71 × 10⁴ W</div>
   try{penSeen=localStorage.getItem('pad:penSeen')==='1';}catch(e){}
   function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}}
   function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
-  function makePad(key,label){
+  function makePad(key,label,big){
     var sk='pad:'+DECK+':'+key;
-    var st=PADSTORE[key]||(PADSTORE[key]={strokes:lsGet(sk)||[],tool:'pen',col:0,big:false,penOnly:null});
+    var st=PADSTORE[key]||(PADSTORE[key]={strokes:lsGet(sk)||[],tool:'pen',col:0,big:!!big,penOnly:null});
     var wrap=el('div','pad'),bar=el('div','padbar'),tools=el('div','padtools');
     bar.appendChild(el('span','padlab',label));
     function tb(txt,title,fn){var b=el('button','pt',txt);b.type='button';b.title=title;b.setAttribute('aria-label',title);b.onclick=fn;tools.appendChild(b);return b;}
@@ -636,20 +636,20 @@ P = 1355 × 20 = 2.71 × 10⁴ W</div>
   try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){setTimeout(sizePads,50);});}catch(e){}
   new MutationObserver(function(){setTimeout(sizePads,30);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
   /* reveal working */
-  [].forEach.call(document.querySelectorAll('.work'),function(w,i){
+  [].forEach.call(document.querySelectorAll('.work,.model'),function(w,i){
     var box=w.parentNode;if(!box.classList.contains('box'))return;var wrap=el('div'); wrap.id='wk'+i; wrap.hidden=true;
-    var btn=el('button','rv','Try it first, then show the working');btn.type='button';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',wrap.id);
-    box.insertBefore(makePad('w'+i,'Your working · use your stylus'),w);box.insertBefore(btn,w);box.insertBefore(wrap,w);
+    var isM=w.classList.contains('model');var btn=el('button','rv',CFG.reveal);btn.type='button';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',wrap.id);
+    box.insertBefore(makePad('w'+i,CFG.padlab,isM),w);box.insertBefore(btn,w);box.insertBefore(wrap,w);
     var n=w;while(n){var nx=n.nextSibling;wrap.appendChild(n);n=nx;}
-    btn.onclick=function(){var o=wrap.hidden;wrap.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.textContent=o?'Hide the working':'Try it first, then show the working';};
+    btn.onclick=function(){var o=wrap.hidden;wrap.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.textContent=o?(isM?'Hide the model answer':'Hide the working'):CFG.reveal;};
   });
   /* past papers */
   var ppF='All', ppg=$('ppGrid'), ppc=$('ppChips');
-  ['All','Paper 1 (MCQ)','Paper 2 (structured)'].forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===ppF?'true':'false');b.onclick=function(){ppF=t;[].forEach.call(ppc.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});ppRender();};ppc.appendChild(b);});
+  CFG.chips.map(function(c){return c[0];}).forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===ppF?'true':'false');b.onclick=function(){ppF=t;[].forEach.call(ppc.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});ppRender();};ppc.appendChild(b);});
   function ppRender(){
     ppg.innerHTML='';
     PPD.forEach(function(r){
-      var p1=/\/1\d/.test(r[1]);if(ppF==='Paper 1 (MCQ)'&&!p1)return;if(ppF==='Paper 2 (structured)'&&p1)return;
+      var ch=CFG.chips.filter(function(c){return c[0]===ppF;})[0];if(ch&&ch[2]&&!(new RegExp(ch[2])).test(r[ch[1]]))return;
       var c=el('button','pp');c.type='button';c.setAttribute('aria-expanded','false');
       c.appendChild(el('span','ref',r[0]+' · '+r[1]+' · Q'+r[2]));
       c.appendChild(el('span','ask',r[3]));
@@ -661,7 +661,7 @@ P = 1355 × 20 = 2.71 × 10⁴ W</div>
     });
   }
   ppRender();
-  var sp=$('ppSrc');sp.appendChild(document.createTextNode('Summarised from Cambridge 9702 Principal Examiner Reports: '));
+  var sp=$('ppSrc');sp.appendChild(document.createTextNode(CFG.srcintro));
   SRC.forEach(function(s,i){var a=el('a',null,s[0]);a.href=s[1];a.target='_blank';a.rel='noopener';sp.appendChild(a);if(i<SRC.length-1)sp.appendChild(document.createTextNode(' · '));});
   /* quiz */
   var qi=0, score=0, answered=false, qz=$('quiz');

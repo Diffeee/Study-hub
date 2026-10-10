@@ -1,0 +1,1151 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Study Hub"><meta name="theme-color" content="#EEF0F3" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0D1117" media="(prefers-color-scheme: dark)"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;overscroll-behavior:none}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Economics Essay Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: lab-notebook sheets on a dot grid. Header with topic badge + segmented section bar; one sheet at a time; contents drawer; bottom nav. Each deck has its own accent. */
+:root{
+  --bg:#EEF0F3; --dot:rgba(30,40,60,.13); --sheet:#FFFFFF; --sheet2:#F4F6F9; --ink:#141A24; --muted:#556070; --line:#D5DBE3;
+  --accent:#2F5D8C; --on-accent:#FFFFFF; --soft:color-mix(in srgb,var(--accent) 12%,var(--sheet));
+  --warm:#B5560F; --good:#23784A; --bad:#C0392B; --badbg:#FCEEEC; --goodbg:#E9F6EE; --eli:#FFF6D9; --eliline:#E2B53C; --lab:#6A4FD6; --grid2:rgba(40,80,140,.11);
+  --shadow:0 1px 2px rgba(20,26,36,.06),0 8px 24px rgba(20,26,36,.07);
+  --display:"Unbounded","Trebuchet MS",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1117; --dot:rgba(220,230,245,.07); --sheet:#161C25; --sheet2:#1D2530; --ink:#E7ECF2; --muted:#9AA6B5; --line:#2A3441;
+    --accent:#8DB8E8; --on-accent:#0D1117; --warm:#F0A15C; --good:#6CCB8F; --bad:#FF8C7E; --badbg:#2B1D1F; --goodbg:#16261C; --eli:#2A2617; --eliline:#B8933A; --lab:#A994FF; --grid2:rgba(200,220,255,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+    --bg:#0D1117; --dot:rgba(220,230,245,.07); --sheet:#161C25; --sheet2:#1D2530; --ink:#E7ECF2; --muted:#9AA6B5; --line:#2A3441;
+    --accent:#8DB8E8; --on-accent:#0D1117; --warm:#F0A15C; --good:#6CCB8F; --bad:#FF8C7E; --badbg:#2B1D1F; --goodbg:#16261C; --eli:#2A2617; --eliline:#B8933A; --lab:#A994FF; --grid2:rgba(200,220,255,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.2px);background-size:22px 22px;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.app{display:flex;flex-direction:column;height:100%}
+header.bar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.badge{flex:none;width:42px;height:42px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:center;font:700 16px var(--display)}
+.ttl{min-width:0;flex:1}
+.ttl small{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ttl b{display:block;font:700 15px var(--display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.hb{font:700 13px var(--body);padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;white-space:nowrap}
+.hb.pri{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.segs{display:flex;gap:3px;padding:8px 16px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.segs button{flex:1;height:7px;border:0;border-radius:4px;padding:0;cursor:pointer;background:var(--sc);opacity:.22;min-width:0}
+.segs button.done{opacity:.55}.segs button.on{opacity:1;transform:scaleY(1.5)}
+.sec-learn{--sc:var(--accent)}.sec-lab{--sc:var(--lab)}.sec-exam{--sc:var(--bad)}.sec-pp{--sc:var(--warm)}.sec-quiz{--sc:var(--good)}.sec-fc{--sc:var(--ink)}.sec-start{--sc:var(--muted)}
+main{flex:1;min-height:0;overflow-y:auto;padding:22px 16px 40px}
+.slide{position:relative;max-width:1000px;margin:0 auto;min-width:0;background:var(--sheet);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:clamp(20px,4vw,40px);overflow:hidden}
+.slide[hidden]{display:none}
+.slide.enter{animation:in .28s ease-out}
+@keyframes in{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+.kicker{display:inline-block;font:600 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--soft);border-radius:999px;padding:4px 10px;margin:0 0 12px}
+h1,h2{font-family:var(--display);font-weight:700;line-height:1.1;margin:0 0 14px;text-wrap:balance}
+h1{font-size:clamp(32px,6.5vw,58px);letter-spacing:-.02em;max-width:14ch}
+h2{font-size:clamp(22px,3.8vw,34px);letter-spacing:-.01em}
+h3{font-family:var(--body);font-weight:700;font-size:18px;margin:0 0 6px}
+p{margin:0 0 12px;max-width:70ch}
+.lead{font-size:19px;color:var(--muted);max-width:58ch}
+.bignum{position:absolute;right:-10px;top:-30px;font:700 clamp(140px,26vw,260px)/1 var(--display);color:transparent;-webkit-text-stroke:2px var(--accent);opacity:.18;pointer-events:none;user-select:none}
+.inside{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:10px;margin:18px 0}
+.inside button{text-align:left;border:1px solid var(--line);background:var(--sheet2);border-radius:12px;padding:12px 14px;cursor:pointer;color:var(--ink);font:inherit}
+.inside button b{display:block;font:700 26px var(--display);color:var(--sc)}
+.inside button span{font-size:14px;color:var(--muted)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));margin:0 0 14px}
+.box{background:var(--sheet2);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.box.hl{background:var(--sheet);border:2px solid var(--accent)}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.formula{font:600 clamp(15px,3vw,21px) var(--mono);background:var(--soft);border-radius:10px;padding:12px 16px;margin:8px 0 14px;overflow-x:auto;white-space:nowrap;color:var(--ink)}
+.tag{display:inline-block;font:500 12px var(--mono);padding:3px 9px;border-radius:6px;background:var(--sheet2);border:1px solid var(--line);color:var(--muted)}
+ul,ol{margin:0 0 12px;padding-left:22px;max-width:72ch}
+li{margin-bottom:5px}
+.tw{overflow-x:auto;margin:0 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:16px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--sheet2)}
+tr:last-child td{border-bottom:0}
+.num{font-variant-numeric:tabular-nums}
+.ok{color:var(--good);font-weight:700}.no{color:var(--bad);font-weight:700}
+.fig{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:10px;margin:0 0 14px}
+.fig svg{width:100%;height:auto;max-height:300px;display:block}
+.fig figcaption{font-size:14px;color:var(--muted);padding:4px 6px}
+.s-axis{stroke:var(--ink);stroke-width:1.6;fill:none}
+.s-a{stroke:var(--accent);stroke-width:2.6;fill:none}
+.s-w{stroke:var(--warm);stroke-width:2.6;fill:none}
+.s-g{stroke:var(--good);stroke-width:2.6;fill:none}
+.s-b{stroke:var(--bad);stroke-width:2.6;fill:none}
+.s-d{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4;fill:none}
+.s-t{fill:var(--ink);font:600 12px var(--mono)}
+.s-m{fill:var(--muted);font:500 11px var(--mono)}
+.s-dot{fill:var(--warm)}
+.s-fa{fill:var(--accent);fill-opacity:.14;stroke:none}
+.s-fill{fill:var(--sheet2);stroke:var(--ink);stroke-width:1.4}
+.s-ink{fill:var(--ink)}
+.s-track{fill:var(--sheet2);stroke:var(--line)}
+.s-barw{fill:var(--warm)}.s-barg{fill:var(--good)}
+.def{background:var(--goodbg);border-radius:10px;padding:12px 16px;margin:0 0 14px;border-left:4px solid var(--good)}
+.def b.lab{display:block;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--good);margin-bottom:4px}
+.eli5{position:relative;background:var(--eli);border:2px dashed var(--eliline);border-radius:16px;padding:14px 16px 14px 62px;margin:0 0 14px;font-size:17.5px;min-width:0}
+.eli5::before{content:"5";position:absolute;left:14px;top:14px;width:34px;height:34px;border-radius:50%;background:var(--eliline);color:#1b1607;font:700 17px var(--display);display:flex;align-items:center;justify-content:center;transform:rotate(-8deg)}
+.eli5 b.lab{display:block;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warm);margin-bottom:4px}
+.eli5 p:last-child{margin-bottom:0}
+.trap{position:relative;background:var(--badbg);border-radius:12px;padding:12px 16px 12px 46px;min-width:0}
+.trap::before{content:"!";position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:6px;background:var(--bad);color:var(--sheet);font:700 15px var(--display);display:flex;align-items:center;justify-content:center}
+.trap h3{color:var(--bad);font-size:16.5px}
+.trap p{margin:0 0 6px}.trap p:last-child{margin:0}
+.fix{color:var(--good);font-weight:700}
+.lo{font:600 12px var(--mono);color:var(--accent);white-space:nowrap}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding-left:36px;margin-bottom:9px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:25px;height:25px;border-radius:8px;background:var(--accent);color:var(--on-accent);font:700 13px var(--mono);display:flex;align-items:center;justify-content:center}
+.work{font:400 14.5px/1.75 var(--mono);background:var(--sheet2);border:1px dashed var(--line);border-radius:8px;padding:10px 14px;margin:6px 0 10px;overflow-x:auto;white-space:pre}
+.rv{display:inline-flex;align-items:center;gap:8px;font:700 14px var(--body);color:var(--accent);background:var(--soft);border:1px solid var(--accent);border-radius:999px;padding:7px 14px;cursor:pointer;margin:4px 0 8px}
+.rv::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.rv[aria-expanded="true"]::before{transform:rotate(-135deg) translateY(-1px)}
+/* labs */
+.lab{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:start;background:var(--sheet2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 10px}
+.lab svg{width:100%;height:auto;display:block;background:var(--sheet);border:1px solid var(--line);border-radius:10px}
+.ctls{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ctl{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:15px}
+.ctl span{display:flex;justify-content:space-between;gap:8px}
+.ctl output{font:600 14px var(--mono);color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+.readout{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15.5px;display:flex;flex-direction:column;gap:4px;margin-top:10px}
+.readout b{font-family:var(--mono);font-weight:600}
+.mut{color:var(--muted);font-size:14.5px}
+.mono{font:500 13.5px var(--mono);overflow-x:auto;white-space:nowrap}
+.sw{display:inline-block;width:12px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.sw-a{background:var(--accent)}.sw-w{background:var(--warm)}.sw-g{background:var(--good)}
+.okt{color:var(--good);font-weight:700}.badt{color:var(--bad);font-weight:700}.warnline{color:var(--bad);font-weight:700}
+.seg-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;align-self:flex-start}
+.seg-toggle button{font:700 14px var(--body);padding:7px 14px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.seg-toggle button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+/* past papers */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.chip{font:700 13px var(--body);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.ppgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}
+.pp{display:flex;flex-direction:column;gap:6px;text-align:left;font:inherit;color:inherit;background:var(--sheet);border:1px solid var(--line);border-top:4px solid var(--warm);border-radius:12px;padding:12px 14px;cursor:pointer;min-width:0}
+.pp .ref{font:600 12px var(--mono);color:var(--warm);letter-spacing:.03em}
+.pp .ask{font-weight:700;font-size:16px}
+.pp .hint{font-size:13.5px;color:var(--muted)}
+.pp .got{display:none;background:var(--badbg);border-radius:8px;padding:8px 10px;font-size:15px}
+.pp .fx{display:none;background:var(--goodbg);border-radius:8px;padding:8px 10px;font-size:15px}
+.pp.open .got,.pp.open .fx{display:block}.pp.open .hint{display:none}
+.pp .got b{color:var(--bad)}.pp .fx b{color:var(--good)}
+.src{font-size:13.5px;color:var(--muted);margin-top:14px}
+.src a{color:var(--accent)}
+/* quiz */
+.qz{background:var(--sheet2);border:1px solid var(--line);border-radius:14px;padding:18px}
+.qmeta{display:flex;justify-content:space-between;gap:10px;font:600 13px var(--mono);color:var(--muted);margin-bottom:8px;flex-wrap:wrap}
+.qbar{height:6px;background:var(--line);border-radius:3px;margin-bottom:14px;overflow:hidden}.qbar i{display:block;height:100%;background:var(--good);width:0;transition:width .25s}
+.qq{font:700 clamp(18px,3vw,22px)/1.35 var(--body);margin-bottom:14px}
+.qopts{display:grid;gap:8px}
+.qopt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:inherit;color:var(--ink);background:var(--sheet);border:2px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.qopt .L{flex:none;width:26px;height:26px;border-radius:7px;background:var(--sheet2);border:1px solid var(--line);font:700 13px var(--mono);display:flex;align-items:center;justify-content:center}
+.qopt.right{border-color:var(--good);background:var(--goodbg)}.qopt.wrong{border-color:var(--bad);background:var(--badbg)}
+.qopt:disabled{cursor:default}
+.qfb{margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--sheet);border:1px solid var(--line)}
+.qfb .r{font:600 12px var(--mono);color:var(--warm);margin-top:6px}
+.qnext{margin-top:12px;font:700 15px var(--body);padding:9px 16px;border-radius:999px;border:0;background:var(--accent);color:var(--on-accent);cursor:pointer}
+.qdone{text-align:center;padding:20px}.qdone b{display:block;font:700 48px var(--display);color:var(--good)}
+/* flashcards */
+.fc-scene{perspective:1200px}
+.fc-inner{display:grid;transition:transform .5s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d;cursor:pointer;border-radius:16px}
+.fc-inner.flip{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;min-height:250px;border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;border:2px solid var(--line);background:var(--sheet)}
+.face.back{transform:rotateY(180deg);background:var(--soft);border-color:var(--accent)}
+.face .side{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warm);margin-bottom:10px}
+.face .txt{font:600 clamp(19px,3.6vw,26px)/1.3 var(--body)}
+.face .hint{margin-top:14px;font-size:14px;color:var(--muted)}
+.fc-tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.fc-tools button{font:700 14px var(--body);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.fc-tools .good{border-color:var(--good);color:var(--good)}
+.fc-tools .bad{border-color:var(--bad);color:var(--bad)}
+.fc-meta{font:600 13px var(--mono);color:var(--muted);margin:6px 0}
+
+/* stylus working pad */
+.pad,.pad *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html.inking,html.inking *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+.padcv{-webkit-tap-highlight-color:transparent}
+.pad{margin:10px 0 12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--sheet)}
+.padbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:6px 8px;background:var(--sheet2);border-bottom:1px solid var(--line)}
+.padlab{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-left:4px}
+.padtools{display:flex;flex-wrap:wrap;gap:6px}
+.pt{font:700 13px var(--body);padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-height:36px}
+.pt[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.pt.dot{width:36px;padding:0;position:relative}
+.pt.dot::after{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--dc)}
+.pt.dot[aria-pressed="true"]{background:var(--soft);border:2px solid var(--accent)}
+.padcv{display:block;width:100%;height:280px;touch-action:none;cursor:crosshair;background-color:var(--sheet);background-image:linear-gradient(var(--grid2) 1px,transparent 1px),linear-gradient(90deg,var(--grid2) 1px,transparent 1px);background-size:20px 20px}
+.padnote{font-size:13px;color:var(--muted);padding:5px 10px;border-top:1px solid var(--line);background:var(--sheet2)}
+.hubb{flex:none;font:700 13px var(--body);text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:var(--sheet2)}
+/* nav + drawer */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--sheet);border-top:1px solid var(--line)}
+.nav button{font:700 15px var(--body);padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-width:88px}
+.nav #nx{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.nav button:disabled{opacity:.35;cursor:default}
+.count{font:600 13px var(--mono);color:var(--muted);text-align:center;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.scrim{position:fixed;inset:0;background:rgba(10,14,20,.45);z-index:20}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(360px,88vw);background:var(--sheet);border-left:1px solid var(--line);z-index:21;display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top,0px)) 0 env(safe-area-inset-bottom,0px)}
+.drawer h3{font:700 15px var(--display);padding:0 18px 10px;margin:0;display:flex;justify-content:space-between;align-items:center}
+.drawer ol{list-style:none;margin:0;padding:0 8px 20px;overflow-y:auto;max-width:none}
+.drawer li{margin:0}
+.drawer li button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;font:inherit;font-size:15px;background:none;border:0;color:var(--ink);padding:8px 10px;border-radius:8px;cursor:pointer}
+.drawer li button i{flex:none;width:10px;height:10px;border-radius:3px;background:var(--sc)}
+.drawer li button.on{background:var(--soft);font-weight:700}
+.drawer .x{font:700 13px var(--body);border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:5px 10px;cursor:pointer}
+button:focus-visible,.pp:focus-visible,.fc-inner:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:560px){.hb.opt{display:none}.ttl small{display:none}}
+@media (prefers-reduced-motion:reduce){.slide.enter{animation:none}.fc-inner,.qbar i{transition:none}.segs button.on{transform:none}}
+</style>
+
+<div class="app">
+  <header class="bar">
+    <a class="hubb" href="index.html">Hub</a><div class="badge" aria-hidden="true">E1</div>
+    <div class="ttl"><small>CIE 9708 · AS Economics · Paper 2</small><b>Essay writing guide</b></div>
+    <div class="acts">
+      <button class="hb" id="bContents" type="button">Contents</button>
+      <button class="hb opt" id="bPP" type="button">Past papers</button>
+      <button class="hb opt" id="bQuiz" type="button">Quiz</button>
+      <button class="hb pri" id="bFC" type="button">Flashcards</button>
+    </div>
+  </header>
+  <div class="segs" id="segs" aria-label="Slides"></div>
+  <main id="main">
+
+    <style>
+    .model{background:var(--sheet2);border:1px dashed var(--line);border-radius:10px;padding:12px 16px;margin:6px 0 10px}
+    .model p{margin:0 0 10px;max-width:none}
+    .model p:last-child{margin-bottom:0}
+    .ao{display:inline-block;font:600 11px var(--mono);letter-spacing:.04em;padding:2px 7px;border-radius:5px;margin-right:6px;vertical-align:1px;background:var(--soft);color:var(--accent)}
+    .ao.a2{background:color-mix(in srgb,var(--warm) 15%,var(--sheet));color:var(--warm)}
+    .ao.a3{background:var(--goodbg);color:var(--good)}
+    .qbox{font:600 17.5px/1.5 var(--body);border-left:4px solid var(--accent);background:var(--soft);border-radius:8px;padding:12px 16px;margin:0 0 12px}
+    .qbox small{display:block;font:600 11.5px var(--mono);letter-spacing:.06em;color:var(--muted);margin-bottom:4px}
+    .hl-cmd{background:color-mix(in srgb,var(--accent) 22%,transparent);border-radius:4px;padding:0 3px}
+    .hl-key{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;text-decoration-color:var(--warm)}
+    .hl-q{background:color-mix(in srgb,var(--bad) 18%,transparent);border-radius:4px;padding:0 3px}
+    .legend{display:flex;flex-wrap:wrap;gap:12px;font-size:14px;color:var(--muted);margin:0 0 12px}
+    .legend span{display:inline-flex;gap:6px;align-items:center}
+    .s-fg{fill:var(--good);fill-opacity:.18;stroke:none}
+    .s-fw{fill:var(--warm);fill-opacity:.22;stroke:none}
+    .s-fb{fill:var(--accent);fill-opacity:.16;stroke:none}
+    .kw td:first-child{font-weight:700;white-space:nowrap}
+    </style>
+
+    <section class="slide" data-title="Title">
+      <div class="bignum" aria-hidden="true">E1</div>
+      <p class="kicker">AS Level Economics 9708 · Paper 2 essays</p>
+      <h1>Essay Writing Guide</h1>
+      <p class="lead">How to write the 8-mark and 12-mark essays, every command word and key term for AS Topics 1–2, and real past-paper questions with model answers.</p>
+      <div class="tw"><table>
+        <tr><th>Part</th><th>What you will learn</th></tr>
+        <tr><td class="lo">Paper 2</td><td>How Section B essays are set and marked (8 marks = 3/3/2, 12 marks = levels)</td></tr>
+        <tr><td class="lo">Key words</td><td>All 17 official command words, plus the small words in questions that set traps</td></tr>
+        <tr><td class="lo">Skills</td><td>How to write analysis chains, evaluation and conclusions, and draw diagrams that score</td></tr>
+        <tr><td class="lo">Topic 1</td><td>Key terms: scarcity, factors, economic systems, PPC, types of goods</td></tr>
+        <tr><td class="lo">Topic 2</td><td>Key terms: demand and supply, elasticities, equilibrium, surplus</td></tr>
+        <tr><td class="lo">Practice</td><td>8 real past-paper questions decoded, planned and answered</td></tr>
+        <tr><td>Exam</td><td>Traps, mark-scheme wording, real past-paper errors, trap quiz, flashcards</td></tr>
+      </table></div>
+      <div class="inside" data-inside></div>
+      <p class="tag">Syllabus source: Cambridge International AS &amp; A Level Economics 9708 syllabus 2026–2028, plus 9708 Paper 2 mark schemes and examiner reports (2023–2024)</p>
+    </section>
+
+    <section class="slide" data-title="How Paper 2 works">
+      <p class="kicker">Paper 2 · the big picture</p>
+      <h2>Two hours, 60 marks, three sections</h2>
+      <div class="tw"><table>
+        <tr><th>Section</th><th>What you do</th><th>Marks</th></tr>
+        <tr><td>A</td><td>One compulsory data response question</td><td class="num">20</td></tr>
+        <tr><td><b>B</b></td><td><b>One essay from a choice of two, mainly microeconomics</b> (this is where Topics 1–2 come up)</td><td class="num">20</td></tr>
+        <tr><td>C</td><td>One essay from a choice of two, mainly macroeconomics</td><td class="num">20</td></tr>
+      </table></div>
+      <p>Every essay has two parts: <b>(a) worth 8 marks</b> and <b>(b) worth 12 marks</b>. In past papers the choice is shown as Question 2 or Question 3, each with its own (a) and (b).</p>
+      <div class="grid">
+        <div class="box"><h3>The three skills (AOs)</h3>
+          <ul><li><b>AO1 Knowledge and understanding</b>: definitions, formulae, diagrams, examples.</li>
+          <li><b>AO2 Analysis</b>: explaining <i>why</i> and <i>how</i>, step by step.</li>
+          <li><b>AO3 Evaluation</b>: weighing up, then a judgement that answers the question.</li></ul>
+          <p>On Papers 2 and 4, the syllabus weights them AO1 33%, AO2 37%, AO3 30%.</p></div>
+        <div class="box hl"><h3>Suggested timing</h3>
+          <p>About 40 minutes per 20-mark essay: roughly <b>15 minutes on (a)</b> and <b>25 minutes on (b)</b>. Spend the first 2 minutes of each part decoding the question.</p>
+          <p class="mut">This timing is a suggestion, not a Cambridge rule.</p></div>
+      </div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>AO1 is saying what something is. AO2 is explaining how it works, like a chain of dominoes falling. AO3 is being the judge: you decide who wins, and you say why.</p></div>
+    </section>
+
+    <section class="slide" data-title="The 8-mark essay">
+      <p class="kicker">Part (a) · 8 marks · point-based</p>
+      <h2>The 8-marker is marked 3 + 3 + 2</h2>
+      <p>Part (a) is not marked in levels. Each correct point earns a mark, up to a cap for each skill. Examiner reports tell students to organise answers around this split.</p>
+      <div class="tw"><table>
+        <tr><th>Skill</th><th>Max</th><th>What earns the marks (from real mark schemes)</th></tr>
+        <tr><td><span class="ao">AO1</span></td><td class="num">3</td><td>Accurate definition(s), the formula when asked, a correctly labelled diagram, accurate examples</td></tr>
+        <tr><td><span class="ao a2">AO2</span></td><td class="num">3</td><td>Explained analysis. Usually needs <b>both</b> things the question names (both goods, both directions, two determinants). Doing only one is often capped at 2.</td></tr>
+        <tr><td><span class="ao a3">AO3</span></td><td class="num">2</td><td><b>1</b> for a considered evaluation (weighing up), <b>1</b> for a justified conclusion that answers the "consider" part</td></tr>
+      </table></div>
+      <h3>A structure that fits the marks</h3>
+      <ol class="steps">
+        <li><b>Paragraph 1 (AO1):</b> define every key term in the question precisely. Add the formula or diagram if asked, and an example.</li>
+        <li><b>Paragraphs 2–3 (AO2):</b> two developed analysis chains that answer the "explain" part, covering every case the question names.</li>
+        <li><b>Paragraph 4 (AO3):</b> answer the "consider" part. Say what it depends on, then finish with one sentence of judgement that uses the question's own words.</li>
+      </ol>
+      <div class="trap"><h3>Trap: no conclusion, no AO3 mark</h3><p>The second AO3 mark is reserved for a justified conclusion. In June 2023 (9708/22 Q2a) examiners reported that valid evaluation was "very rare", so most answers were capped at 4.</p></div>
+    </section>
+
+    <section class="slide" data-title="The 12-mark essay">
+      <p class="kicker">Part (b) · 12 marks · levels</p>
+      <h2>The 12-marker: 8 for AO1 + AO2, 4 for AO3</h2>
+      <div class="grid">
+        <div class="box"><h3>Table A: AO1 + AO2 (8 marks)</h3>
+          <div class="tw"><table>
+            <tr><th>Level</th><th>Marks</th><th>Descriptor (mark scheme)</th></tr>
+            <tr><td>3</td><td class="num">6–8</td><td>Detailed knowledge and understanding of relevant concepts, using relevant explanations. In practice: <b>balanced</b> and accurate.</td></tr>
+            <tr><td>2</td><td class="num">3–5</td><td>Some relevant concepts, but explanations are limited, overgeneralised or contain inaccuracies. <b>One-sided answers stop here.</b></td></tr>
+            <tr><td>1</td><td class="num">1–2</td><td>A small number of relevant points, limited by significant errors or omissions</td></tr>
+          </table></div></div>
+        <div class="box"><h3>Table B: AO3 (4 marks)</h3>
+          <div class="tw"><table>
+            <tr><th>Level</th><th>Marks</th><th>Descriptor (mark scheme)</th></tr>
+            <tr><td>2</td><td class="num">3–4</td><td>A justified conclusion or judgement that addresses the specific requirements of the question</td></tr>
+            <tr><td>1</td><td class="num">1–2</td><td>A vague or general conclusion or judgement</td></tr>
+            <tr><td>0</td><td class="num">0</td><td>No creditable response. <b>A one-sided answer gets 0 here.</b></td></tr>
+          </table></div></div>
+      </div>
+      <h3>A structure that reaches Level 3 + Level 2</h3>
+      <ol class="steps">
+        <li><b>Introduction:</b> define the key terms and set up the two sides.</li>
+        <li><b>Side 1:</b> two developed chains, applied to the context in the question.</li>
+        <li><b>Side 2:</b> two developed chains for the alternative or the other view. Most questions name it: "or", "rather than", "than", "always".</li>
+        <li><b>Evaluation:</b> compare the two sides directly. Say which matters more, and when, and what it depends on.</li>
+        <li><b>Conclusion:</b> a clear answer to the exact question, with the main reason.</li>
+      </ol>
+      <div class="trap"><h3>The maths of a one-sided answer</h3><p>Maximum Level 2 for AO1/AO2 (5 marks) + 0 for AO3 = <b>5 out of 12</b>, however good the writing is.</p></div>
+    </section>
+
+    <section class="slide" data-title="Command words: knowledge">
+      <p class="kicker">Key words 1 · knowledge (AO1)</p>
+      <h2>Words that ask you to show you know it</h2>
+      <p>Official meanings come from the 9708 syllabus command words table. The other columns show what each word needs from you in Paper 2.</p>
+      <div class="tw"><table class="kw">
+        <tr><th>Word</th><th>Official meaning</th><th>What to write</th><th>Example use</th></tr>
+        <tr><td>Define</td><td>Give precise meaning</td><td>One exact sentence with every key word, e.g. "own price", "ceteris paribus". No examples needed unless asked.</td><td>Define opportunity cost</td></tr>
+        <tr><td>State</td><td>Express in clear terms</td><td>A short, direct answer. No explanation.</td><td>State the formula for PES</td></tr>
+        <tr><td>Identify</td><td>Name, select or recognise</td><td>Name it, often picking it from the data</td><td>Identify a determinant of supply</td></tr>
+        <tr><td>Give</td><td>Produce an answer from a given source or recall/memory</td><td>A fact or example, no development</td><td>Give an example of a merit good</td></tr>
+        <tr><td>Outline</td><td>Set out the main points</td><td>The key points in brief, without detail</td><td>Outline the functions of price</td></tr>
+        <tr><td>Describe</td><td>State the points of a topic; give characteristics and main features</td><td>What it looks like or how it behaves. Not why.</td><td>Describe the elasticity values of PED</td></tr>
+        <tr><td>Calculate</td><td>Work out from given facts, figures or information</td><td>Formula, substitution, answer, and a sign or unit where relevant</td><td>Calculate the YED</td></tr>
+      </table></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>"State" means just say it. "Describe" means tell me what it looks like. "Define" means tell me exactly what the word means, like a dictionary.</p></div>
+    </section>
+
+    <section class="slide" data-title="Command words: analysis">
+      <p class="kicker">Key words 2 · analysis (AO1 + AO2)</p>
+      <h2>Words that ask you to show how and why</h2>
+      <div class="tw"><table class="kw">
+        <tr><th>Word</th><th>Official meaning</th><th>What to write</th></tr>
+        <tr><td>Explain</td><td>Set out purposes or reasons; make relationships clear; say why and/or how, supported with relevant evidence</td><td>The most common (a) command word. Give a cause, then a mechanism, then an effect. Use "because", "this means", "therefore". Back it with an example, figure or diagram.</td></tr>
+        <tr><td>Analyse</td><td>Examine in detail to show meaning, identify elements and the relationship between them</td><td>Break the issue into parts and show how they connect, step by step. Multi-step chains, not lists.</td></tr>
+        <tr><td>Demonstrate</td><td>Show how, or give an example</td><td>Usually with a diagram or numbers. Show the change happening.</td></tr>
+        <tr><td>Compare</td><td>Identify and/or comment on similarities and/or differences</td><td>Point-by-point: "whereas…", "both…", "unlike…". Don't write two separate descriptions.</td></tr>
+      </table></div>
+      <div class="box hl"><h3>"With the help of…" is also an instruction</h3>
+        <p>"With the help of a diagram(s)", "a formula" or "examples" means marks are reserved for it. In Nov 2024 9708/22 Q3(a), 2 of the 3 AO1 marks were for the PPC diagram itself. Drawing it badly or leaving it out throws those marks away.</p></div>
+      <div class="trap"><h3>Trap: asserting instead of explaining</h3><p>Examiner reports repeatedly say points that are "asserted rather than explained" stay in Level 1–2. "A maximum price causes a shortage" is an assertion. "The price is set below equilibrium, so quantity demanded rises and quantity supplied falls, creating excess demand" is analysis.</p></div>
+    </section>
+
+    <section class="slide" data-title="Command words: evaluation">
+      <p class="kicker">Key words 3 · evaluation (AO3)</p>
+      <h2>Words that ask you to judge</h2>
+      <div class="tw"><table class="kw">
+        <tr><th>Word</th><th>Official meaning</th><th>What to write</th><th>Where it appears</th></tr>
+        <tr><td>Consider</td><td>Review and respond to given information</td><td>The evaluation half of most (a) questions. Weigh the issue, then a justified conclusion. Worth 2 marks.</td><td>"…and consider whether…"</td></tr>
+        <tr><td>Assess</td><td>Make an informed judgement</td><td>The usual (b) command word. Both sides analysed, then a judgement with a reason.</td><td>"Assess whether…", "Assess the extent to which…"</td></tr>
+        <tr><td>Discuss</td><td>Write about issue(s) or topic(s) in depth in a structured way</td><td>A balanced, structured argument with a conclusion</td><td>"Discuss whether…"</td></tr>
+        <tr><td>Evaluate</td><td>Judge or calculate the quality, importance, amount or value of something</td><td>Strengths vs weaknesses, then how important or useful overall</td><td>"Evaluate the usefulness of…"</td></tr>
+        <tr><td>Comment</td><td>Give an informed opinion</td><td>An opinion backed by economics or the data</td><td>Data response more often</td></tr>
+        <tr><td>Justify</td><td>Support a case with evidence or argument</td><td>Argue for your answer with reasons and evidence</td><td>"Justify your answer"</td></tr>
+      </table></div>
+      <div class="grid">
+        <div class="def"><b class="lab">What counts as evaluation (examiner reports)</b>Evaluation must <b>compare and contrast</b> the analysis and <b>reach a judgement</b>. A summary of earlier points is not evaluation.</div>
+        <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Two friends both say their toy car is faster. Explaining how each car works is analysis. Racing them, saying which won and why, is evaluation.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Trap words in questions">
+      <p class="kicker">Key words 4 · the small words</p>
+      <h2>Small words that decide your mark</h2>
+      <p>The mark schemes cap answers that ignore these words. Underline them before you write.</p>
+      <div class="tw"><table class="kw">
+        <tr><th>Word in the question</th><th>What it forces you to do</th><th>Real example</th></tr>
+        <tr><td>always / never / only</td><td>Find the exceptions. The answer is almost always "not always": give the conditions when it fails.</td><td>"…is likely to always reduce the consumer surplus" (Jun 2023 22 Q2a)</td></tr>
+        <tr><td>…or… / rather than / than</td><td>Analyse <b>both</b> options, then pick one. Covering only one gives max Level 2 and 0 AO3.</td><td>"PES or XED will be the more useful" (Nov 2023 22 Q2b)</td></tr>
+        <tr><td>the best / most effective / most useful</td><td>Compare with at least one alternative, then rank them</td><td>"always the best economic system" (Nov 2024 22 Q3b)</td></tr>
+        <tr><td>the extent to which / how far</td><td>A "to some extent" answer: when yes, when no, what it depends on</td><td>"the extent to which it allows an entrepreneur…" (Nov 2023 22 Q2a)</td></tr>
+        <tr><td>most significant / most immediate / greatest</td><td>Rank your points by that exact criterion. "Immediate" (time) is not "significant" (size).</td><td>Students evaluated "most significant" when asked "most immediate" (Jun 2023 21 Q2a)</td></tr>
+        <tr><td>at the present time / in a growing economy / short run</td><td>Apply every point to that context. The mark scheme capped answers that ignored "growing economy".</td><td>"in a growing economy" (Nov 2023 22 Q2b)</td></tr>
+        <tr><td>two / both / each</td><td>Do exactly that number. One reason is capped.</td><td>"consider the relative strength of two…"</td></tr>
+        <tr><td>likely</td><td>Predict with reasons. Hedge sensibly: "likely, provided that…"</td><td>"is likely to be more important…"</td></tr>
+        <tr><td>a / an (specific product)</td><td>Apply to <b>that</b> product (cars, rice, smartphones), not to "goods" in general</td><td>"a firm producing cars" (Nov 2023 21 Q2b)</td></tr>
+      </table></div>
+      <div class="legend"><span><b class="hl-cmd">command word</b></span><span><b class="hl-key">key term</b></span><span><b class="hl-q">trap word</b></span><span>These colours are used in the past-paper examples later in this deck.</span></div>
+    </section>
+
+    <section class="slide" data-title="Writing analysis">
+      <p class="kicker">Skill · AO2</p>
+      <h2>Write chains, not lists</h2>
+      <p>A developed point has at least three links: <b>cause → mechanism → effect</b>, ideally ending on the question's own words.</p>
+      <div class="grid">
+        <div class="trap"><h3>Asserted (Level 1)</h3><p>"If demand is inelastic, the firm should raise its price."</p></div>
+        <div class="box hl"><h3>Developed (Level 3)</h3><p>"If PED is −0.4, a 10% price rise causes only a 4% fall in quantity demanded, because consumers have few close substitutes. Since the percentage fall in quantity is smaller than the percentage rise in price, total expenditure (P × Q) rises. So the firm's revenue increases."</p></div>
+      </div>
+      <h3>Linking words that signal analysis</h3>
+      <p>because · this means that · as a result · which leads to · therefore · so · ceteris paribus · in the short run… whereas in the long run…</p>
+      <div class="box"><h3>Use numbers and diagrams as evidence</h3><p>A short worked figure (e.g. PED −0.4) or a labelled diagram you <b>refer to in the text</b> ("as shown by the shift from S to S₁") makes a chain precise. Examiner reports say diagrams "used without explanation" earn little.</p></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Don't just say "the cup fell". Say "I bumped the table, so the cup slid to the edge, so it fell". Every "so" is a link in your chain.</p></div>
+    </section>
+
+    <section class="slide" data-title="Writing evaluation">
+      <p class="kicker">Skill · AO3</p>
+      <h2>The evaluation toolkit for Topics 1–2</h2>
+      <p>Most evaluation in these topics is an <b>"it depends on…"</b> argument followed by a judgement. Pick the factors that fit the question.</p>
+      <div class="grid">
+        <div class="box"><h3>It depends on…</h3><ul>
+          <li><b>The size of the elasticity</b>: PED, PES, YED, XED values</li>
+          <li><b>Time period</b>: short run vs long run</li>
+          <li><b>The type of good</b>: necessity, luxury, inferior, merit, public</li>
+          <li><b>The size of the change</b>: a 1% vs a 20% price change</li>
+          <li><b>Accuracy of data</b>: estimates use past data and may be out of date</li>
+          <li><b>Ceteris paribus</b>: other factors rarely stay constant</li>
+          <li><b>Type of economy</b>: market, mixed, planned; level of development</li>
+          <li><b>Who is affected</b>: consumers, producers, government</li>
+        </ul></div>
+        <div class="box hl"><h3>A conclusion formula</h3>
+          <p><b>Answer:</b> "Overall, [X] is likely to be more [useful/significant] than [Y]…"</p>
+          <p><b>Reason:</b> "…because [the strongest point from your analysis]…"</p>
+          <p><b>Condition:</b> "…although this depends on [one factor], since [when the answer would change]."</p>
+          <p class="mut">This gives a direct answer, a justification and a condition, which is what Level 2 AO3 needs.</p>
+        </div>
+      </div>
+      <div class="trap"><h3>Trap: a summary is not evaluation</h3><p>"In conclusion, PED and PES are both useful" repeats the essay and is vague: Level 1 at best. Examiner reports say summaries are unlikely to get more than Level 1 (1 mark).</p></div>
+    </section>
+
+    <section class="slide" data-title="Essay diagrams">
+      <p class="kicker">Skill · diagrams</p>
+      <h2>Diagrams that earn marks</h2>
+      <div class="grid">
+        <figure class="fig">
+          <svg viewBox="0 0 360 240" role="img" aria-label="Demand and supply diagram showing consumer surplus above the price and producer surplus below, and a leftward shift of supply reducing consumer surplus">
+            <path class="s-axis" d="M50 12 V210 H350"/>
+            <path class="s-fg" d="M50 30 L50 85 L152.7 85 Z"/>
+            <path class="s-fw" d="M50 85 L50 105 L190 105 L152.7 85 Z"/>
+            <path class="s-fb" d="M50 105 L50 180 L190 105 Z"/>
+            <path class="s-a" d="M50 30 L330 180"/>
+            <path class="s-g" d="M50 180 L330 30"/>
+            <path class="s-w" d="M50 140 L295 9"/>
+            <path class="s-d" d="M50 105 H190 V210 M50 85 H152.7 V210"/>
+            <text class="s-m" x="4" y="16">Price</text><text class="s-m" x="300" y="228">Quantity</text>
+            <text class="s-t" x="322" y="196">D</text><text class="s-t" x="320" y="26">S</text><text class="s-t" x="270" y="12">S₁</text>
+            <text class="s-t" x="24" y="109">P₁</text><text class="s-t" x="24" y="89">P₂</text>
+            <text class="s-t" x="184" y="226">Q₁</text><text class="s-t" x="144" y="226">Q₂</text>
+            <text class="s-m" x="58" y="70">new CS</text><text class="s-m" x="86" y="100">CS lost</text><text class="s-m" x="56" y="162">PS</text>
+          </svg>
+          <figcaption>Consumer surplus (CS) and producer surplus (PS). A cost rise shifts S to S₁, price rises from P₁ to P₂ and CS shrinks.</figcaption>
+        </figure>
+        <figure class="fig">
+          <svg viewBox="0 0 360 240" role="img" aria-label="Two production possibility curves: a straight line showing constant opportunity cost and a curve bowed out from the origin showing increasing opportunity cost">
+            <path class="s-axis" d="M50 12 V210 H350"/>
+            <path class="s-w" d="M50 40 L300 210"/>
+            <path class="s-a" d="M50 40 C 210 40 300 120 300 210"/>
+            <circle class="s-dot" cx="90" cy="178" r="5"/>
+            <text class="s-m" x="4" y="16">Capital goods</text><text class="s-m" x="256" y="228">Consumer goods</text>
+            <text class="s-t" x="236" y="58">increasing OC</text>
+            <text class="s-t" x="232" y="200" text-anchor="end">constant OC</text>
+            <text class="s-m" x="100" y="200">inside</text>
+          </svg>
+          <figcaption>PPC: the straight line shows constant opportunity cost, the curve bowed out from the origin shows increasing opportunity cost, and a point inside means unused resources. Both touch both axes, and the axes name real goods.</figcaption>
+        </figure>
+      </div>
+      <div class="tw"><table>
+        <tr><th>Rule from mark schemes and examiner reports</th><th>Why</th></tr>
+        <tr><td>Label axes with the actual goods or "Price" and "Quantity", not "A/B" or "X/Y"</td><td>Nov 2024 22 Q3(a) wanted product-labelled axes</td></tr>
+        <tr><td>A PPC must touch both axes</td><td>Students lost marks for curves stopping short (Jun 2023 21 Q2a)</td></tr>
+        <tr><td>A change in a non-price factor is a <b>shift</b>; own price is a <b>movement along</b></td><td>Students drew a movement when asked for a shift (Nov 2023 21 Q2a)</td></tr>
+        <tr><td>Use D and S for one market, not AD and AS</td><td>AD/AS in a micro question was criticised (Nov 2023 21 Q2a)</td></tr>
+        <tr><td>Refer to the diagram in your writing</td><td>Diagrams "used without explanation" earn little</td></tr>
+      </table></div>
+    </section>
+
+    <section class="slide" data-title="Key terms: Topic 1 (1.1–1.3)">
+      <p class="kicker">Key terms · Topic 1 · syllabus 1.1–1.3</p>
+      <h2>Scarcity, methodology and factors of production</h2>
+      <div class="tw"><table class="kw">
+        <tr><th>Term</th><th>Definition to write in the exam</th></tr>
+        <tr><td>Scarcity (the economic problem)</td><td>Wants are unlimited but the resources to satisfy them are finite, so choices must be made</td></tr>
+        <tr><td>Opportunity cost</td><td>The next best alternative forgone when a choice is made</td></tr>
+        <tr><td>Three basic questions</td><td>What to produce, how to produce, and for whom to produce</td></tr>
+        <tr><td>Economics as a social science</td><td>It studies human behaviour in society using a scientific method (models, assumptions, testing), but people do not behave like controlled lab variables</td></tr>
+        <tr><td>Positive statement</td><td>A statement of fact that can be tested against evidence, e.g. "a tax raised the price by 10%"</td></tr>
+        <tr><td>Normative statement</td><td>A value judgement that cannot be tested, often containing "should" or "ought"</td></tr>
+        <tr><td>Ceteris paribus</td><td>"Other things being equal": all other factors are assumed to stay constant</td></tr>
+        <tr><td>Short run / long run / very long run</td><td>Short run: at least one factor of production is fixed. Long run: all factors are variable. Very long run: technology and other factors outside the firm's control change.</td></tr>
+        <tr><td>Land · labour · capital · enterprise</td><td>Natural resources · human effort, physical and mental · man-made goods used to produce other goods · organising the other factors and taking risk</td></tr>
+        <tr><td>Rewards to factors</td><td>Land → rent · labour → wages · capital → interest · enterprise → profit</td></tr>
+        <tr><td>Human capital vs physical capital</td><td>Human: the skills, knowledge and education of workers. Physical: man-made equipment such as machinery, buildings and infrastructure.</td></tr>
+        <tr><td>Division of labour</td><td>Splitting production into separate tasks, each done by different workers</td></tr>
+        <tr><td>Specialisation</td><td>Concentrating on a narrow range of tasks or products (by people, firms, regions or countries)</td></tr>
+        <tr><td>Entrepreneur</td><td>The person who organises the other factors of production and bears the risk, in return for profit</td></tr>
+      </table></div>
+    </section>
+
+    <section class="slide" data-title="Key terms: Topic 1 (1.4–1.6)">
+      <p class="kicker">Key terms · Topic 1 · syllabus 1.4–1.6</p>
+      <h2>Economic systems, PPCs and types of goods</h2>
+      <div class="tw"><table class="kw">
+        <tr><th>Term</th><th>Definition to write in the exam</th></tr>
+        <tr><td>Market economy</td><td>Resources are privately owned and allocated by the price mechanism (demand and supply), driven by the profit motive</td></tr>
+        <tr><td>Planned economy</td><td>The state owns resources and decides what, how and for whom to produce</td></tr>
+        <tr><td>Mixed economy</td><td>Both the private sector (via markets) and the public sector (via government) allocate resources</td></tr>
+        <tr><td>Production possibility curve (PPC)</td><td>Shows the maximum combinations of two goods an economy can produce when all its resources are fully and efficiently employed, with given technology</td></tr>
+        <tr><td>Constant opportunity cost</td><td>A straight-line PPC: the same amount of one good is given up for each extra unit of the other, because resources are equally suited to both</td></tr>
+        <tr><td>Increasing opportunity cost</td><td>A PPC bowed out from the origin: more of one good must be given up for each extra unit of the other, because resources are not equally suited to both</td></tr>
+        <tr><td>Shift of the PPC</td><td>Outward: more or better resources or technology (economic growth). Inward: resources lost, e.g. natural disaster or war.</td></tr>
+        <tr><td>Point inside / beyond the PPC</td><td>Inside: unemployed or inefficiently used resources. Beyond: unattainable with current resources and technology.</td></tr>
+        <tr><td>Free good</td><td>A good that is not scarce, so it has zero opportunity cost, e.g. air</td></tr>
+        <tr><td>Private good (economic good)</td><td>Scarce, so it has an opportunity cost. Rival (one person's use reduces what is left) and excludable (non-payers can be stopped from using it).</td></tr>
+        <tr><td>Public good</td><td>Non-rival and non-excludable, e.g. street lighting, national defence. Leads to the <b>free rider problem</b>, so the market may not provide it.</td></tr>
+        <tr><td>Merit good</td><td>A good more beneficial than consumers realise, so with <b>imperfect information</b> it is under-consumed in a free market, e.g. education, vaccinations</td></tr>
+        <tr><td>Demerit good</td><td>A good more harmful than consumers realise, so with imperfect information it is over-consumed in a free market, e.g. cigarettes</td></tr>
+        <tr><td>Imperfect information</td><td>Consumers (or producers) lack full or accurate knowledge of a good's costs and benefits, so they make choices that are not in their best interest</td></tr>
+      </table></div>
+      <div class="trap"><h3>Trap: wrong examples</h3><p>Examiners marked roads, health care, parks and education as <b>incorrect</b> examples of public goods (Nov 2023 22 Q3a). Health care and education are merit goods. Being provided by the government does not make something a public good.</p></div>
+    </section>
+
+    <section class="slide" data-title="Key terms: demand and supply">
+      <p class="kicker">Key terms · Topic 2 · syllabus 2.1 and 2.4</p>
+      <h2>Demand, supply and equilibrium</h2>
+      <div class="tw"><table class="kw">
+        <tr><th>Term</th><th>Definition to write in the exam</th></tr>
+        <tr><td>Effective demand</td><td>The desire to buy a good backed by the ability (and willingness) to pay for it</td></tr>
+        <tr><td>Individual vs market demand</td><td>Individual: one consumer's demand. Market: the sum of all individual demands at each price. Supply works the same way.</td></tr>
+        <tr><td>Determinants of demand</td><td>Own price (movement), plus income, prices of substitutes and complements, tastes and fashion, advertising, population, expectations, government policy (shifts)</td></tr>
+        <tr><td>Determinants of supply</td><td>Own price (movement), plus costs of production, technology, indirect taxes and subsidies, prices of other goods the firm could produce, number of firms, weather, expectations (shifts)</td></tr>
+        <tr><td>Movement along vs shift</td><td>A movement (extension or contraction) is caused only by a change in the good's own price. A shift (increase or decrease) is caused by a change in any other determinant.</td></tr>
+        <tr><td>Market equilibrium</td><td>The price at which quantity demanded equals quantity supplied, so there is <b>no tendency for price or quantity to change</b></td></tr>
+        <tr><td>Disequilibrium</td><td>Quantity demanded does not equal quantity supplied: excess demand (shortage) or excess supply (surplus)</td></tr>
+        <tr><td>Joint demand</td><td>Goods demanded together: complements, e.g. cars and petrol</td></tr>
+        <tr><td>Alternative (competitive) demand</td><td>Goods that are substitutes, e.g. tea and coffee</td></tr>
+        <tr><td>Derived demand</td><td>Demand for something because of the demand for what it helps produce, e.g. demand for steel from demand for cars</td></tr>
+        <tr><td>Joint supply</td><td>Producing one good automatically produces another, e.g. beef and leather</td></tr>
+        <tr><td>Functions of price</td><td><b>Rationing</b>: a higher price limits who buys a scarce good. <b>Signalling</b>: price changes transmit consumers' preferences to producers. <b>Incentive</b>: a higher price encourages firms to supply more.</td></tr>
+      </table></div>
+      <div class="trap"><h3>Trap</h3><p>When defining equilibrium, students forgot "no tendency to change" (Jun 2023 22 Q3a). Quantity demanded equal to quantity supplied is only half of it.</p></div>
+    </section>
+
+    <section class="slide" data-title="Key terms: elasticities">
+      <p class="kicker">Key terms · Topic 2 · syllabus 2.2–2.3</p>
+      <h2>The four elasticities, written to score</h2>
+      <div class="tw"><table class="kw">
+        <tr><th>Term</th><th>Definition</th><th>Formula</th></tr>
+        <tr><td>PED</td><td>Responsiveness of quantity demanded to a change in the good's own price, ceteris paribus</td><td class="num">%ΔQd ÷ %ΔP</td></tr>
+        <tr><td>YED</td><td>Responsiveness of demand to a change in income, ceteris paribus</td><td class="num">%ΔQd ÷ %ΔY</td></tr>
+        <tr><td>XED</td><td>Responsiveness of demand for good X to a change in the price of good Y, ceteris paribus</td><td class="num">%ΔQd(X) ÷ %ΔP(Y)</td></tr>
+        <tr><td>PES</td><td>Responsiveness of quantity supplied to a change in the good's own price, ceteris paribus</td><td class="num">%ΔQs ÷ %ΔP</td></tr>
+      </table></div>
+      <div class="grid">
+        <div class="box"><h3>Values (PED and PES, ignoring sign)</h3><ul>
+          <li>0: perfectly inelastic</li><li>between 0 and 1: inelastic (%ΔQ smaller than %ΔP)</li><li>1: unitary elasticity</li><li>above 1: elastic (%ΔQ greater than %ΔP)</li><li>∞: perfectly elastic</li></ul>
+          <p>On a straight-line demand curve PED falls from elastic (top) through unitary (midpoint) to inelastic (bottom).</p></div>
+        <div class="box"><h3>Signs</h3><ul>
+          <li>YED &gt; 0 normal good: 0–1 a necessity, above 1 a luxury</li>
+          <li>YED &lt; 0 inferior good</li>
+          <li>XED &gt; 0 substitutes, XED &lt; 0 complements, XED = 0 unrelated</li>
+          <li>The bigger the XED value, the closer the relationship</li></ul></div>
+      </div>
+      <div class="grid">
+        <div class="box"><h3>Factors affecting PED</h3><p>Number and closeness of substitutes, share of income spent, necessity or luxury, habit or addiction, time period, how broadly the market is defined</p></div>
+        <div class="box"><h3>Factors affecting PES</h3><p>Spare capacity, stocks and ease of storage, mobility of factors of production, length of the production process, time period</p></div>
+        <div class="box"><h3>PED and total expenditure</h3><p>Inelastic: price ↑ → TE ↑, price ↓ → TE ↓. Elastic: price ↑ → TE ↓, price ↓ → TE ↑. Unitary: TE unchanged.</p></div>
+      </div>
+      <div class="trap"><h3>Trap: "a big change"</h3><p>Mark schemes credit elastic or inelastic only when explained with <b>proportionate (percentage) changes</b>, "not large or small changes" (Nov 2023 22 Q2a). Examiners also saw XED formulae missing the % signs or written upside down (Jun 2023 21 Q3a).</p></div>
+    </section>
+
+    <section class="slide" data-title="Key terms: surplus">
+      <p class="kicker">Key terms · Topic 2 · syllabus 2.5</p>
+      <h2>Consumer surplus and producer surplus</h2>
+      <div class="grid">
+        <div class="def"><b class="lab">Consumer surplus</b>The difference between the maximum price consumers are willing to pay and the price they actually pay. On a diagram: the area below the demand curve and above the price.</div>
+        <div class="def"><b class="lab">Producer surplus</b>The difference between the price producers actually receive and the minimum price they are willing to accept. On a diagram: the area above the supply curve and below the price.</div>
+      </div>
+      <div class="box hl"><h3>How PED and PES decide the size of the change (2.5.4)</h3>
+        <ul>
+          <li>Supply falls (shifts left) and price rises: consumer surplus <b>always falls</b>. With <b>inelastic</b> demand, price rises a lot but quantity falls little; with <b>elastic</b> demand, quantity falls by more. The exact loss depends on how steep each curve is, so explain it with your diagram.</li>
+          <li>Demand rises (shifts right): producer surplus rises. With <b>inelastic supply</b>, price rises a lot and most of the gain goes to producers as a higher price; with <b>elastic supply</b>, output rises instead and price rises less.</li>
+        </ul></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>You would happily pay $5 for an ice cream, but it only costs $3. That extra $2 of happiness is your consumer surplus. The shop would sell it for $1 but gets $3: that $2 is its producer surplus.</p></div>
+    </section>
+
+    <section class="slide" data-title="How to decode a question">
+      <p class="kicker">Method · before you write</p>
+      <h2>Decode every question in 4 steps</h2>
+      <ol class="steps">
+        <li><b>Circle the command words.</b> Most (a) parts have two: "explain… and consider…". The first is AO1 + AO2 (6 marks), the second is AO3 (2 marks).</li>
+        <li><b>Underline the key terms.</b> Every one needs a precise definition in your first paragraph.</li>
+        <li><b>Box the trap words</b>: always, or, the best, most, two, at the present time, in a growing economy. They tell you what the conclusion must answer.</li>
+        <li><b>Plan in 60 seconds</b>: the AO1 points, two analysis chains per side, and your one-sentence conclusion. Write the conclusion first in your plan so the whole essay heads towards it.</li>
+      </ol>
+      <div class="qbox"><small>Example · Nov 2023 9708/22 Q2(a) · 8 marks</small>
+        With the help of a formula, <span class="hl-cmd">explain</span> what is meant by the term <span class="hl-key">price elasticity of demand</span> for a product and <span class="hl-cmd">consider</span> <span class="hl-q">the extent to which</span> it allows an <span class="hl-key">entrepreneur</span> to determine the effect of <span class="hl-key">price changes</span> on the <span class="hl-key">total expenditure</span> on their product.</div>
+      <p>"Price <b>changes</b>" means both rises and falls. The mark scheme gave a maximum of 1 mark to answers that only covered one direction.</p>
+      <p class="mut">Each worked example that follows has a writing pad. Plan or write your answer with your Pencil, then reveal the model answer to compare.</p>
+    </section>
+
+    <section class="slide" data-title="Example 1: PED (8)">
+      <p class="kicker">Past paper · Nov 2023 · 9708/22 Q2(a) · 8 marks</p>
+      <h2>PED and total expenditure</h2>
+      <div class="box hl">
+        <div class="qbox"><small>Question</small>With the help of a formula, <span class="hl-cmd">explain</span> what is meant by the term <span class="hl-key">price elasticity of demand</span> for a product and <span class="hl-cmd">consider</span> <span class="hl-q">the extent to which</span> it allows an entrepreneur to determine the effect of <span class="hl-key">price changes</span> on the <span class="hl-key">total expenditure</span> on their product.</div>
+        <p><b>Decode:</b> AO1 = meaning + formula + elastic vs inelastic using proportions. AO2 = what happens to TE when price rises <i>and</i> falls, for elastic <i>and</i> inelastic demand. AO3 = how far PED really lets the entrepreneur predict.</p>
+        <div class="model">
+          <p><span class="ao">AO1</span>Price elasticity of demand (PED) measures the responsiveness of quantity demanded of a product to a change in its own price, ceteris paribus. PED = %ΔQd ÷ %ΔP. Demand is price elastic when the percentage change in quantity demanded is greater than the percentage change in price (PED above 1, ignoring the sign), and price inelastic when it is smaller (PED between 0 and 1).</p>
+          <p><span class="ao a2">AO2</span>Total expenditure is price × quantity. If demand is inelastic, for example PED = −0.4, a 10% price rise reduces quantity demanded by only 4%. The proportionate rise in price outweighs the fall in quantity, so total expenditure rises. A price cut would reduce total expenditure, because the small extra quantity sold does not make up for the lower price.</p>
+          <p><span class="ao a2">AO2</span>If demand is elastic, for example PED = −2, a 10% price rise reduces quantity demanded by 20%, so total expenditure falls. A 10% price cut raises quantity by 20%, so total expenditure rises. If PED = −1, total expenditure stays the same.</p>
+          <p><span class="ao a3">AO3</span>So PED tells the entrepreneur the direction of the change in total expenditure, but only to an extent. The estimate is based on past data, which may be inaccurate, and it may be expensive for a small business to calculate. PED also changes along a straight-line demand curve, so a value measured at one price may not hold after a large price change. Other factors, such as a rival's price cut or a change in incomes, can change total expenditure at the same time.</p>
+          <p><span class="ao a3">AO3</span><b>Conclusion:</b> PED allows an entrepreneur to predict the likely direction of the change in total expenditure for small price changes in the short run, but not its exact size, because the estimate may be out of date and other things rarely stay constant.</p>
+        </div>
+        <p class="mut">Why this scores 8: three AO1 points (meaning, formula, proportions), both directions for both types of demand, and an evaluation plus a conclusion that uses "the extent to which". Mark scheme reference: 9708/22 Nov 2023.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Example 2: surplus (8)">
+      <p class="kicker">Past paper · Jun 2023 · 9708/22 Q2(a) · 8 marks</p>
+      <h2>Consumer surplus and a cost rise</h2>
+      <div class="box hl">
+        <div class="qbox"><small>Question</small>With the help of a diagram(s), <span class="hl-cmd">explain</span> what is meant by <span class="hl-key">consumer surplus</span> and <span class="hl-key">producer surplus</span> and <span class="hl-cmd">consider</span> whether a rise in the price of a product because of <span class="hl-key">higher costs of production</span> is likely to <span class="hl-q">always</span> reduce the consumer surplus.</div>
+        <p><b>Decode:</b> AO1 = both definitions + a labelled diagram. AO2 = supply shifts left, and show the CS change for elastic vs inelastic demand. AO3 = does CS <i>always</i> fall, and what decides by how much?</p>
+        <div class="model">
+          <p><span class="ao">AO1</span>Consumer surplus is the difference between the maximum price consumers are willing to pay and the price they actually pay: the area below the demand curve and above the market price. Producer surplus is the difference between the price producers receive and the minimum price they are willing to accept: the area above the supply curve and below the price. [Diagram: D and S crossing at P₁ and Q₁, with CS above P₁ and PS below P₁, as on the diagrams slide.]</p>
+          <p><span class="ao a2">AO2</span>Higher costs of production shift the supply curve left from S to S₁. At the original price there is now excess demand, so price rises to P₂ and quantity falls to Q₂. Consumer surplus shrinks to the smaller triangle above P₂: consumers pay more for each unit and buy fewer units.</p>
+          <p><span class="ao a2">AO2</span>The size of the fall depends on PED. With <b>inelastic</b> demand (a steep demand curve), the leftward shift in supply raises price a lot but cuts quantity only a little: consumers keep buying but pay much more. With <b>elastic</b> demand (a flatter curve), price rises less but quantity falls by more, because consumers switch to substitutes. Drawing both cases shows that the loss of consumer surplus differs in size and in how it happens.</p>
+          <p><span class="ao a3">AO3</span>When higher costs raise the price, consumer surplus will always fall, because the price is higher and quantity is lower. What is not fixed is how much it falls. That depends on PED and on how much costs, and so supply, change.</p>
+          <p><span class="ao a3">AO3</span><b>Conclusion:</b> a cost-driven price rise is likely to always reduce consumer surplus, but the extent of the reduction depends on the price elasticity of demand.</p>
+        </div>
+        <p class="mut">The mark scheme accepted "will always fall" as the conclusion, with the extent depending on PED. Examiner report: evaluation was "very rare", so most answers stopped at 4.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Example 3: PPC (8)">
+      <p class="kicker">Past paper · Nov 2024 · 9708/22 Q3(a) · 8 marks</p>
+      <h2>Constant vs increasing opportunity cost</h2>
+      <div class="box hl">
+        <div class="qbox"><small>Question</small>With the help of a production possibility curve (PPC) diagram(s), <span class="hl-cmd">explain</span> the difference between <span class="hl-key">constant</span> and <span class="hl-key">increasing opportunity costs</span> and <span class="hl-cmd">consider</span> how choices in deciding which type of goods to produce <span class="hl-q">in the short run</span> may influence <span class="hl-key">future economic growth</span>.</div>
+        <p><b>Decode:</b> AO1 = PPC diagram(s) with a straight line and a curve, product-labelled axes, touching both axes, plus the explanation. AO2 = consumer goods vs capital goods now, and the effect on future growth. AO3 = a judgement on the trade-off.</p>
+        <div class="model">
+          <p><span class="ao">AO1</span>A PPC shows the maximum combinations of two goods an economy can produce when all resources are fully and efficiently employed. [Diagram: capital goods on the vertical axis, consumer goods on the horizontal axis. A straight-line PPC and a PPC bowed out from the origin, both touching both axes.] A straight-line PPC shows <b>constant opportunity cost</b>: the same amount of capital goods is given up for each extra unit of consumer goods, because resources are equally suited to both. A PPC bowed out from the origin shows <b>increasing opportunity cost</b>: more and more capital goods must be given up for each extra unit of consumer goods, because resources are not equally suited to producing both.</p>
+          <p><span class="ao a2">AO2</span>If the economy chooses a point with more consumer goods now, living standards rise in the short run, but fewer capital goods are produced. With less investment in machinery and infrastructure, productive capacity grows slowly, so the PPC shifts outwards only a little in the future.</p>
+          <p><span class="ao a2">AO2</span>If it chooses more capital goods now, consumption is lower in the short run, giving an opportunity cost in living standards. However, the extra capital raises productive capacity, so the PPC shifts further outwards, allowing more of both goods in the future.</p>
+          <p><span class="ao a3">AO3</span>The effect depends on whether the capital goods are used productively and on how long the economy can accept lower consumption. A very poor economy may not be able to cut consumption further. <b>Conclusion:</b> choosing more capital goods in the short run is likely to give faster and more sustainable future growth, as long as the investment raises productivity and people can afford the short-run sacrifice.</p>
+        </div>
+        <p class="mut">Mark scheme: 1 mark each for the curved line, the straight line and the explanation. Analysis covers consumer goods (short-run benefit, may not be sustainable) vs capital goods (long-run growth).</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Example 4: public goods (8)">
+      <p class="kicker">Past paper · Nov 2023 · 9708/22 Q3(a) · 8 marks</p>
+      <h2>Free goods vs public goods</h2>
+      <div class="box hl">
+        <div class="qbox"><small>Question</small>With the help of examples, <span class="hl-cmd">explain</span> the difference between <span class="hl-key">free goods</span> and <span class="hl-key">public goods</span> and <span class="hl-cmd">consider</span> the view that public goods can <span class="hl-q">never</span> be provided in a <span class="hl-key">market economy</span>.</div>
+        <p><b>Decode:</b> AO1 = define both, with a correct example of each. AO2 = link non-excludability and non-rivalry to the free rider problem, so no price can be charged. AO3 = "never": consider government funding and quasi-public goods.</p>
+        <div class="model">
+          <p><span class="ao">AO1</span>A free good is not scarce, so it has zero opportunity cost and needs no factors of production, e.g. fresh air. A public good is scarce and costs resources to produce, but it is non-excludable (people who do not pay cannot be stopped from benefiting) and non-rival (one person's use does not reduce the amount available to others), e.g. street lighting.</p>
+          <p><span class="ao a2">AO2</span>Because a public good is non-excludable, people can benefit without paying, so they have an incentive to be free riders. Because it is non-rival, an extra user costs nothing, so there is no reason to exclude anyone even if it were possible.</p>
+          <p><span class="ao a2">AO2</span>As a result, firms cannot collect enough revenue to make a profit. In a market economy, where resources are allocated by the price mechanism and the profit motive, the good is unlikely to be supplied at all. This is a market failure, and it is why governments usually provide public goods, paid for by taxation.</p>
+          <p><span class="ao a3">AO3</span>For pure public goods, the view is largely correct: a market economy will not provide them unless the government pays for them. However, some quasi-public goods, such as a toll road, can be made excludable with technology, so a price can be charged and private firms can supply them.</p>
+          <p><span class="ao a3">AO3</span><b>Conclusion:</b> pure public goods are very unlikely ever to be provided by a market economy, but "never" is too strong for quasi-public goods, which the market can supply when exclusion is possible.</p>
+        </div>
+        <p class="mut">Examiner report: students confused non-excludable with non-rival, gave roads, health care, parks or education as public goods, and asserted the free rider problem without linking it to the two characteristics.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Example 5: YED vs PED (12)">
+      <p class="kicker">Past paper · Nov 2024 · 9708/22 Q2(b) · 12 marks</p>
+      <h2>YED or PED during economic growth?</h2>
+      <div class="box hl">
+        <div class="qbox"><small>Question</small><span class="hl-cmd">Assess</span> whether knowledge of <span class="hl-key">income elasticity of demand</span> <span class="hl-q">or</span> <span class="hl-key">price elasticity of demand</span> for its product is <span class="hl-q">more useful</span> to a business aiming to increase the <span class="hl-key">total expenditure</span> on its product <span class="hl-q">during a period of economic growth</span>.</div>
+        <p><b>Decode:</b> Two concepts, so both must be analysed and their <i>usefulness</i> compared, not just defined. The context "economic growth" (rising incomes) must run through every point. The mark scheme asked for focus on how each measure is used, related to growth.</p>
+        <div class="model">
+          <p><span class="ao">AO1</span>Income elasticity of demand (YED) measures the responsiveness of demand to a change in income, ceteris paribus: %ΔQd ÷ %ΔY. Price elasticity of demand (PED) measures the responsiveness of quantity demanded to a change in the product's own price: %ΔQd ÷ %ΔP. Total expenditure is price × quantity. During economic growth, real incomes are rising.</p>
+          <p><span class="ao a2">AO2</span><b>The case for YED.</b> In a growing economy, incomes rise, so YED tells the business directly how demand will shift. If its product is a normal good with YED of, say, +2 (a luxury), a 5% rise in incomes increases demand by 10%, so demand shifts right and total expenditure rises without any change in price. If YED is negative (an inferior good), demand falls as incomes rise, warning the business to change its product range towards normal goods. Because growth is the main change in the market, YED is the measure most closely linked to it.</p>
+          <p><span class="ao a2">AO2</span><b>The case for PED.</b> YED says nothing about pricing. PED tells the business whether to raise or cut price to increase total expenditure: with inelastic demand, a price rise increases total expenditure; with elastic demand, a price cut does. During growth, rising incomes may make consumers less sensitive to price, making demand more inelastic, so the firm could raise price and increase total expenditure further.</p>
+          <p><span class="ao a2">AO2</span><b>Limitations of both.</b> Both are estimates from past data, which may be inaccurate. Their values change as incomes rise, so a value measured before the growth period may now be wrong. Ceteris paribus rarely holds: rivals may change prices during growth.</p>
+          <p><span class="ao a3">AO3</span><b>Evaluation.</b> The two measures answer different questions. YED tells the business what will happen to demand because of the growth itself, while PED tells it how to set price to take advantage of that. In a period of economic growth the main driver of total expenditure is rising income, so YED is the more relevant starting point, especially for luxury products with high YED. For a necessity with a low YED, demand barely rises with income, so pricing decisions based on PED matter more.</p>
+          <p><span class="ao a3">AO3</span><b>Conclusion:</b> during economic growth, YED is likely to be more useful because it directly predicts the shift in demand caused by rising incomes. PED becomes more useful when the product's YED is low, and both are only as reliable as the data they are based on.</p>
+        </div>
+        <p class="mut">Mark scheme: both concepts, applied to growth, with a justified conclusion. A one-sided response earns no evaluation marks.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Example 6: XED vs YED (12)">
+      <p class="kicker">Past paper · Jun 2024 · 9708/23 Q2(b) · 12 marks</p>
+      <h2>Electric cars: XED or YED?</h2>
+      <div class="box hl">
+        <div class="qbox"><small>Context: From 2030, the only new car production allowed in the United Kingdom (UK) will be for electric cars.</small><span class="hl-cmd">Assess</span> whether <span class="hl-key">cross elasticity of demand</span> is <span class="hl-q">likely to be more important</span> in determining the demand for <span class="hl-key">electric cars</span> <span class="hl-q">than</span> <span class="hl-key">income elasticity of demand</span>.</div>
+        <p><b>Decode:</b> Apply everything to electric cars. XED covers <b>substitutes</b> (petrol cars, public transport) and <b>complements</b> (electricity, charging points). YED covers cars as an expensive, income-sensitive purchase. Include the weaknesses of both, then judge "more important".</p>
+        <div class="model">
+          <p><span class="ao">AO1</span>Cross elasticity of demand (XED) is the responsiveness of demand for one good to a change in the price of another good, %ΔQd(X) ÷ %ΔP(Y). It is positive for substitutes and negative for complements. Income elasticity of demand (YED) is the responsiveness of demand to a change in income, %ΔQd ÷ %ΔY.</p>
+          <p><span class="ao a2">AO2</span><b>The case for XED.</b> Petrol cars are close substitutes for electric cars, so XED between them is likely to be positive and high. If petrol prices rise, petrol cars become more expensive to run, and buyers switch to electric cars, shifting demand for electric cars to the right. Charging points and electricity are complements: if electricity prices rise, or charging points are scarce, the effective cost of running an electric car rises and demand falls. XED is negative here.</p>
+          <p><span class="ao a2">AO2</span><b>The case for YED.</b> Electric cars are expensive and take a large share of income, so they are likely to be a normal good, probably with YED above 1. When incomes rise, demand rises more than proportionately; in a recession, buyers delay purchases. Whatever the price of substitutes, many households cannot afford an electric car unless incomes are high enough.</p>
+          <p><span class="ao a2">AO2</span><b>Weaknesses.</b> Both values are estimates and may be out of date. Once new petrol cars cannot be produced, the substitute relationship weakens, so XED with new petrol cars becomes less relevant over time. Attitudes to the environment and government subsidies also affect demand, and neither elasticity captures them.</p>
+          <p><span class="ao a3">AO3</span><b>Evaluation.</b> At present, while petrol cars are still widely available, XED is likely to be more important, because the running-cost comparison with petrol cars and the availability of charging points drive the decision to switch. After 2030, new petrol cars will no longer be produced, so the choice is mainly whether to buy a car at all, and when. That decision depends more on income, so YED becomes more important.</p>
+          <p><span class="ao a3">AO3</span><b>Conclusion:</b> XED is likely to be more important now, but YED is likely to become more important after 2030, once electric cars are the only new cars available. The answer depends on the time period.</p>
+        </div>
+        <p class="mut">Mark scheme: XED with substitutes and complements, YED and its relevance, weaknesses of both, and a justified comparison. A one-sided response cannot gain evaluation marks.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Example 7: PES (12)">
+      <p class="kicker">Past paper · Nov 2024 · 9708/21 Q2(b) · 12 marks</p>
+      <h2>Is farm supply more or less price elastic?</h2>
+      <div class="box hl">
+        <div class="qbox"><small>Question</small><span class="hl-cmd">Assess</span> whether the supply of <span class="hl-key">agricultural products</span> is <span class="hl-q">likely</span> to be more <span class="hl-key">price elastic</span> or less price elastic <span class="hl-q">than</span> the supply of <span class="hl-key">manufactured products</span>.</div>
+        <p><b>Decode:</b> Go factor by factor through what determines PES, comparing the two types of product every time. Conclude with "more" or "less", with conditions.</p>
+        <div class="model">
+          <p><span class="ao">AO1</span>Price elasticity of supply (PES) measures the responsiveness of quantity supplied to a change in the product's own price, ceteris paribus: %ΔQs ÷ %ΔP. Supply is elastic if quantity supplied changes by a greater percentage than price, and inelastic if by a smaller percentage.</p>
+          <p><span class="ao a2">AO2</span><b>Why agricultural supply is likely to be less elastic.</b> The production process is long: a rice crop takes months to grow, so after a price rise farmers cannot increase output until the next harvest, and supply is very inelastic in the short run. Many farm products are perishable and hard to store, so farmers cannot hold stocks to release when prices rise. Land is fixed in supply and not very mobile between uses, and supply depends on the weather, which farmers cannot control.</p>
+          <p><span class="ao a2">AO2</span><b>Why manufactured supply is likely to be more elastic.</b> Factories can often raise output quickly by adding shifts or overtime if there is spare capacity. Most manufactured goods can be stored, so firms keep stocks and can supply more immediately. Labour and machinery can be moved between product lines more easily.</p>
+          <p><span class="ao a2">AO2</span><b>The other side.</b> Not all agricultural supply is inelastic: products that can be stored, such as grain in silos, or crops with short growing cycles, can respond faster. Manufacturers working at full capacity, or making complex products with long lead times such as aircraft, have inelastic supply in the short run. In the long run, both become more elastic as new land is farmed or new factories are built.</p>
+          <p><span class="ao a3">AO3</span><b>Evaluation and conclusion:</b> agricultural supply is likely to be less price elastic than manufactured supply, mainly because of the long, weather-dependent production period and the difficulty of storage. This is most true in the short run and for perishable crops. It is less true for storable produce, or when manufacturers have no spare capacity. Over the long run the gap narrows.</p>
+        </div>
+        <p class="mut">Mark scheme: the expected conclusion was that agricultural supply is likely to be less elastic, though any valid, justified response was accepted. Factors listed: number of producers, spare capacity, storage, time period, factor mobility, length of production.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Example 8: market economy (12)">
+      <p class="kicker">Past paper · Nov 2024 · 9708/22 Q3(b) · 12 marks</p>
+      <h2>Is a market economy always the best?</h2>
+      <div class="box hl">
+        <div class="qbox"><small>Question</small><span class="hl-cmd">Assess</span> whether a <span class="hl-key">market economy</span> is <span class="hl-q">always the best</span> economic system to effectively answer the <span class="hl-key">three basic questions of resource allocation</span>.</div>
+        <p><b>Decode:</b> Use the three questions (what, how, for whom) as your structure. "Always the best" requires a comparison with at least one other system, planned or mixed. The mark scheme said this.</p>
+        <div class="model">
+          <p><span class="ao">AO1</span>Every economy must decide what to produce, how to produce and for whom to produce because resources are scarce. In a market economy, these questions are answered by the price mechanism: private individuals and firms, driven by self-interest and the profit motive, respond to the prices set by demand and supply.</p>
+          <p><span class="ao a2">AO2</span><b>Strengths of the market economy.</b> What: consumer sovereignty, because rising demand raises price, which signals to firms and gives them an incentive to produce more of what consumers want. How: competition pushes firms to use the cheapest methods and to innovate, so resources are used efficiently. For whom: goods go to those willing and able to pay, so price rations scarce goods without the need for a large bureaucracy.</p>
+          <p><span class="ao a2">AO2</span><b>Weaknesses.</b> What: public goods such as street lighting are not provided because of the free rider problem; merit goods such as education are under-consumed and demerit goods over-consumed because of imperfect information. For whom: goods go to those with income, so the poor may go without essentials, and inequality can grow.</p>
+          <p><span class="ao a2">AO2</span><b>The alternatives.</b> A planned economy can provide public and merit goods and share output more equally, but without price signals and the profit motive it often produces the wrong goods inefficiently. A mixed economy uses markets for most private goods and government for public goods, merit goods and redistribution, aiming to keep the strengths of both.</p>
+          <p><span class="ao a3">AO3</span><b>Evaluation and conclusion:</b> the market economy answers "what" and "how" well for ordinary private goods, but it is not always the best, because it fails to answer "for whom" fairly and fails to provide public and merit goods. A mixed economy is likely to answer all three questions more effectively, although how well it works depends on how efficient the government is and how much it intervenes.</p>
+        </div>
+        <p class="mut">Mark scheme: advantages and disadvantages of the market system for all three questions, compared with at least one other system. A one-sided response earns no evaluation marks.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Practice bank">
+      <p class="kicker">More real questions · Topics 1–2 only</p>
+      <h2>Practice bank</h2>
+      <p>All of these are Paper 2 Section B questions on Topics 1–2. Use the decode steps, plan with your Pencil in the pad below, and check yourself with the self-marker on the next slide. Wording marked * is a summary from the examiner report or mark scheme, not the exact question text.</p>
+      <div class="tw"><table>
+        <tr><th>Session</th><th>Part</th><th>Question</th></tr>
+        <tr><td>Jun 2023 22</td><td>3(a) 8</td><td>With the help of a diagram(s), explain what is meant by equilibrium in a market, and consider the extent to which the equilibrium price and equilibrium quantity are likely to change for a product following an increase in the wages for labour across the whole economy.</td></tr>
+        <tr><td>Jun 2023 22</td><td>3(b) 12</td><td>Assess whether encouraging entrepreneurship or increasing another of the factors of production will be a more effective way to achieve long run economic growth.</td></tr>
+        <tr><td>Nov 2023 22</td><td>2(b) 12</td><td>Assess whether the concept of price elasticity of supply or cross elasticity of demand will be the more useful to a business wanting to increase its total sales in a growing economy.</td></tr>
+        <tr><td>Nov 2023 22</td><td>3(b) 12</td><td>Assess the view that the consequences of imperfect information are more serious in a market economy than in a mixed economy.</td></tr>
+        <tr><td>Jun 2024 21</td><td>2(b) 12</td><td>Assess whether a planned economic system should always switch to a mixed economy.</td></tr>
+        <tr><td>Jun 2024 21</td><td>3(b) 12</td><td>Assess the extent to which price elasticity of supply or cross elasticity of demand is most useful to businesses.</td></tr>
+        <tr><td>Jun 2024 23</td><td>2(a) 8</td><td>Excluding the price of electric cars, explain the determinants of demand for electric cars and consider which of these determinants is likely to be of greatest significance at the present time.</td></tr>
+        <tr><td>Jun 2024 23</td><td>3(a) 8</td><td>Use a production possibility curve (PPC) diagram to explain how a government in a mixed economy might allocate more resources to consumption and less resources to investment and consider a limitation of this approach to resource allocation.</td></tr>
+        <tr><td>Jun 2024 23</td><td>3(b) 12</td><td>Assess whether producers are the only ones to benefit when an economy decides to allocate additional resources to investment.</td></tr>
+        <tr><td>Nov 2024 21</td><td>2(a) 8</td><td>Explain the determinants of supply for an agricultural product, such as rice, and consider which of these determinants is likely to be of the greatest significance at the present time.</td></tr>
+        <tr><td>Nov 2024 21</td><td>3(a) 8</td><td>With the help of a diagram, explain the significance of a position within a market economy's production possibility curve (PPC) and consider whether such a position is likely to be permanent.</td></tr>
+        <tr><td>Nov 2024 21</td><td>3(b) 12</td><td>Assess whether consumers always benefit when the government of a mixed economy reduces the role of the market mechanism in allocating resources.</td></tr>
+        <tr><td>Nov 2024 22</td><td>2(a) 8</td><td>With the help of a diagram(s), briefly explain how the cause of a movement along the demand curve differs from the cause of a shift in the demand curve and consider the impact on the demand for one good of price changes in other goods.</td></tr>
+        <tr><td>Jun 2023 21</td><td>2(b) 12</td><td>*Assess whether education should be classified as a public good rather than a merit good.</td></tr>
+        <tr><td>Nov 2023 21</td><td>2(b) 12</td><td>*Assess whether PED or YED is likely to be of greater importance to a firm producing cars.</td></tr>
+        <tr><td>Nov 2023 23</td><td>2(b) 12</td><td>*Assess the usefulness of PED and XED to a producer of smartphones.</td></tr>
+      </table></div>
+      <div class="box">
+        <h3>Your planning space</h3>
+        <p>Pick one question above. Write the command words, key terms and trap words, then your plan and conclusion.</p>
+        <div class="model"><p><b>Checklist to compare against:</b> Every key term defined? Both sides (or both options) analysed with developed chains? Context word (product, "growing economy", "at the present time") used in every paragraph? Final sentence answers the exact question, with a reason and a condition?</p></div>
+      </div>
+    </section>
+
+    
+    <section class="slide" data-title="Self-marker" data-sec="lab">
+      <p class="kicker">Interactive tool · mark your own essay</p>
+      <h2>Self-marker</h2>
+      <p>After writing a practice essay, tick what your answer really does. The estimate follows the 9708 mark scheme rules: 3/3/2 for part (a), levels for part (b). Be strict: only tick a point if it is explained, not just stated.</p>
+      <div class="seg-toggle" role="group" aria-label="Essay part" style="margin-bottom:12px">
+        <button type="button" id="smA" aria-pressed="true">Part (a) · 8 marks</button>
+        <button type="button" id="smB" aria-pressed="false">Part (b) · 12 marks</button>
+      </div>
+      <div class="lab">
+        <div class="ctls" id="smList"></div>
+        <div>
+          <div class="readout" id="smOut" style="margin-top:0"></div>
+        </div>
+      </div>
+      <style>
+      .smchk{display:flex;gap:10px;align-items:flex-start;font-size:15.5px;background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:9px 11px;cursor:pointer}
+      .smchk input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--accent)}
+      .smgrp{font:600 11.5px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+      .smbig{font:700 44px/1 var(--display);color:var(--accent)}
+      </style>
+      <script>
+      (function(){
+        var mode='a';
+        var A=[
+          ['AO1','a1','Key term(s) defined precisely'],
+          ['AO1','a2','Second definition, formula, or correctly labelled diagram (as the question asks)'],
+          ['AO1','a3','Accurate example(s), or the elastic/inelastic or rival/excludable explanation'],
+          ['AO2','b1','First analysis chain: cause → mechanism → effect'],
+          ['AO2','b2','Second analysis chain, covering the other case the question names (other good, other direction, other determinant)'],
+          ['AO2','b3','Chains are developed and applied to the question (numbers, diagram referred to, context)'],
+          ['AO3','c1','Weighed up the "consider" part: what it depends on, when it is and is not true'],
+          ['AO3','c2','Final justified conclusion that directly answers the "consider" part']
+        ];
+        var B=[
+          ['AO1/AO2','d1','Key terms defined accurately'],
+          ['AO1/AO2','d2','Side 1 (or option 1) analysed with developed chains'],
+          ['AO1/AO2','d3','Side 2 (or option 2 / the alternative) analysed with developed chains'],
+          ['AO1/AO2','d4','Applied to the question context (product, economy, time period) throughout'],
+          ['AO1/AO2','d5','No significant errors; diagrams (if used) accurate and explained'],
+          ['AO3','e1','Compared the two sides directly (not a summary)'],
+          ['AO3','e2','Clear judgement that answers the exact question'],
+          ['AO3','e3','Judgement justified with a reason and a condition ("depends on…")']
+        ];
+        var list=document.getElementById('smList'),out=document.getElementById('smOut'),st={};
+        function render(){
+          list.innerHTML='';var L=mode==='a'?A:B,last='';
+          L.forEach(function(it){
+            if(it[0]!==last){var g=document.createElement('div');g.className='smgrp';g.textContent=it[0];list.appendChild(g);last=it[0];}
+            var lab=document.createElement('label');lab.className='smchk';var cb=document.createElement('input');cb.type='checkbox';cb.id='sm_'+it[1];cb.checked=!!st[it[1]];
+            cb.onchange=function(){st[it[1]]=cb.checked;score();};lab.appendChild(cb);var sp=document.createElement('span');sp.textContent=it[2];lab.appendChild(sp);list.appendChild(lab);
+          });
+          score();
+        }
+        function n(keys){return keys.filter(function(k){return st[k];}).length;}
+        function score(){
+          var h='';
+          if(mode==='a'){
+            var ao1=n(['a1','a2','a3']),ao2=n(['b1','b2','b3']),ao3=n(['c1','c2']);
+            if(!st.b2&&ao2>2)ao2=2;
+            var t=ao1+ao2+ao3;
+            h+='<div class="smbig">'+t+' / 8</div><div>AO1 <b>'+ao1+'/3</b> · AO2 <b>'+ao2+'/3</b> · AO3 <b>'+ao3+'/2</b></div>';
+            var tips=[];
+            if(!st.b2)tips.push('Analysing only one case is usually capped at 2 AO2 marks. Cover both things the question names.');
+            if(!st.c2)tips.push('The second AO3 mark is reserved for a justified conclusion. Add one sentence that answers the "consider" part directly.');
+            if(!st.c1)tips.push('Weigh it up: say when the answer is true and when it is not.');
+            if(ao1<3)tips.push('Check the question for "with the help of a formula/diagram/examples": those are AO1 marks.');
+            h+=tips.length?'<div class="mut" style="margin-top:6px"><b>Next step:</b> '+tips[0]+'</div>':'<div class="okt" style="margin-top:6px">Full marks on this checklist. Now check every point is explained, not asserted.</div>';
+          } else {
+            var both=st.d2&&st.d3,dev=n(['d1','d2','d3','d4','d5']),lvl,lo,hi;
+            if(!st.d2&&!st.d3){lvl=dev?1:0;lo=dev?1:0;hi=dev?2:0;}
+            else if(!both||dev<4){lvl=2;lo=3;hi=5;}
+            else {lvl=3;lo=6;hi=dev===5?8:7;}
+            var ev=0,el='0';
+            if(both){ if(st.e1&&st.e2&&st.e3){ev=4;el='Level 2 (3–4)';} else if(st.e2&&(st.e1||st.e3)){ev=3;el='Level 2 (3–4)';} else if(st.e1||st.e2||st.e3){ev=st.e1&&st.e3?2:1;el='Level 1 (1–2)';} }
+            else el='0 (one-sided)';
+            h+='<div class="smbig">'+(lo+ev)+'–'+(hi+ev)+' / 12</div>';
+            h+='<div>AO1/AO2: <b>Level '+lvl+'</b> ('+lo+'–'+hi+' of 8)</div><div>AO3: <b>'+el+'</b></div>';
+            var tip='';
+            if(!both)tip='A one-sided answer is capped at Level 2 for AO1/AO2 and gets 0 for AO3. Analyse the other option.';
+            else if(!st.d4)tip='Apply every paragraph to the context in the question. Mark schemes cap answers that ignore it.';
+            else if(!st.e1)tip='Compare the two sides directly. A summary is not evaluation.';
+            else if(!st.e3)tip='Justify the judgement: give the main reason and say what it depends on.';
+            h+=tip?'<div class="mut" style="margin-top:6px"><b>Next step:</b> '+tip+'</div>':'<div class="okt" style="margin-top:6px">This is a Level 3 + Level 2 answer by the checklist.</div>';
+          }
+          h+='<div class="mut" style="margin-top:6px">An estimate from your own ticks, not an official mark.</div>';
+          out.innerHTML=h;
+        }
+        var ba=document.getElementById('smA'),bb=document.getElementById('smB');
+        ba.onclick=function(){mode='a';ba.setAttribute('aria-pressed','true');bb.setAttribute('aria-pressed','false');render();};
+        bb.onclick=function(){mode='b';bb.setAttribute('aria-pressed','true');ba.setAttribute('aria-pressed','false');render();};
+        render();
+      })();
+      </script>
+    </section>
+
+    <section class="slide" data-title="Exam traps" data-traps>
+      <p class="kicker">Exam traps · from examiner reports</p>
+      <h2>Where marks are lost on Topics 1–2 essays</h2>
+      <p>Patterns from 9708 Paper 2 examiner reports (June 2023, November 2023) and mark schemes.</p>
+      <div class="grid">
+        <div class="trap"><h3>Describing instead of assessing</h3><p>Defining PED and XED at length when asked how useful they are to a business.</p><p class="fix">Spend one paragraph on definitions, then write about use and usefulness.</p></div>
+        <div class="trap"><h3>One-sided (b) answers</h3><p>Only one concept or side analysed.</p><p class="fix">Max Level 2 and 0 for AO3. Always analyse the alternative.</p></div>
+        <div class="trap"><h3>Summary as "evaluation"</h3><p>Repeating points in the conclusion.</p><p class="fix">Compare, rank and give a judgement with a condition.</p></div>
+        <div class="trap"><h3>Ignoring the context</h3><p>General answers with no link to cars, smartphones or a growing economy.</p><p class="fix">Name the context in every paragraph. Mark schemes cap answers that ignore it.</p></div>
+        <div class="trap"><h3>Vague elasticity</h3><p>"A big change in demand".</p><p class="fix">Use percentage (proportionate) changes and numbers.</p></div>
+        <div class="trap"><h3>Wrong public good examples</h3><p>Roads, health care, education, parks.</p><p class="fix">Use street lighting, national defence, lighthouses.</p></div>
+        <div class="trap"><h3>Diagram errors</h3><p>Movement drawn instead of a shift, AD/AS for one market, PPC not touching the axes, unlabelled axes.</p><p class="fix">Label everything and refer to the diagram in your text.</p></div>
+        <div class="trap"><h3>Answering a different question</h3><p>"Most significant" instead of "most immediate"; classification vs provision.</p><p class="fix">Box the trap words before you plan.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Mark-scheme wording">
+      <p class="kicker">Phrases that score</p>
+      <h2>Sentence starters examiners reward</h2>
+      <div class="tw"><table>
+        <tr><th>Skill</th><th>Phrases</th></tr>
+        <tr><td><span class="ao">AO1</span></td><td>"…measures the responsiveness of… to a change in…, ceteris paribus" · "…is defined as…" · "for example, …"</td></tr>
+        <tr><td><span class="ao a2">AO2</span></td><td>"This causes… because…" · "As a result, quantity demanded falls by a smaller percentage than…" · "This shifts the supply curve to the left, from S to S₁, so…" · "In the short run… whereas in the long run…"</td></tr>
+        <tr><td><span class="ao a3">AO3</span> weighing</td><td>"However, this depends on…" · "This is more likely when… but less likely when…" · "The most important factor is… because…"</td></tr>
+        <tr><td><span class="ao a3">AO3</span> conclusion</td><td>"Overall, [X] is likely to be more [useful/effective] than [Y] because… although this depends on…" · "Therefore it will not always…, because…"</td></tr>
+      </table></div>
+      <div class="def"><b class="lab">The golden rule</b>Your last sentence should reuse the question's own words and answer it directly.</div>
+    </section>
+
+    <section class="slide" data-title="Past papers" data-sec="pp">
+      <p class="kicker">Real past-paper evidence</p>
+      <h2>What students actually got wrong</h2>
+      <p>Each card is a real 9708 Paper 2 essay on Topics 1–2 that Cambridge's examiners commented on. Read what was asked, decide what students got wrong, then tap to check.</p>
+      <div class="chips" id="ppChips"></div>
+      <div class="ppgrid" id="ppGrid"></div>
+      <p class="src" id="ppSrc"></p>
+    </section>
+
+    <section class="slide" data-title="Trap quiz" data-sec="quiz">
+      <p class="kicker">Trap quiz</p>
+      <h2>Can you dodge the traps?</h2>
+      <p>Each question is built around a real mark-scheme rule or a mistake from the examiner reports.</p>
+      <div class="qz" id="quiz"></div>
+    </section>
+
+    <section class="slide" data-title="Flashcards" data-sec="fc">
+      <p class="kicker">Flashcards</p>
+      <h2>Test yourself</h2>
+      <div class="chips" id="chips"></div>
+      <div class="fc-scene"><div class="fc-inner" id="card" role="button" tabindex="0" aria-live="polite">
+        <div class="face front"><div class="side" id="fSide"></div><div class="txt" id="fQ"></div><div class="hint">Tap to flip</div></div>
+        <div class="face back"><div class="side">Answer</div><div class="txt" id="fA"></div><div class="hint">Tap to flip back</div></div>
+      </div></div>
+      <div class="fc-tools">
+        <button type="button" id="prev">Previous</button>
+        <button type="button" id="flip">Flip</button>
+        <button type="button" id="next">Next</button>
+        <button type="button" class="good" id="know">I knew it</button>
+        <button type="button" class="bad" id="again">Practise again</button>
+        <button type="button" id="shuffle">Shuffle</button>
+        <button type="button" id="reset">Reset</button>
+      </div>
+      <div class="fc-meta" id="meta"></div>
+      <p class="tag">Keys: Space flips, arrow keys move between cards</p>
+    </section>
+
+  </main>
+  <nav class="nav">
+    <button type="button" id="pv">Back</button>
+    <div class="count" id="count"></div>
+    <button type="button" id="nx">Next</button>
+  </nav>
+</div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Contents">
+  <h3>Contents <button class="x" id="dClose" type="button">Close</button></h3>
+  <ol id="toc"></ol>
+</aside>
+
+<script>
+(function(){
+  var DECKID='e1', CFG={"chips": [["All", 0, ""], ["8-mark part (a)", 2, "\\(a\\)"], ["12-mark part (b)", 2, "\\(b\\)"]], "srcintro": "Summarised from Cambridge 9708 syllabus and Principal Examiner Reports: ", "reveal": "Write your answer first, then show the model answer", "padlab": "Plan or write your answer · use your stylus"};
+  var CARDS=[["Exam rules", "Part (a) essay: total marks and split", "8 marks: AO1 3, AO2 3, AO3 2"], ["Exam rules", "Part (b) essay: total marks and split", "12 marks: AO1 + AO2 8 (levels), AO3 4 (levels)"], ["Exam rules", "What are the two AO3 marks in part (a) for?", "1 for a considered evaluation, 1 for a justified conclusion"], ["Exam rules", "Maximum for a one-sided part (b)", "Level 2 AO1/AO2 (5) + 0 AO3 = 5/12"], ["Exam rules", "AO3 Level 2 (3–4 marks) needs…", "A justified conclusion or judgement that addresses the specific requirements of the question"], ["Exam rules", "Is a summary of your points evaluation?", "No. Evaluation must compare, contrast and reach a judgement"], ["Exam rules", "Paper 2: duration and sections", "2 hours, 60 marks. A data response; B micro essay (1 of 2); C macro essay (1 of 2)"], ["Command words", "Define", "Give precise meaning"], ["Command words", "State", "Express in clear terms"], ["Command words", "Identify", "Name, select or recognise"], ["Command words", "Give", "Produce an answer from a given source or recall/memory"], ["Command words", "Outline", "Set out the main points"], ["Command words", "Describe", "State the points of a topic; give characteristics and main features"], ["Command words", "Calculate", "Work out from given facts, figures or information"], ["Command words", "Explain", "Set out purposes or reasons; make relationships clear; say why and/or how, supported with relevant evidence"], ["Command words", "Analyse", "Examine in detail to show meaning, identify elements and the relationship between them"], ["Command words", "Demonstrate", "Show how, or give an example"], ["Command words", "Compare", "Identify and/or comment on similarities and/or differences"], ["Command words", "Consider", "Review and respond to given information"], ["Command words", "Assess", "Make an informed judgement"], ["Command words", "Discuss", "Write about issue(s) or topic(s) in depth in a structured way"], ["Command words", "Evaluate", "Judge or calculate the quality, importance, amount or value of something"], ["Command words", "Comment", "Give an informed opinion"], ["Command words", "Justify", "Support a case with evidence or argument"], ["Trap words", "\"always\" or \"never\" in a question means…", "Find the exceptions and conditions; usually conclude \"not always, because…\""], ["Trap words", "\"X or Y\" / \"rather than\" means…", "Analyse both, compare them, then choose one with a reason"], ["Trap words", "\"most immediate\" vs \"most significant\"", "Immediate = fastest (time); significant = biggest (size)"], ["Trap words", "\"in a growing economy\" / \"at the present time\" means…", "Apply every point to that context, or the answer is capped"], ["Topic 1", "Opportunity cost", "The next best alternative forgone"], ["Topic 1", "The economic problem", "Unlimited wants but finite resources, so choices must be made"], ["Topic 1", "Three basic questions", "What to produce, how to produce, for whom to produce"], ["Topic 1", "Positive vs normative statement", "Positive: can be tested against evidence. Normative: a value judgement"], ["Topic 1", "Ceteris paribus", "Other things being equal"], ["Topic 1", "Short run vs long run", "Short run: at least one factor fixed. Long run: all factors variable"], ["Topic 1", "Very long run", "Technology and other factors outside the firm's control change"], ["Topic 1", "Rewards to the four factors", "Land: rent · labour: wages · capital: interest · enterprise: profit"], ["Topic 1", "Human capital", "The skills, knowledge and education of workers"], ["Topic 1", "Division of labour", "Splitting production into separate tasks done by different workers"], ["Topic 1", "Role of the entrepreneur", "Organises the other factors of production and bears the risk"], ["Topic 1", "PPC definition", "Maximum combinations of two goods produced with all resources fully and efficiently employed"], ["Topic 1", "Straight-line PPC shows…", "Constant opportunity cost (resources equally suited to both goods)"], ["Topic 1", "PPC bowed out from the origin shows…", "Increasing opportunity cost (resources not equally suited)"], ["Topic 1", "A point inside the PPC means…", "Unemployed or inefficiently used resources"], ["Topic 1", "Free good", "Not scarce, zero opportunity cost (e.g. air)"], ["Topic 1", "Public good", "Non-rival and non-excludable, e.g. street lighting"], ["Topic 1", "Free rider problem", "People benefit without paying, so a firm cannot charge and the market won't supply it"], ["Topic 1", "Merit good", "More beneficial than consumers realise, so under-consumed in a free market (imperfect information)"], ["Topic 1", "Demerit good", "More harmful than consumers realise, so over-consumed in a free market (imperfect information)"], ["Topic 1", "Market vs planned vs mixed economy", "Price mechanism · state decides · both private and public sectors"], ["Topic 2", "Effective demand", "Desire to buy backed by ability (and willingness) to pay"], ["Topic 2", "Movement along vs shift of demand", "Own price change = movement. Any other determinant = shift"], ["Topic 2", "Market equilibrium", "Qd = Qs, with no tendency for price or quantity to change"], ["Topic 2", "Derived demand", "Demand for something because of demand for what it helps make (e.g. steel for cars)"], ["Topic 2", "Joint supply", "Producing one good also produces another (e.g. beef and leather)"], ["Topic 2", "Three functions of price", "Rationing, signalling, incentive"], ["Topic 2", "PED formula", "%ΔQd ÷ %ΔP"], ["Topic 2", "YED formula", "%ΔQd ÷ %ΔY"], ["Topic 2", "XED formula", "%ΔQd of X ÷ %ΔP of Y"], ["Topic 2", "PES formula", "%ΔQs ÷ %ΔP"], ["Topic 2", "YED of an inferior good", "Negative"], ["Topic 2", "YED of a luxury", "Positive and greater than 1"], ["Topic 2", "XED of complements vs substitutes", "Complements negative, substitutes positive"], ["Topic 2", "Inelastic demand, price rises: total expenditure?", "Rises"], ["Topic 2", "Elastic demand, price rises: total expenditure?", "Falls"], ["Topic 2", "Factors affecting PES", "Spare capacity, stocks/storage, factor mobility, production time, time period"], ["Topic 2", "Consumer surplus", "Max price consumers are willing to pay minus the price actually paid"], ["Topic 2", "Producer surplus", "Price received minus the minimum price producers are willing to accept"], ["Topic 2", "Supply falls and price rises: does consumer surplus fall?", "Yes, always; the extent depends on PED"]], PPD=[["Nov 2023", "9708/21", "2(a)", "With a diagram, explain what could cause an increase in demand for a product", "Diagrams showed a movement along the demand curve instead of a shift. Some used AD/AS instead of D/S, and analysis focused on price instead of non-price factors.", "An increase in demand is a rightward shift caused by a non-price factor (income, tastes, substitutes' prices). Draw D and D₁."], ["Nov 2023", "9708/21", "2(b)", "Assess whether PED or YED is of greater importance to a firm producing cars", "Confusion about YED, general answers with little application to cars, and descriptive evaluation with no judgement.", "Apply every point to cars (an expensive, income-sensitive product). End with which matters more and why."], ["Nov 2023", "9708/22", "2(a)", "Explain PED with a formula; consider the extent to which it predicts total expenditure", "Vague explanations of elasticity values, unsupported claims about accuracy, and unnecessary explanation of every elasticity.", "Explain elastic and inelastic with percentage changes. Cover price rises and falls. Stick to PED only."], ["Nov 2023", "9708/22", "2(b)", "Assess whether PES or XED is more useful to a business wanting to increase sales in a growing economy", "Students defined the measures instead of discussing usefulness. Weaknesses were listed but not compared, and few mentioned YED as an alternative.", "Write about how a business would use each measure, then compare them directly in a growing economy."], ["Nov 2023", "9708/22", "3(a)", "Explain free goods vs public goods; consider whether public goods can never be provided by a market", "Students confused non-excludability with non-rivalry, gave wrong examples (roads, health care, parks, education) and asserted the free rider problem.", "Link each characteristic to the free rider problem. Use street lighting or defence as examples."], ["Nov 2023", "9708/22", "3(b)", "Assess whether imperfect information is more serious in a market economy than in a mixed economy", "Few separated merit and demerit goods from other private goods, and little attention was paid to the two types of economy.", "Compare market and mixed economies directly. The mark scheme capped answers that did not."], ["Nov 2023", "9708/23", "2(a)", "Explain PES and why it may be inelastic in the short run but elastic in the long run", "Imprecise explanations (\"a big change\"), PES confused with PED, and the effects on consumers vs producers rarely evaluated.", "Define with %ΔQs ÷ %ΔP. Use time, stocks and spare capacity to explain the change."], ["Nov 2023", "9708/23", "2(b)", "Assess the usefulness of PED and XED to a producer of smartphones", "Many explained what PED and XED mean without saying how they help a smartphone producer. Little or no evaluation.", "Apply to smartphones: brand loyalty, close rival brands (substitutes), apps and accessories (complements)."], ["Nov 2023", "9708/23", "3(a)", "Apply public good characteristics to bus and rail services and consider who provides them", "Rivalry and excludability were defined imprecisely, and the services were confused with merit goods.", "Bus and rail services are rival and excludable (you need a ticket), so they are private goods."], ["Jun 2023", "9708/21", "2(a)", "Explain movement along vs shift of a PPC; consider which has the most immediate impact", "PPCs did not touch the axes, D/S diagrams were drawn, and students evaluated \"most significant\" instead of \"most immediate\".", "Draw the PPC to both axes. Answer the exact criterion: immediate = time."], ["Jun 2023", "9708/21", "2(b)", "Assess whether education should be classified as a public good rather than a merit good", "Students wrote about who provides education instead of how it is classified, and assumed government provision makes it a public good.", "Test education against non-rival and non-excludable. It is rival and excludable, so it is a merit good."], ["Jun 2023", "9708/21", "3(a)", "Explain XED with a formula; consider which determinants matter most for its size and sign", "Formulae left out percentage changes or were written upside down, and few evaluated.", "XED = %ΔQd of X ÷ %ΔP of Y. Then rank closeness of substitutes vs complements."], ["Jun 2023", "9708/22", "2(a)", "Explain consumer and producer surplus with diagrams; consider whether a price rise always reduces CS", "Vague definitions, mislabelled diagrams, PED asserted rather than explained, and evaluation very rare, so most were capped at 4.", "Define both with willing-to-pay vs actually-paid. Explain the role of PED with percentages. End with a conclusion."], ["Jun 2023", "9708/22", "3(a)", "Explain market equilibrium with a diagram; consider how a rise in wages changes price and quantity", "Most did not say that at equilibrium there is \"no tendency to change\", and points were asserted.", "Equilibrium: Qd = Qs AND no tendency for price or quantity to change."], ["Jun 2023", "9708/22", "3(b)", "Assess whether encouraging entrepreneurs is the best way to achieve long-run growth", "Students described the factors of production, focused on short-run growth, and evaluation was summative.", "Compare entrepreneurship with one other factor for long-run growth (an outward PPC shift)."], ["Jun 2023", "9708/23", "2(a)", "Explain YED with a formula and the significance of its size and sign", "Most could not evaluate meaningfully (e.g. the accuracy of the estimates).", "Evaluate: estimates use past data, values change over time, ceteris paribus rarely holds."], ["Jun 2023", "9708/23", "3(a)", "Explain merit goods and why governments intervene; evaluate the likely success", "Superficial definitions (\"good for you\") with no reference to under-consumption or information failure.", "Merit good: under-consumed in a free market because consumers underestimate its benefits (imperfect information)."]], QZD=[["In a part (a) 8-mark essay, how many marks are available for evaluation (AO3)?", ["0", "2", "4", "8"], 1, "Part (a) is marked 3 (AO1) + 3 (AO2) + 2 (AO3). One AO3 mark is for weighing up, one for a justified conclusion.", "9708 Paper 2 mark schemes", false], ["A 12-mark part (b) answer analyses only one side, very well. What is the most it can score?", ["12", "8", "5", "4"], 2, "One-sided answers are capped at Level 2 for AO1/AO2 (max 5) and get 0 for AO3.", "Mark schemes: \"A one-sided response cannot gain any evaluation marks\"", false], ["Which conclusion would earn Level 2 AO3?", ["In conclusion, both PED and YED are useful to firms.", "Overall, YED is more useful during growth because rising incomes shift demand directly, although PED matters more if YED is low.", "PED and YED both have advantages and disadvantages.", "It depends."], 1, "Level 2 needs a justified judgement that answers the specific question: a direct answer, a reason and a condition.", "Table B: AO3", false], ["Which is the best way to describe elastic demand?", ["Demand changes a lot when price changes", "The percentage change in quantity demanded is greater than the percentage change in price", "Demand is very sensitive", "Consumers buy much more when price falls"], 1, "Mark schemes credit proportionate (percentage) changes, \"not large or small changes\".", "Nov 2023 9708/22 Q2(a)", false], ["Which is a correct example of a public good?", ["Education", "Health care", "Street lighting", "A public park"], 2, "Examiners marked roads, health care, parks and education as incorrect examples. Street lighting is non-rival and non-excludable.", "Nov 2023 examiner report, 9708/22 Q3(a)", false], ["The question says \"consider which has the most immediate impact\". What must your evaluation rank?", ["Which is largest", "Which happens fastest", "Which is most common", "Which costs most"], 1, "\"Immediate\" is about time. Students lost marks by judging \"most significant\" instead.", "Jun 2023 examiner report, 9708/21 Q2(a)", false], ["\"Assess whether PES or XED is more useful to a business in a growing economy.\" An answer never mentions growth. What happens?", ["Nothing, as long as the economics is right", "It is capped (lower Level 3 for AO1/AO2 and Level 1 for AO3)", "It gets 0", "It loses 1 mark"], 1, "The mark scheme capped answers that did not refer to a growing economy.", "Nov 2023 9708/22 Q2(b) mark scheme", false], ["Which completes the definition of market equilibrium?", ["…where demand equals supply.", "…where quantity demanded equals quantity supplied and there is no tendency for price or quantity to change.", "…where the price is fair.", "…where producers make maximum profit."], 1, "Examiners noted most answers missed \"no tendency to change\".", "Jun 2023 examiner report, 9708/22 Q3(a)", false], ["The XED between petrol cars and electric cars is most likely to be", ["negative and large", "zero", "positive", "exactly 1"], 2, "They are substitutes, so a rise in the price of one raises demand for the other: positive XED.", "Jun 2024 9708/23 Q2(b)", false], ["Which sentence is an analysis chain, not an assertion?", ["A maximum price causes shortages.", "The price is set below equilibrium, so quantity demanded rises and quantity supplied falls, creating excess demand.", "Shortages are bad for consumers.", "Maximum prices do not work."], 1, "Examiner reports say asserted points stay in Level 1–2. A chain shows the cause, the mechanism and the effect.", "Jun 2023 examiner report", false]], SRC=[["9708 syllabus 2026\u20132028", "https://www.cambridgeinternational.org/Images/697423-2026-2028-syllabus.pdf"], ["Jun 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/economics-9708/2023/9708_s23_er.pdf"], ["Nov 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/economics-9708/2023/9708_w23_er.pdf"]];
+  function $(i){return document.getElementById(i);}
+  function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;}
+  var main=$('main'), slides=[].slice.call(document.querySelectorAll('.slide')), cur=0;
+  function secOf(s,k){
+    if(s.dataset.sec)return s.dataset.sec;
+    if(k===0)return 'start';
+    if(s.hasAttribute('data-traps')||s.dataset.title==='Mark-scheme wording')return 'exam';
+    return 'learn';
+  }
+  var SECN={start:'Start',learn:'Learn',lab:'Interactive lab',exam:'Exam technique',pp:'Past papers',quiz:'Quiz',fc:'Flashcards'};
+  slides.forEach(function(s,k){s.dataset.sec=secOf(s,k);});
+  function idx(sec){for(var k=0;k<slides.length;k++)if(slides[k].dataset.sec===sec)return k;return 0;}
+  /* section bar + toc */
+  var segs=$('segs'), toc=$('toc');
+  slides.forEach(function(s,k){
+    var b=el('button','sec-'+s.dataset.sec);b.type='button';b.title=(k+1)+'. '+s.dataset.title;b.setAttribute('aria-label',b.title);b.onclick=function(){show(k);};segs.appendChild(b);
+    var li=el('li'),bt=el('button','sec-'+s.dataset.sec);bt.type='button';bt.appendChild(el('i'));bt.appendChild(document.createTextNode((k+1)+'. '+s.dataset.title));bt.onclick=function(){show(k);closeD();};li.appendChild(bt);toc.appendChild(li);
+  });
+  function show(n,anim){
+    cur=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.hidden=(k!==cur);s.classList.remove('enter');});
+    if(anim!==false){void slides[cur].offsetWidth;slides[cur].classList.add('enter');}
+    [].forEach.call(segs.children,function(b,k){b.className='sec-'+slides[k].dataset.sec+(k<cur?' done':'')+(k===cur?' on':'');});
+    [].forEach.call(toc.querySelectorAll('button'),function(b,k){b.classList.toggle('on',k===cur);});
+    $('count').textContent=(cur+1)+' / '+slides.length+' · '+slides[cur].dataset.title;
+    $('pv').disabled=(cur===0);$('nx').disabled=(cur===slides.length-1);
+    main.scrollTop=0;
+    if(typeof sizePads==='function')requestAnimationFrame(sizePads);
+    var P=prog();if(P.v.indexOf(cur)<0)P.v.push(cur);P.last=cur;P.n=slides.length;P.t=Date.now();lsSet('hub:'+DECKID,P);
+  }
+  function prog(){var P=lsGet('hub:'+DECKID)||{};P.v=P.v||[];P.known=P.known||{};return P;}
+  $('pv').onclick=function(){show(cur-1);};$('nx').onclick=function(){show(cur+1);};
+  $('bPP').onclick=function(){show(idx('pp'));};$('bQuiz').onclick=function(){show(idx('quiz'));};$('bFC').onclick=function(){show(idx('fc'));};
+  function openD(){$('drawer').hidden=false;$('scrim').hidden=false;$('dClose').focus();}
+  function closeD(){$('drawer').hidden=true;$('scrim').hidden=true;}
+  $('bContents').onclick=openD;$('dClose').onclick=closeD;$('scrim').onclick=closeD;
+  /* swipe */
+  var sx=null,sy=null;
+  main.addEventListener('touchstart',function(e){var t=e.target;if(t.closest&&t.closest('input,.lab svg,.tw,.work,.formula,.pad')){sx=null;return;}sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  main.addEventListener('touchend',function(e){if(sx==null)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>70&&Math.abs(dy)<45){show(cur+(dx<0?1:-1));}sx=null;},{passive:true});
+  /* title slide: what's inside */
+  var ins=document.querySelector('[data-inside]');
+  if(ins){
+    var nW=document.querySelectorAll('.work,.model').length;
+    var tiles=[['learn',slides.filter(function(s){return s.dataset.sec==='learn';}).length,'concept slides'],['learn',nW,'worked examples'],['lab',slides.filter(function(s){return s.dataset.sec==='lab';}).length,'interactive lab'],['pp',PPD.length,'real past-paper traps'],['quiz',QZD.length,'quiz questions'],['fc',CARDS.length,'flashcards']];
+    tiles.forEach(function(t){var b=el('button','sec-'+t[0]);b.type='button';b.appendChild(el('b',null,String(t[1])));b.appendChild(el('span',null,t[2]));b.onclick=function(){show(idx(t[0]));};ins.appendChild(b);});
+  }
+
+  /* stylus working pads */
+  var PADSTORE={}, PADS=[], penSeen=false, DECK=document.title;
+  try{penSeen=localStorage.getItem('pad:penSeen')==='1';}catch(e){}
+  function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}}
+  function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  function makePad(key,label,big){
+    var sk='pad:'+DECK+':'+key;
+    var st=PADSTORE[key]||(PADSTORE[key]={strokes:lsGet(sk)||[],tool:'pen',col:0,big:!!big,penOnly:null});
+    var wrap=el('div','pad'),bar=el('div','padbar'),tools=el('div','padtools');
+    bar.appendChild(el('span','padlab',label));
+    function tb(txt,title,fn){var b=el('button','pt',txt);b.type='button';b.title=title;b.setAttribute('aria-label',title);b.onclick=fn;tools.appendChild(b);return b;}
+    var CV=['--ink','--accent','--bad'],CN=['Black pen','Colour pen','Red pen'];
+    var cb=CV.map(function(v,i){var b=tb('',CN[i],function(){st.tool='pen';st.col=i;sync();});b.className='pt dot';b.style.setProperty('--dc','var('+v+')');return b;});
+    var er=tb('Eraser','Eraser',function(){st.tool=st.tool==='eraser'?'pen':'eraser';sync();});
+    tb('Undo','Undo last stroke',function(){st.strokes.pop();save();redraw();});
+    var clr=tb('Clear','Clear the pad',function(){if(clr.dataset.c){st.strokes=[];save();redraw();clr.dataset.c='';clr.textContent='Clear';}else{clr.dataset.c='1';clr.textContent='Tap again to clear';setTimeout(function(){clr.dataset.c='';clr.textContent='Clear';},2500);}});
+    var po=tb('Pen only','Pen only: ignore finger and palm touches',function(){st.penOnly=!penOnly();sync();});
+    var bg=tb('Bigger','Make the pad taller',function(){st.big=!st.big;sync();size();});
+    bar.appendChild(tools);wrap.appendChild(bar);
+    var cv=el('canvas','padcv');cv.setAttribute('aria-label',label+': draw here with your stylus');wrap.appendChild(cv);
+    wrap.appendChild(el('div','padnote','Saved on this device. Once you use a stylus, finger and palm touches are ignored on the pads.'));
+    var ctx=cv.getContext('2d'),W=0,cur=null;
+    function penOnly(){return st.penOnly===null?penSeen:st.penOnly;}
+    function sync(){cb.forEach(function(b,i){b.setAttribute('aria-pressed',String(st.tool==='pen'&&st.col===i));});er.setAttribute('aria-pressed',String(st.tool==='eraser'));po.setAttribute('aria-pressed',String(penOnly()));bg.textContent=st.big?'Smaller':'Bigger';cv.style.height=(st.big?560:280)+'px';}
+    function size(){var r=cv.getBoundingClientRect();if(!r.width)return;var d=window.devicePixelRatio||1;W=r.width;cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0);redraw();}
+    function col(i){return getComputedStyle(wrap).getPropertyValue(CV[i]).trim()||'#111';}
+    function wid(s,pr){return s.e?24:(s.pen?1.1+pr*3.2:2.4);}
+    function seg(s,i){var k=W/s.bw,p=s.p;ctx.save();ctx.lineCap='round';ctx.lineJoin='round';
+      if(s.e)ctx.globalCompositeOperation='destination-out';
+      ctx.strokeStyle=ctx.fillStyle=s.e?'#000':col(s.c);
+      if(i===0){ctx.beginPath();ctx.arc(p[0][0]*k,p[0][1]*k,wid(s,p[0][2])*k/2,0,7);ctx.fill();}
+      else{ctx.lineWidth=wid(s,p[i][2])*k;ctx.beginPath();ctx.moveTo(p[i-1][0]*k,p[i-1][1]*k);ctx.lineTo(p[i][0]*k,p[i][1]*k);ctx.stroke();}
+      ctx.restore();}
+    function redraw(){ctx.clearRect(0,0,cv.width,cv.height);st.strokes.forEach(function(s){for(var i=0;i<s.p.length;i++)seg(s,i);});}
+    function save(){lsSet(sk,st.strokes);}
+    function pt(e){var r=cv.getBoundingClientRect();return [Math.round((e.clientX-r.left)*10)/10,Math.round((e.clientY-r.top)*10)/10,Math.round((e.pressure||0.5)*100)/100];}
+    cv.addEventListener('pointerdown',function(e){
+      if(e.pointerType==='pen'&&!penSeen){penSeen=true;try{localStorage.setItem('pad:penSeen','1');}catch(x){}PADS.forEach(function(p){p.sync();});}
+      if(e.pointerType==='touch'&&penOnly())return;
+      if(cur)return;
+      e.preventDefault();try{cv.setPointerCapture(e.pointerId);}catch(x){}
+      cur={bw:W,c:st.col,e:st.tool==='eraser'||(e.buttons&32)?1:0,pen:e.pointerType==='pen'?1:0,p:[pt(e)],id:e.pointerId};
+      st.strokes.push(cur);seg(cur,0);document.documentElement.classList.add('inking');
+    });
+    cv.addEventListener('pointermove',function(e){
+      if(!cur||e.pointerId!==cur.id)return;e.preventDefault();
+      var evs=e.getCoalescedEvents?e.getCoalescedEvents():[e];if(!evs.length)evs=[e];
+      evs.forEach(function(v){cur.p.push(pt(v));seg(cur,cur.p.length-1);});
+    });
+    function end(e){if(!cur||e.pointerId!==cur.id)return;var s=cur;cur=null;delete s.id;save();document.documentElement.classList.remove('inking');try{var sel=window.getSelection();if(sel)sel.removeAllRanges();}catch(x){}}
+    cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+    function isStylus(e){var ts=e.changedTouches||[];for(var i=0;i<ts.length;i++){if(ts[i].touchType==='stylus')return true;}return false;}
+    function tblock(e){if(isStylus(e)||!penOnly()||cur){if(e.cancelable)e.preventDefault();}}
+    cv.addEventListener('touchstart',tblock,{passive:false});
+    cv.addEventListener('touchmove',tblock,{passive:false});
+    cv.addEventListener('touchend',tblock,{passive:false});
+    ['contextmenu','selectstart','dragstart','gesturestart'].forEach(function(t){wrap.addEventListener(t,function(e){e.preventDefault();});});
+    sync();
+    var rec={wrap:wrap,size:size,sync:sync};PADS.push(rec);
+    return wrap;
+  }
+  function sizePads(){PADS.forEach(function(p){if(p.wrap.offsetParent)p.size();});}
+  window.addEventListener('resize',sizePads);
+  try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){setTimeout(sizePads,50);});}catch(e){}
+  new MutationObserver(function(){setTimeout(sizePads,30);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  /* reveal working */
+  [].forEach.call(document.querySelectorAll('.work,.model'),function(w,i){
+    var box=w.parentNode;if(!box.classList.contains('box'))return;var wrap=el('div'); wrap.id='wk'+i; wrap.hidden=true;
+    var isM=w.classList.contains('model');var btn=el('button','rv',CFG.reveal);btn.type='button';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',wrap.id);
+    box.insertBefore(makePad('w'+i,CFG.padlab,isM),w);box.insertBefore(btn,w);box.insertBefore(wrap,w);
+    var n=w;while(n){var nx=n.nextSibling;wrap.appendChild(n);n=nx;}
+    btn.onclick=function(){var o=wrap.hidden;wrap.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.textContent=o?(isM?'Hide the model answer':'Hide the working'):CFG.reveal;};
+  });
+  /* past papers */
+  var ppF='All', ppg=$('ppGrid'), ppc=$('ppChips');
+  CFG.chips.map(function(c){return c[0];}).forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===ppF?'true':'false');b.onclick=function(){ppF=t;[].forEach.call(ppc.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});ppRender();};ppc.appendChild(b);});
+  function ppRender(){
+    ppg.innerHTML='';
+    PPD.forEach(function(r){
+      var ch=CFG.chips.filter(function(c){return c[0]===ppF;})[0];if(ch&&ch[2]&&!(new RegExp(ch[2])).test(r[ch[1]]))return;
+      var c=el('button','pp');c.type='button';c.setAttribute('aria-expanded','false');
+      c.appendChild(el('span','ref',r[0]+' · '+r[1]+' · Q'+r[2]));
+      c.appendChild(el('span','ask',r[3]));
+      c.appendChild(el('span','hint','What went wrong? Tap to reveal'));
+      var g=el('span','got');g.appendChild(el('b',null,'Common error: '));g.appendChild(document.createTextNode(r[4]));c.appendChild(g);
+      var f=el('span','fx');f.appendChild(el('b',null,'Do this instead: '));f.appendChild(document.createTextNode(r[5]));c.appendChild(f);
+      c.onclick=function(){var o=!c.classList.contains('open');c.classList.toggle('open',o);c.setAttribute('aria-expanded',String(o));};
+      ppg.appendChild(c);
+    });
+  }
+  ppRender();
+  var sp=$('ppSrc');sp.appendChild(document.createTextNode(CFG.srcintro));
+  SRC.forEach(function(s,i){var a=el('a',null,s[0]);a.href=s[1];a.target='_blank';a.rel='noopener';sp.appendChild(a);if(i<SRC.length-1)sp.appendChild(document.createTextNode(' · '));});
+  /* quiz */
+  var qi=0, score=0, answered=false, qz=$('quiz');
+  function qRender(){
+    qz.innerHTML='';
+    if(qi>=QZD.length){var P=prog();P.best=Math.max(P.best||0,score);P.qn=QZD.length;lsSet('hub:'+DECKID,P);var d=el('div','qdone');d.appendChild(el('b',null,score+' / '+QZD.length));d.appendChild(el('p',null,score===QZD.length?'Every trap dodged. Go to the flashcards next.':'Look at the past-paper cards for the ones you missed, then try again.'));var r=el('button','qnext','Try again');r.type='button';r.onclick=function(){qi=0;score=0;qRender();};d.appendChild(r);qz.appendChild(d);return;}
+    var q=QZD[qi];answered=false;
+    var m=el('div','qmeta');m.appendChild(el('span',null,'Question '+(qi+1)+' of '+QZD.length));m.appendChild(el('span',null,'Score '+score));qz.appendChild(m);
+    var bar=el('div','qbar');var bi=el('i');bi.style.width=(qi/QZD.length*100)+'%';bar.appendChild(bi);qz.appendChild(bar);
+    qz.appendChild(el('div','qq',q[0]));
+    if(q[5]){qz.appendChild(makePad('q'+qi,'Working space'));requestAnimationFrame(sizePads);}
+    var os=el('div','qopts'),btns=[];
+    q[1].forEach(function(o,k){var b=el('button','qopt');b.type='button';b.appendChild(el('span','L','ABCD'[k]));b.appendChild(el('span',null,o));b.onclick=function(){if(answered)return;answered=true;if(k===q[2])score++;btns.forEach(function(x,j){x.disabled=true;if(j===q[2])x.classList.add('right');else if(j===k)x.classList.add('wrong');});
+      var fb=el('div','qfb');fb.appendChild(el('div',null,(k===q[2]?'Correct. ':'Not quite. The answer is '+'ABCD'[q[2]]+'. ')+q[3]));if(q[4])fb.appendChild(el('div','r','Trap seen in: '+q[4]));qz.appendChild(fb);
+      var n=el('button','qnext',qi===QZD.length-1?'See your score':'Next question');n.type='button';n.onclick=function(){qi++;qRender();};qz.appendChild(n);n.focus();};btns.push(b);os.appendChild(b);});
+    qz.appendChild(os);
+  }
+  qRender();
+  /* flashcards */
+  var topic="All", order=[], pos=0, flipped=false, known=prog().known;
+  function saveKnown(){var P=prog();P.known=known;P.kn=CARDS.length;lsSet('hub:'+DECKID,P);}
+  var topics=["All"];CARDS.forEach(function(c){if(topics.indexOf(c[0])<0)topics.push(c[0]);});
+  var chipsEl=$('chips'), cardEl=$('card'), metaEl=$('meta');
+  topics.forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===topic?'true':'false');b.onclick=function(){topic=t;[].forEach.call(chipsEl.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});build(false);};chipsEl.appendChild(b);});
+  function build(shuf){order=[];CARDS.forEach(function(c,k){if(topic==="All"||c[0]===topic)order.push(k);});if(shuf){for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}}pos=0;flipped=false;render();}
+  function render(){
+    if(!order.length)return;var c=CARDS[order[pos]];
+    cardEl.classList.toggle('flip',flipped);
+    $('fSide').textContent='Question · '+c[0];$('fQ').textContent=c[1];$('fA').textContent=c[2];
+    var n=0;order.forEach(function(k){if(known[k])n++;});
+    metaEl.textContent='Card '+(pos+1)+' of '+order.length+' · Known: '+n+' of '+order.length;
+  }
+  function move(d){var was=flipped;flipped=false;cardEl.classList.remove('flip');setTimeout(function(){pos=(pos+d+order.length)%order.length;render();},was?260:0);}
+  function flip(){flipped=!flipped;cardEl.classList.toggle('flip',flipped);}
+  cardEl.onclick=flip;cardEl.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();flip();}};
+  $('flip').onclick=flip;$('next').onclick=function(){move(1);};$('prev').onclick=function(){move(-1);};
+  $('shuffle').onclick=function(){build(true);};$('reset').onclick=function(){known={};saveKnown();build(false);};
+  $('know').onclick=function(){known[order[pos]]=true;saveKnown();move(1);};$('again').onclick=function(){delete known[order[pos]];saveKnown();move(1);};
+  document.addEventListener('keydown',function(e){
+    var t=e.target;if(t&&(t.tagName==='INPUT'))return;
+    if(e.key==='Escape'){closeD();return;}
+    if(!$('drawer').hidden)return;
+    if(t&&t.tagName==='BUTTON'&&(e.key===' '||e.key==='Enter'))return;
+    if(slides[cur].dataset.sec==='fc'){if(e.key===' '){e.preventDefault();flip();}else if(e.key==='ArrowRight')move(1);else if(e.key==='ArrowLeft')move(-1);}
+    else{if(e.key==='ArrowRight'||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);}
+  });
+  build(false);
+  var hm=/^#s(\d+)$/.exec(location.hash||'');show(hm?(+hm[1]-1):0,false);
+})();
+</script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}/* links to other sites open outside the app */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\"http\"]");if(a&&a.host!==location.host){a.target="_blank";a.rel="noopener";}});</script></body></html>
