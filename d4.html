@@ -1,0 +1,781 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Study Hub"><meta name="theme-color" content="#EEF0F3" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0D1117" media="(prefers-color-scheme: dark)"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;overscroll-behavior:none}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Forces, Density and Pressure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: lab-notebook sheets on a dot grid. Header with topic badge + segmented section bar; one sheet at a time; contents drawer; bottom nav. Each deck has its own accent. */
+:root{
+  --bg:#EEF0F3; --dot:rgba(30,40,60,.13); --sheet:#FFFFFF; --sheet2:#F4F6F9; --ink:#141A24; --muted:#556070; --line:#D5DBE3;
+  --accent:#2D7A4B; --on-accent:#FFFFFF; --soft:color-mix(in srgb,var(--accent) 12%,var(--sheet));
+  --warm:#B5560F; --good:#23784A; --bad:#C0392B; --badbg:#FCEEEC; --goodbg:#E9F6EE; --eli:#FFF6D9; --eliline:#E2B53C; --lab:#6A4FD6; --grid2:rgba(40,80,140,.11);
+  --shadow:0 1px 2px rgba(20,26,36,.06),0 8px 24px rgba(20,26,36,.07);
+  --display:"Unbounded","Trebuchet MS",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1117; --dot:rgba(220,230,245,.07); --sheet:#161C25; --sheet2:#1D2530; --ink:#E7ECF2; --muted:#9AA6B5; --line:#2A3441;
+    --accent:#72CF93; --on-accent:#0D1117; --warm:#F0A15C; --good:#6CCB8F; --bad:#FF8C7E; --badbg:#2B1D1F; --goodbg:#16261C; --eli:#2A2617; --eliline:#B8933A; --lab:#A994FF; --grid2:rgba(200,220,255,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+    --bg:#0D1117; --dot:rgba(220,230,245,.07); --sheet:#161C25; --sheet2:#1D2530; --ink:#E7ECF2; --muted:#9AA6B5; --line:#2A3441;
+    --accent:#72CF93; --on-accent:#0D1117; --warm:#F0A15C; --good:#6CCB8F; --bad:#FF8C7E; --badbg:#2B1D1F; --goodbg:#16261C; --eli:#2A2617; --eliline:#B8933A; --lab:#A994FF; --grid2:rgba(200,220,255,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.2px);background-size:22px 22px;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.app{display:flex;flex-direction:column;height:100%}
+header.bar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.badge{flex:none;width:42px;height:42px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:center;font:700 16px var(--display)}
+.ttl{min-width:0;flex:1}
+.ttl small{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ttl b{display:block;font:700 15px var(--display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.hb{font:700 13px var(--body);padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;white-space:nowrap}
+.hb.pri{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.segs{display:flex;gap:3px;padding:8px 16px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.segs button{flex:1;height:7px;border:0;border-radius:4px;padding:0;cursor:pointer;background:var(--sc);opacity:.22;min-width:0}
+.segs button.done{opacity:.55}.segs button.on{opacity:1;transform:scaleY(1.5)}
+.sec-learn{--sc:var(--accent)}.sec-lab{--sc:var(--lab)}.sec-exam{--sc:var(--bad)}.sec-pp{--sc:var(--warm)}.sec-quiz{--sc:var(--good)}.sec-fc{--sc:var(--ink)}.sec-start{--sc:var(--muted)}
+main{flex:1;min-height:0;overflow-y:auto;padding:22px 16px 40px}
+.slide{position:relative;max-width:1000px;margin:0 auto;min-width:0;background:var(--sheet);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:clamp(20px,4vw,40px);overflow:hidden}
+.slide[hidden]{display:none}
+.slide.enter{animation:in .28s ease-out}
+@keyframes in{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+.kicker{display:inline-block;font:600 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--soft);border-radius:999px;padding:4px 10px;margin:0 0 12px}
+h1,h2{font-family:var(--display);font-weight:700;line-height:1.1;margin:0 0 14px;text-wrap:balance}
+h1{font-size:clamp(32px,6.5vw,58px);letter-spacing:-.02em;max-width:14ch}
+h2{font-size:clamp(22px,3.8vw,34px);letter-spacing:-.01em}
+h3{font-family:var(--body);font-weight:700;font-size:18px;margin:0 0 6px}
+p{margin:0 0 12px;max-width:70ch}
+.lead{font-size:19px;color:var(--muted);max-width:58ch}
+.bignum{position:absolute;right:-10px;top:-30px;font:700 clamp(140px,26vw,260px)/1 var(--display);color:transparent;-webkit-text-stroke:2px var(--accent);opacity:.18;pointer-events:none;user-select:none}
+.inside{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:10px;margin:18px 0}
+.inside button{text-align:left;border:1px solid var(--line);background:var(--sheet2);border-radius:12px;padding:12px 14px;cursor:pointer;color:var(--ink);font:inherit}
+.inside button b{display:block;font:700 26px var(--display);color:var(--sc)}
+.inside button span{font-size:14px;color:var(--muted)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));margin:0 0 14px}
+.box{background:var(--sheet2);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.box.hl{background:var(--sheet);border:2px solid var(--accent)}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.formula{font:600 clamp(15px,3vw,21px) var(--mono);background:var(--soft);border-radius:10px;padding:12px 16px;margin:8px 0 14px;overflow-x:auto;white-space:nowrap;color:var(--ink)}
+.tag{display:inline-block;font:500 12px var(--mono);padding:3px 9px;border-radius:6px;background:var(--sheet2);border:1px solid var(--line);color:var(--muted)}
+ul,ol{margin:0 0 12px;padding-left:22px;max-width:72ch}
+li{margin-bottom:5px}
+.tw{overflow-x:auto;margin:0 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:16px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--sheet2)}
+tr:last-child td{border-bottom:0}
+.num{font-variant-numeric:tabular-nums}
+.ok{color:var(--good);font-weight:700}.no{color:var(--bad);font-weight:700}
+.fig{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:10px;margin:0 0 14px}
+.fig svg{width:100%;height:auto;max-height:300px;display:block}
+.fig figcaption{font-size:14px;color:var(--muted);padding:4px 6px}
+.s-axis{stroke:var(--ink);stroke-width:1.6;fill:none}
+.s-a{stroke:var(--accent);stroke-width:2.6;fill:none}
+.s-w{stroke:var(--warm);stroke-width:2.6;fill:none}
+.s-g{stroke:var(--good);stroke-width:2.6;fill:none}
+.s-b{stroke:var(--bad);stroke-width:2.6;fill:none}
+.s-d{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4;fill:none}
+.s-t{fill:var(--ink);font:600 12px var(--mono)}
+.s-m{fill:var(--muted);font:500 11px var(--mono)}
+.s-dot{fill:var(--warm)}
+.s-fa{fill:var(--accent);fill-opacity:.14;stroke:none}
+.s-fill{fill:var(--sheet2);stroke:var(--ink);stroke-width:1.4}
+.s-ink{fill:var(--ink)}
+.s-track{fill:var(--sheet2);stroke:var(--line)}
+.s-barw{fill:var(--warm)}.s-barg{fill:var(--good)}
+.def{background:var(--goodbg);border-radius:10px;padding:12px 16px;margin:0 0 14px;border-left:4px solid var(--good)}
+.def b.lab{display:block;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--good);margin-bottom:4px}
+.eli5{position:relative;background:var(--eli);border:2px dashed var(--eliline);border-radius:16px;padding:14px 16px 14px 62px;margin:0 0 14px;font-size:17.5px;min-width:0}
+.eli5::before{content:"5";position:absolute;left:14px;top:14px;width:34px;height:34px;border-radius:50%;background:var(--eliline);color:#1b1607;font:700 17px var(--display);display:flex;align-items:center;justify-content:center;transform:rotate(-8deg)}
+.eli5 b.lab{display:block;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warm);margin-bottom:4px}
+.eli5 p:last-child{margin-bottom:0}
+.trap{position:relative;background:var(--badbg);border-radius:12px;padding:12px 16px 12px 46px;min-width:0}
+.trap::before{content:"!";position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:6px;background:var(--bad);color:var(--sheet);font:700 15px var(--display);display:flex;align-items:center;justify-content:center}
+.trap h3{color:var(--bad);font-size:16.5px}
+.trap p{margin:0 0 6px}.trap p:last-child{margin:0}
+.fix{color:var(--good);font-weight:700}
+.lo{font:600 12px var(--mono);color:var(--accent);white-space:nowrap}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding-left:36px;margin-bottom:9px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:25px;height:25px;border-radius:8px;background:var(--accent);color:var(--on-accent);font:700 13px var(--mono);display:flex;align-items:center;justify-content:center}
+.work{font:400 14.5px/1.75 var(--mono);background:var(--sheet2);border:1px dashed var(--line);border-radius:8px;padding:10px 14px;margin:6px 0 10px;overflow-x:auto;white-space:pre}
+.rv{display:inline-flex;align-items:center;gap:8px;font:700 14px var(--body);color:var(--accent);background:var(--soft);border:1px solid var(--accent);border-radius:999px;padding:7px 14px;cursor:pointer;margin:4px 0 8px}
+.rv::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.rv[aria-expanded="true"]::before{transform:rotate(-135deg) translateY(-1px)}
+/* labs */
+.lab{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:start;background:var(--sheet2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 10px}
+.lab svg{width:100%;height:auto;display:block;background:var(--sheet);border:1px solid var(--line);border-radius:10px}
+.ctls{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ctl{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:15px}
+.ctl span{display:flex;justify-content:space-between;gap:8px}
+.ctl output{font:600 14px var(--mono);color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+.readout{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15.5px;display:flex;flex-direction:column;gap:4px;margin-top:10px}
+.readout b{font-family:var(--mono);font-weight:600}
+.mut{color:var(--muted);font-size:14.5px}
+.mono{font:500 13.5px var(--mono);overflow-x:auto;white-space:nowrap}
+.sw{display:inline-block;width:12px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.sw-a{background:var(--accent)}.sw-w{background:var(--warm)}.sw-g{background:var(--good)}
+.okt{color:var(--good);font-weight:700}.badt{color:var(--bad);font-weight:700}.warnline{color:var(--bad);font-weight:700}
+.seg-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;align-self:flex-start}
+.seg-toggle button{font:700 14px var(--body);padding:7px 14px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.seg-toggle button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+/* past papers */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.chip{font:700 13px var(--body);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.ppgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}
+.pp{display:flex;flex-direction:column;gap:6px;text-align:left;font:inherit;color:inherit;background:var(--sheet);border:1px solid var(--line);border-top:4px solid var(--warm);border-radius:12px;padding:12px 14px;cursor:pointer;min-width:0}
+.pp .ref{font:600 12px var(--mono);color:var(--warm);letter-spacing:.03em}
+.pp .ask{font-weight:700;font-size:16px}
+.pp .hint{font-size:13.5px;color:var(--muted)}
+.pp .got{display:none;background:var(--badbg);border-radius:8px;padding:8px 10px;font-size:15px}
+.pp .fx{display:none;background:var(--goodbg);border-radius:8px;padding:8px 10px;font-size:15px}
+.pp.open .got,.pp.open .fx{display:block}.pp.open .hint{display:none}
+.pp .got b{color:var(--bad)}.pp .fx b{color:var(--good)}
+.src{font-size:13.5px;color:var(--muted);margin-top:14px}
+.src a{color:var(--accent)}
+/* quiz */
+.qz{background:var(--sheet2);border:1px solid var(--line);border-radius:14px;padding:18px}
+.qmeta{display:flex;justify-content:space-between;gap:10px;font:600 13px var(--mono);color:var(--muted);margin-bottom:8px;flex-wrap:wrap}
+.qbar{height:6px;background:var(--line);border-radius:3px;margin-bottom:14px;overflow:hidden}.qbar i{display:block;height:100%;background:var(--good);width:0;transition:width .25s}
+.qq{font:700 clamp(18px,3vw,22px)/1.35 var(--body);margin-bottom:14px}
+.qopts{display:grid;gap:8px}
+.qopt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:inherit;color:var(--ink);background:var(--sheet);border:2px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.qopt .L{flex:none;width:26px;height:26px;border-radius:7px;background:var(--sheet2);border:1px solid var(--line);font:700 13px var(--mono);display:flex;align-items:center;justify-content:center}
+.qopt.right{border-color:var(--good);background:var(--goodbg)}.qopt.wrong{border-color:var(--bad);background:var(--badbg)}
+.qopt:disabled{cursor:default}
+.qfb{margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--sheet);border:1px solid var(--line)}
+.qfb .r{font:600 12px var(--mono);color:var(--warm);margin-top:6px}
+.qnext{margin-top:12px;font:700 15px var(--body);padding:9px 16px;border-radius:999px;border:0;background:var(--accent);color:var(--on-accent);cursor:pointer}
+.qdone{text-align:center;padding:20px}.qdone b{display:block;font:700 48px var(--display);color:var(--good)}
+/* flashcards */
+.fc-scene{perspective:1200px}
+.fc-inner{display:grid;transition:transform .5s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d;cursor:pointer;border-radius:16px}
+.fc-inner.flip{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;min-height:250px;border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;border:2px solid var(--line);background:var(--sheet)}
+.face.back{transform:rotateY(180deg);background:var(--soft);border-color:var(--accent)}
+.face .side{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warm);margin-bottom:10px}
+.face .txt{font:600 clamp(19px,3.6vw,26px)/1.3 var(--body)}
+.face .hint{margin-top:14px;font-size:14px;color:var(--muted)}
+.fc-tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.fc-tools button{font:700 14px var(--body);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.fc-tools .good{border-color:var(--good);color:var(--good)}
+.fc-tools .bad{border-color:var(--bad);color:var(--bad)}
+.fc-meta{font:600 13px var(--mono);color:var(--muted);margin:6px 0}
+
+/* stylus working pad */
+.pad,.pad *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html.inking,html.inking *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+.padcv{-webkit-tap-highlight-color:transparent}
+.pad{margin:10px 0 12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--sheet)}
+.padbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:6px 8px;background:var(--sheet2);border-bottom:1px solid var(--line)}
+.padlab{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-left:4px}
+.padtools{display:flex;flex-wrap:wrap;gap:6px}
+.pt{font:700 13px var(--body);padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-height:36px}
+.pt[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.pt.dot{width:36px;padding:0;position:relative}
+.pt.dot::after{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--dc)}
+.pt.dot[aria-pressed="true"]{background:var(--soft);border:2px solid var(--accent)}
+.padcv{display:block;width:100%;height:280px;touch-action:none;cursor:crosshair;background-color:var(--sheet);background-image:linear-gradient(var(--grid2) 1px,transparent 1px),linear-gradient(90deg,var(--grid2) 1px,transparent 1px);background-size:20px 20px}
+.padnote{font-size:13px;color:var(--muted);padding:5px 10px;border-top:1px solid var(--line);background:var(--sheet2)}
+.hubb{flex:none;font:700 13px var(--body);text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:var(--sheet2)}
+/* nav + drawer */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--sheet);border-top:1px solid var(--line)}
+.nav button{font:700 15px var(--body);padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-width:88px}
+.nav #nx{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.nav button:disabled{opacity:.35;cursor:default}
+.count{font:600 13px var(--mono);color:var(--muted);text-align:center;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.scrim{position:fixed;inset:0;background:rgba(10,14,20,.45);z-index:20}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(360px,88vw);background:var(--sheet);border-left:1px solid var(--line);z-index:21;display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top,0px)) 0 env(safe-area-inset-bottom,0px)}
+.drawer h3{font:700 15px var(--display);padding:0 18px 10px;margin:0;display:flex;justify-content:space-between;align-items:center}
+.drawer ol{list-style:none;margin:0;padding:0 8px 20px;overflow-y:auto;max-width:none}
+.drawer li{margin:0}
+.drawer li button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;font:inherit;font-size:15px;background:none;border:0;color:var(--ink);padding:8px 10px;border-radius:8px;cursor:pointer}
+.drawer li button i{flex:none;width:10px;height:10px;border-radius:3px;background:var(--sc)}
+.drawer li button.on{background:var(--soft);font-weight:700}
+.drawer .x{font:700 13px var(--body);border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:5px 10px;cursor:pointer}
+button:focus-visible,.pp:focus-visible,.fc-inner:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:560px){.hb.opt{display:none}.ttl small{display:none}}
+@media (prefers-reduced-motion:reduce){.slide.enter{animation:none}.fc-inner,.qbar i{transition:none}.segs button.on{transform:none}}
+</style>
+
+<div class="app">
+  <header class="bar">
+    <a class="hubb" href="index.html">Hub</a><div class="badge" aria-hidden="true">04</div>
+    <div class="ttl"><small>CIE 9702 · AS Physics · Topic 4</small><b>Forces, density, pressure</b></div>
+    <div class="acts">
+      <button class="hb" id="bContents" type="button">Contents</button>
+      <button class="hb opt" id="bPP" type="button">Past papers</button>
+      <button class="hb opt" id="bQuiz" type="button">Quiz</button>
+      <button class="hb pri" id="bFC" type="button">Flashcards</button>
+    </div>
+  </header>
+  <div class="segs" id="segs" aria-label="Slides"></div>
+  <main id="main">
+
+    <section class="slide" data-title="Title">
+      <div class="bignum" aria-hidden="true">04</div>
+      <p class="kicker">AS Level Physics · Topic 4</p>
+      <h1>Forces, density and pressure</h1>
+      <p class="lead">Turning effects, equilibrium, density, hydrostatic pressure and upthrust, with derivations the syllabus asks you to reproduce.</p>
+      <div class="tw"><table>
+        <tr><th>Syllabus</th><th>You must be able to</th></tr>
+        <tr><td class="lo">4.1.1</td><td>Weight acts at the centre of gravity</td></tr>
+        <tr><td class="lo">4.1.2</td><td>Define and apply the moment of a force</td></tr>
+        <tr><td class="lo">4.1.3–4</td><td>Couples, and the torque of a couple</td></tr>
+        <tr><td class="lo">4.2.1–2</td><td>Principle of moments. Equilibrium = no resultant force and no resultant torque</td></tr>
+        <tr><td class="lo">4.2.3</td><td>Vector triangle for coplanar forces in equilibrium</td></tr>
+        <tr><td class="lo">4.3.1–2</td><td>Define and use density and pressure</td></tr>
+        <tr><td class="lo">4.3.3–4</td><td>Derive and use Δp = ρgΔh</td></tr>
+        <tr><td class="lo">4.3.5–6</td><td>Upthrust from pressure difference; F = ρgV</td></tr>
+        <tr><td>Exam</td><td>Traps, mark-scheme wording, real past-paper errors, trap quiz, flashcards</td></tr>
+      </table></div>
+      <div class="inside" data-inside></div>
+      <p class="tag">Syllabus source: Cambridge International AS &amp; A Level Physics 9702 syllabus, exams 2025–2027</p>
+    </section>
+
+    <section class="slide" data-title="Centre of gravity">
+      <p class="kicker">4.1.1 · Centre of gravity</p>
+      <h2>All the weight, acting at one point</h2>
+      <div class="def"><b class="lab">Centre of gravity</b>The point at which the whole weight of an object may be considered to act.</div>
+      <ul>
+        <li>For a <b>uniform</b> object (a uniform beam, a uniform rod) it is at the geometric centre. "Uniform" in a question is telling you this.</li>
+        <li>In moments problems, draw the weight as <b>one arrow</b> from the centre of gravity.</li>
+        <li>If a body hangs freely from a pivot, its centre of gravity settles <b>directly below</b> the pivot, so the weight has no moment about it.</li>
+      </ul>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Balance a ruler on one finger. There is one special spot where it doesn't tip either way. That spot is where all its heaviness seems to be squashed into one point.</p></div>
+    </section>
+
+    <section class="slide" data-title="Moment of a force">
+      <p class="kicker">4.1.2 · Moments</p>
+      <h2>Force × perpendicular distance</h2>
+      <div class="def"><b class="lab">Moment of a force</b>The product of the force and the perpendicular distance from the pivot to the line of action of the force.</div>
+      <div class="formula">moment = F × d⊥ &nbsp; (N m)</div>
+      <figure class="fig">
+        <svg viewBox="0 0 400 260" role="img" aria-label="Spanner of length 0.25 m with a 40 N force at 60 degrees to the handle; the perpendicular distance is shown">
+          <defs><marker id="m5" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="s-ink"/></marker></defs>
+          <circle class="s-fill" cx="60" cy="140" r="9"/>
+          <path class="s-axis" d="M60 140 H300" style="stroke-width:8"/>
+          <path class="s-a" d="M300 140 L360 36" marker-end="url(#m5)"/>
+          <path class="s-d" d="M232 258 L380 2"/>
+          <path class="s-d" d="M60 140 L240 244"/>
+          <text class="s-t" x="44" y="170">pivot</text>
+          <text class="s-t" x="160" y="132">0.25 m</text>
+          <text class="s-t" x="336" y="80">40 N</text>
+          <text class="s-m" x="314" y="132">60°</text>
+          <text class="s-m" x="44" y="222">d⊥ = 0.25 sin 60°</text>
+        </svg>
+        <figcaption>Dashed line = line of action of the force. d⊥ is measured at right angles to it.</figcaption>
+      </figure>
+      <div class="box hl"><h3>Worked example</h3><p>d⊥ = 0.25 sin 60° = 0.217 m. Moment = 40 × 0.217 = <b>8.7 N m</b>. Equivalent method: component of force perpendicular to the handle = 40 sin 60° = 34.6 N, times 0.25 m = 8.7 N m.</p></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Pushing a door near the hinges is hard. Pushing far from the hinges is easy. The further from the turning point you push, the bigger the turning effect.</p></div>
+    </section>
+
+    <section class="slide" data-title="Couples and torque">
+      <p class="kicker">4.1.3 and 4.1.4 · Couples</p>
+      <h2>A couple turns but does not move</h2>
+      <div class="def"><b class="lab">Couple</b>A pair of equal and opposite (parallel) forces whose lines of action do not coincide. It produces rotation only: the resultant force is zero, so there is no translation.</div>
+      <div class="def"><b class="lab">Torque of a couple</b>The product of one of the forces and the perpendicular distance between the lines of action of the forces.</div>
+      <figure class="fig">
+        <svg viewBox="0 0 400 170" role="img" aria-label="Steering wheel with 15 N up on one side and 15 N down on the other, 0.40 m apart">
+          <defs><marker id="m6" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="s-ink"/></marker></defs>
+          <circle class="s-fill" cx="200" cy="85" r="70"/>
+          <circle class="s-ink" cx="200" cy="85" r="4"/>
+          <path class="s-a" d="M130 85 V20" marker-end="url(#m6)"/>
+          <path class="s-a" d="M270 85 V150" marker-end="url(#m6)"/>
+          <path class="s-d" d="M130 85 H270"/>
+          <text class="s-t" x="80" y="40">15 N</text><text class="s-t" x="282" y="140">15 N</text>
+          <text class="s-t" x="176" y="104">0.40 m</text>
+        </svg>
+      </figure>
+      <div class="box hl"><h3>Worked example</h3><p>Torque = 15 × 0.40 = <b>6.0 N m</b>. Check by moments about the centre: 15 × 0.20 + 15 × 0.20 = 6.0 N m. The torque of a couple is the same about any point.</p></div>
+      <div class="trap"><h3>Trap</h3><p>Multiplying by both forces (2F × d), or using the radius instead of the distance between the lines of action.</p></div>
+    </section>
+
+    <section class="slide" data-title="Equilibrium">
+      <p class="kicker">4.2.1 and 4.2.2 · Principle of moments</p>
+      <h2>Two conditions for equilibrium</h2>
+      <div class="def"><b class="lab">Principle of moments</b>For a body in (rotational) equilibrium, the sum of the clockwise moments about any point equals the sum of the anticlockwise moments about that same point.</div>
+      <div class="grid">
+        <div class="box"><h3>Condition 1</h3><p><b>No resultant force</b>: forces up = forces down, forces left = forces right.</p></div>
+        <div class="box"><h3>Condition 2</h3><p><b>No resultant torque</b> (moment) about any point.</p></div>
+      </div>
+      <figure class="fig">
+        <svg viewBox="0 0 400 150" role="img" aria-label="Uniform beam 6 m long on supports at A and B, weight 300 N at centre and load 900 N at 2 m from A">
+          <defs><marker id="m7" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="s-ink"/></marker></defs>
+          <rect class="s-fill" x="40" y="66" width="320" height="12"/>
+          <path class="s-fill" d="M40 78 L30 100 H50 Z M360 78 L350 100 H370 Z"/>
+          <path class="s-g" d="M40 140 V84" marker-end="url(#m7)"/>
+          <path class="s-g" d="M360 140 V84" marker-end="url(#m7)"/>
+          <path class="s-w" d="M200 78 V124" marker-end="url(#m7)"/>
+          <path class="s-a" d="M147 20 V62" marker-end="url(#m7)"/>
+          <text class="s-t" x="14" y="62">A</text><text class="s-t" x="374" y="62">B</text>
+          <text class="s-t" x="48" y="136">R_A</text><text class="s-t" x="322" y="136">R_B</text>
+          <text class="s-t" x="208" y="122">300 N</text><text class="s-t" x="156" y="30">900 N</text>
+          <text class="s-m" x="80" y="58">2.0 m</text><text class="s-m" x="190" y="58">3.0 m (centre)</text>
+        </svg>
+        <figcaption>Uniform beam, 6.0 m, weight 300 N, load 900 N at 2.0 m from A.</figcaption>
+      </figure>
+      <div class="box hl"><h3>Worked example</h3>
+        <div class="work">moments about A (removes R_A):
+R_B × 6.0 = 300 × 3.0 + 900 × 2.0 = 2700  →  R_B = 450 N
+forces:  R_A + R_B = 300 + 900  →  R_A = 750 N</div>
+        <p><b>Tip:</b> take moments about the point where an unknown force acts. Its moment is zero, so it vanishes from the equation.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Vector triangle">
+      <p class="kicker">4.2.3 · Three forces in equilibrium</p>
+      <h2>The forces close into a triangle</h2>
+      <p>If three coplanar forces keep a body in equilibrium, drawing them tip to tail makes a <b>closed triangle</b>: the resultant is zero.</p>
+      <div class="grid">
+        <figure class="fig">
+          <svg viewBox="0 0 220 200" role="img" aria-label="Closed vector triangle: weight 50 N down, horizontal pull H, tension T at 30 degrees to vertical">
+            <defs><marker id="m8" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="s-ink"/></marker></defs>
+            <path class="s-w" d="M60 20 V170" marker-end="url(#m8)"/>
+            <path class="s-g" d="M60 172 H144" marker-end="url(#m8)"/>
+            <path class="s-a" d="M146 170 L62 24" marker-end="url(#m8)"/>
+            <text class="s-t" x="12" y="100">50 N</text>
+            <text class="s-t" x="86" y="190">H</text>
+            <text class="s-t" x="112" y="90">T</text>
+            <text class="s-m" x="70" y="50">30°</text>
+          </svg>
+          <figcaption>Weight, then H, then T: back to the start.</figcaption>
+        </figure>
+        <div class="box hl"><h3>Worked example</h3>
+          <p>A 50 N lamp hangs from a cable at 30° to the vertical, pulled sideways by a horizontal rope. Find the tension T and the horizontal pull H.</p>
+          <div class="work">vertical:   T cos 30° = 50  → T = 57.7 N
+horizontal: H = T sin 30°   → H = 28.9 N
+(or H = 50 tan 30°)</div>
+        </div>
+      </div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Three friends pull a toy with ropes and it doesn't move. If you draw each pull as an arrow, end to start, the arrows join up into a triangle and you end where you began. That means nobody is winning.</p></div>
+    </section>
+
+    <section class="slide" data-title="Density">
+      <p class="kicker">4.3.1 · Density</p>
+      <h2>Mass per unit volume</h2>
+      <div class="def"><b class="lab">Density</b>Mass per unit volume. ρ = m / V, unit kg m⁻³.</div>
+      <div class="box hl"><h3>Worked example</h3>
+        <p>A block measures 5.0 cm × 4.0 cm × 2.0 cm and has mass 108 g. Find its density in SI units.</p>
+        <div class="work">V = 5.0 × 4.0 × 2.0 = 40 cm³ = 40 × 10⁻⁶ m³ = 4.0 × 10⁻⁵ m³
+ρ = 0.108 / 4.0 × 10⁻⁵ = 2700 kg m⁻³   (aluminium)</div>
+      </div>
+      <div class="tw"><table>
+        <tr><th>Material</th><th>Typical density / kg m⁻³</th></tr>
+        <tr><td>Air (room conditions)</td><td class="num">about 1.2</td></tr>
+        <tr><td>Water</td><td class="num">1000</td></tr>
+        <tr><td>Aluminium</td><td class="num">about 2700</td></tr>
+        <tr><td>Steel / iron</td><td class="num">about 7800–7900</td></tr>
+      </table></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>A pillow and a brick of the same size: the brick is much heavier because its "stuff" is packed in tighter. That tightness is density.</p></div>
+    </section>
+
+    <section class="slide" data-title="Pressure">
+      <p class="kicker">4.3.2 · Pressure</p>
+      <h2>Normal force per unit area</h2>
+      <div class="def"><b class="lab">Pressure</b>Force acting normally (perpendicular) per unit area. p = F / A, unit Pa = N m⁻².</div>
+      <div class="box hl"><h3>Worked example</h3>
+        <p>A person of weight 600 N stands on both feet, total contact area 0.040 m². p = 600 / 0.040 = <b>1.5 × 10⁴ Pa</b>. On one stiletto heel of area 1.0 cm² = 1.0 × 10⁻⁴ m², the same weight gives p = <b>6.0 × 10⁶ Pa</b>, 400 times more.</p>
+      </div>
+      <ul>
+        <li>Pressure is a <b>scalar</b>: at a point in a fluid it acts equally in all directions.</li>
+        <li>If a force is at an angle to a surface, only its <b>normal component</b> counts.</li>
+      </ul>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Pressing a pin into a board is easy because all your push goes into a tiny point. Pressing with your flat thumb doesn't go in, even with the same push, because it's spread out.</p></div>
+    </section>
+
+    <section class="slide" data-title="Hydrostatic pressure">
+      <p class="kicker">4.3.3 and 4.3.4 · Derivation and use</p>
+      <h2>Deriving Δp = ρgΔh</h2>
+      <p>Consider a column of liquid of density ρ, height Δh and cross-sectional area A.</p>
+      <ol class="steps">
+        <li>Volume of column: V = A Δh.</li>
+        <li>Mass (from density): m = ρV = ρAΔh.</li>
+        <li>Weight: W = mg = ρAΔh g.</li>
+        <li>Pressure (from definition) = W / A = ρAΔhg / A, so <b>Δp = ρgΔh</b>.</li>
+      </ol>
+      <p>A cancels, so the pressure depends only on <b>depth</b>, not on the width or shape of the container.</p>
+      <div class="box hl"><h3>Worked example</h3>
+        <p>A diver is 12 m below the surface of water (ρ = 1000 kg m⁻³). Atmospheric pressure is 1.01 × 10⁵ Pa.</p>
+        <div class="work">extra pressure from water: Δp = 1000 × 9.81 × 12 = 1.18 × 10⁵ Pa
+total pressure on diver = 1.01 × 10⁵ + 1.18 × 10⁵ = 2.19 × 10⁵ Pa</div>
+      </div>
+      <div class="trap"><h3>Trap</h3><p>Δp = ρgΔh is the pressure <b>due to the liquid</b>. If the question asks for the <b>total</b> pressure, add atmospheric pressure. Read which one is asked.</p></div>
+    </section>
+
+    <section class="slide" data-title="Upthrust">
+      <p class="kicker">4.3.5 and 4.3.6 · Upthrust</p>
+      <h2>Upthrust comes from a pressure difference</h2>
+      <figure class="fig">
+        <svg viewBox="0 0 400 200" role="img" aria-label="Block submerged in liquid; small downward force on top surface and larger upward force on bottom surface">
+          <defs><marker id="m9" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="s-ink"/></marker></defs>
+          <rect class="s-fa" x="20" y="20" width="360" height="176"/>
+          <path class="s-d" d="M20 20 H380"/>
+          <rect class="s-fill" x="150" y="70" width="100" height="70"/>
+          <path class="s-w" d="M200 40 V66" marker-end="url(#m9)"/>
+          <path class="s-a" d="M200 190 V144" marker-end="url(#m9)"/>
+          <text class="s-t" x="208" y="54">p₁A (smaller, top)</text>
+          <text class="s-t" x="208" y="178">p₂A (bigger, bottom)</text>
+          <text class="s-m" x="262" y="110">height h, area A</text>
+        </svg>
+        <figcaption>The bottom face is deeper, so pressure there is bigger.</figcaption>
+      </figure>
+      <div class="work">upthrust = p₂A − p₁A = (ρ_f g h) × A = ρ_f g V</div>
+      <div class="formula">F = ρ g V &nbsp; (ρ = density of the FLUID, V = volume submerged)</div>
+      <p><b>Archimedes' principle:</b> the upthrust equals the weight of fluid displaced. (Sideways forces on the vertical faces cancel.)</p>
+      <div class="box hl"><h3>Worked example</h3>
+        <p>An aluminium block (ρ = 2700 kg m⁻³) of volume 1.0 × 10⁻³ m³ is fully submerged in water.</p>
+        <div class="work">upthrust = 1000 × 9.81 × 1.0 × 10⁻³ = 9.81 N
+weight    = 2700 × 1.0 × 10⁻³ × 9.81 = 26.5 N
+tension needed to hold it still = 26.5 − 9.81 = 16.7 N</div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Floating">
+      <p class="kicker">4.3.6 · Applying upthrust</p>
+      <h2>A floating object: upthrust = weight</h2>
+      <p>A floating object is in equilibrium, so upthrust = weight. Only part of it is under the surface.</p>
+      <div class="work">ρ_fluid × g × V_submerged = ρ_object × g × V_total
+fraction submerged = V_submerged / V_total = ρ_object / ρ_fluid</div>
+      <div class="box hl"><h3>Worked example</h3><p>Wood of density 600 kg m⁻³ in water: fraction submerged = 600/1000 = <b>0.60</b>. Ice (about 920 kg m⁻³) in fresh water: about 92% is under the surface, which is why most of an iceberg is hidden.</p></div>
+      <ul>
+        <li>Object denser than fluid: weight &gt; maximum upthrust, so it sinks.</li>
+        <li>Object less dense: it rises until it floats with upthrust = weight.</li>
+      </ul>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Push a beach ball under water and it shoves back up hard. Water pushes up more from underneath than it pushes down from above, because deeper water squeezes harder.</p></div>
+    </section>
+
+    
+    <section class="slide" data-title="Lab: beam on two supports" data-sec="lab">
+      <p class="kicker">Interactive lab · 4.2</p>
+      <h2>Balance a beam</h2>
+      <p>A uniform 6.0 m beam rests on supports at A and B. Slide the load along it and watch the support forces change. Moments are taken about A.</p>
+      <div class="lab">
+        <div class="ctls">
+          <label class="ctl" for="l4w"><span>Beam weight W <output id="l4wo"></output></span><input type="range" id="l4w" min="0" max="600" step="10" value="300"></label>
+          <label class="ctl" for="l4l"><span>Load L <output id="l4lo"></output></span><input type="range" id="l4l" min="0" max="1200" step="10" value="900"></label>
+          <label class="ctl" for="l4x"><span>Load distance from A <output id="l4xo"></output></span><input type="range" id="l4x" min="0" max="6" step="0.1" value="2"></label>
+          <div class="readout">
+            <div class="mono" id="l4eq"></div>
+            <div>R_A = <b id="l4ra"></b> · R_B = <b id="l4rb"></b></div>
+            <div class="mut">Check: R_A + R_B = W + L</div>
+          </div>
+        </div>
+        <svg id="l4s" viewBox="0 0 400 230" role="img" aria-label="Beam with weight, load and two support forces drawn to scale">
+          <defs><marker id="l4m" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="s-ink"/></marker></defs>
+          <rect class="s-fill" x="40" y="108" width="320" height="10"/>
+          <path class="s-fill" d="M40 118 L31 134 H49 Z M360 118 L351 134 H369 Z"/>
+          <text class="s-t" x="34" y="150">A</text><text class="s-t" x="354" y="150">B</text>
+          <path id="l4A" class="s-g" marker-end="url(#l4m)"/><path id="l4B" class="s-g" marker-end="url(#l4m)"/>
+          <path id="l4W" class="s-w" marker-end="url(#l4m)"/><path id="l4L" class="s-a" marker-end="url(#l4m)" style="stroke-width:3.2"/>
+          <text id="l4At" class="s-t"></text><text id="l4Bt" class="s-t"></text><text id="l4Wt" class="s-m"></text><text id="l4Lt" class="s-t"></text>
+        </svg>
+      </div>
+      <script>
+      (function(){
+        function $(i){return document.getElementById(i);}
+        function arrow(id,x,y1,y2){$(id).setAttribute('d',Math.abs(y2-y1)>4?'M'+x+' '+y1+' V'+y2:'');}
+        function txt(id,x,y,s){var t=$(id);t.setAttribute('x',x);t.setAttribute('y',y);t.textContent=s;}
+        function upd(){
+          var W=+$('l4w').value,L=+$('l4l').value,x=+$('l4x').value,RB=(W*3+L*x)/6,RA=W+L-RB,k=0.05,px=40+x*320/6;
+          $('l4wo').textContent=W+' N';$('l4lo').textContent=L+' N';$('l4xo').textContent=x.toFixed(1)+' m';
+          $('l4ra').textContent=RA.toFixed(0)+' N';$('l4rb').textContent=RB.toFixed(0)+' N';
+          $('l4eq').textContent='R_B × 6.0 = '+W+' × 3.0 + '+L+' × '+x.toFixed(1)+'  →  R_B = '+RB.toFixed(0)+' N';
+                    arrow('l4A',40,124+RA*k,124);arrow('l4B',360,124+RB*k,124);
+          arrow('l4W',200,118,118+W*k);arrow('l4L',px,104-L*k,104);
+          txt('l4At',48,200,'R_A');txt('l4Bt',316,200,'R_B');txt('l4Wt',206,128+W*k*0.6,'W');txt('l4Lt',px+6,Math.max(14,104-L*k+12),'L');
+        }
+        ['l4w','l4l','l4x'].forEach(function(i){$(i).oninput=upd;});upd();
+      })();
+      </script>
+    </section>
+
+    <section class="slide" data-title="Exam traps" data-traps>
+      <p class="kicker">Exam traps · Topic 4</p>
+      <h2>Where marks are lost</h2>
+      <p>Patterns from 9702 examiner reports and mark schemes for this topic. The Past papers slide shows the exact questions.</p>
+      <div class="grid">
+        <div class="trap"><h3>Moment definition missing "perpendicular"</h3><p>"Force × distance" scores nothing.</p><p class="fix">Force × perpendicular distance from the pivot to the line of action of the force.</p></div>
+        <div class="trap"><h3>Using the wrong distance</h3><p>Measuring along the beam to the point of application when the force is at an angle.</p><p class="fix">Find d⊥ with trig, or use the perpendicular component of the force.</p></div>
+        <div class="trap"><h3>Principle of moments without conditions</h3><p>Missing "in equilibrium" or "about the same point".</p><p class="fix">Include both phrases.</p></div>
+        <div class="trap"><h3>Equilibrium: only one condition</h3><p>Stating only "resultant force is zero".</p><p class="fix">Zero resultant force AND zero resultant torque.</p></div>
+        <div class="trap"><h3>Couple torque doubled</h3><p>Using 2F × d.</p><p class="fix">One force × perpendicular distance between the lines of action.</p></div>
+        <div class="trap"><h3>Wrong density in upthrust</h3><p>Using the object's density in F = ρgV.</p><p class="fix">ρ is the fluid's density. V is the volume submerged.</p></div>
+        <div class="trap"><h3>Explaining upthrust</h3><p>"Water pushes up" or "it is less dense" without the mechanism.</p><p class="fix">Pressure increases with depth, so the force on the bottom surface is greater than on the top.</p></div>
+        <div class="trap"><h3>Unit conversions</h3><p>cm² and cm³ treated like cm.</p><p class="fix">1 cm² = 10⁻⁴ m², 1 cm³ = 10⁻⁶ m³.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Mark-scheme wording">
+      <p class="kicker">Definitions to learn word for word</p>
+      <h2>What examiners want to read</h2>
+      <div class="tw"><table>
+        <tr><th>Term</th><th>Answer that scores</th></tr>
+        <tr><td>Centre of gravity</td><td>Point where the (whole) weight of an object may be considered to act</td></tr>
+        <tr><td>Moment of a force</td><td>Force × perpendicular distance from the pivot to the line of action of the force</td></tr>
+        <tr><td>Couple</td><td>Pair of equal and opposite forces whose lines of action do not coincide; produces rotation only</td></tr>
+        <tr><td>Torque of a couple</td><td>One of the forces × perpendicular distance between the lines of action of the forces</td></tr>
+        <tr><td>Principle of moments</td><td>For a body in equilibrium, sum of clockwise moments about a point = sum of anticlockwise moments about the same point</td></tr>
+        <tr><td>Equilibrium</td><td>No resultant force and no resultant torque</td></tr>
+        <tr><td>Density</td><td>Mass per unit volume</td></tr>
+        <tr><td>Pressure</td><td>Normal force per unit area</td></tr>
+        <tr><td>Upthrust (origin)</td><td>Due to the difference in hydrostatic pressure between the top and bottom surfaces</td></tr>
+      </table></div>
+    </section>
+
+    <section class="slide" data-title="Past papers" data-sec="pp">
+      <p class="kicker">Real past-paper evidence</p>
+      <h2>What students actually got wrong</h2>
+      <p>Each card is a real 9702 question that Cambridge's examiners commented on. Read what was asked, decide what the trap is, then tap to check.</p>
+      <div class="chips" id="ppChips"></div>
+      <div class="ppgrid" id="ppGrid"></div>
+      <p class="src" id="ppSrc"></p>
+    </section>
+
+    <section class="slide" data-title="Trap quiz" data-sec="quiz">
+      <p class="kicker">Trap quiz</p>
+      <h2>Can you dodge the traps?</h2>
+      <p>Each question is built around a trap from the past papers. The wrong options are the answers students really chose.</p>
+      <div class="qz" id="quiz"></div>
+    </section>
+
+    <section class="slide" data-title="Flashcards" data-sec="fc">
+      <p class="kicker">Flashcards</p>
+      <h2>Test yourself</h2>
+      <div class="chips" id="chips"></div>
+      <div class="fc-scene"><div class="fc-inner" id="card" role="button" tabindex="0" aria-live="polite">
+        <div class="face front"><div class="side" id="fSide"></div><div class="txt" id="fQ"></div><div class="hint">Tap to flip</div></div>
+        <div class="face back"><div class="side">Answer</div><div class="txt" id="fA"></div><div class="hint">Tap to flip back</div></div>
+      </div></div>
+      <div class="fc-tools">
+        <button type="button" id="prev">Previous</button>
+        <button type="button" id="flip">Flip</button>
+        <button type="button" id="next">Next</button>
+        <button type="button" class="good" id="know">I knew it</button>
+        <button type="button" class="bad" id="again">Practise again</button>
+        <button type="button" id="shuffle">Shuffle</button>
+        <button type="button" id="reset">Reset</button>
+      </div>
+      <div class="fc-meta" id="meta"></div>
+      <p class="tag">Keys: Space flips, arrow keys move between cards</p>
+    </section>
+
+  </main>
+  <nav class="nav">
+    <button type="button" id="pv">Back</button>
+    <div class="count" id="count"></div>
+    <button type="button" id="nx">Next</button>
+  </nav>
+</div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Contents">
+  <h3>Contents <button class="x" id="dClose" type="button">Close</button></h3>
+  <ol id="toc"></ol>
+</aside>
+
+<script>
+(function(){
+  var DECKID='d4';
+  var CARDS=[["Moments", "Define centre of gravity", "Point where the whole weight of an object may be considered to act"], ["Moments", "Where is the centre of gravity of a uniform beam?", "At its midpoint"], ["Moments", "Define the moment of a force", "Force × perpendicular distance from the pivot to the line of action of the force"], ["Moments", "Unit of moment", "N m"], ["Moments", "Moment of a force whose line of action passes through the pivot", "Zero (perpendicular distance is zero)"], ["Moments", "40 N at 60° to a 0.25 m spanner. Moment?", "8.7 N m (40 × 0.25 sin 60°)"], ["Moments", "Define a couple", "Pair of equal and opposite forces whose lines of action do not coincide; rotation only"], ["Moments", "Define torque of a couple", "One force × perpendicular distance between the lines of action"], ["Moments", "Resultant force of a couple", "Zero"], ["Moments", "15 N couple on a 0.40 m wheel. Torque?", "6.0 N m"], ["Equilibrium", "State the principle of moments", "For a body in equilibrium, sum of clockwise moments about a point = sum of anticlockwise moments about the same point"], ["Equilibrium", "Two conditions for equilibrium", "No resultant force and no resultant torque"], ["Equilibrium", "Best point to take moments about", "Where an unknown force acts, so its moment is zero"], ["Equilibrium", "Three coplanar forces in equilibrium form what?", "A closed vector triangle"], ["Equilibrium", "50 N lamp, cable at 30° to vertical. Tension?", "57.7 N (50 / cos 30°)"], ["Density & pressure", "Define density", "Mass per unit volume"], ["Density & pressure", "Define pressure", "Normal force per unit area"], ["Density & pressure", "Unit of pressure in base units", "kg m⁻¹ s⁻² (Pa)"], ["Density & pressure", "Is pressure a scalar or vector?", "Scalar"], ["Density & pressure", "108 g block of volume 40 cm³. Density in SI?", "2700 kg m⁻³"], ["Density & pressure", "Hydrostatic pressure equation", "Δp = ρgΔh"], ["Density & pressure", "Does hydrostatic pressure depend on container shape?", "No, only on depth (area cancels)"], ["Density & pressure", "Pressure due to 12 m of water", "1.18 × 10⁵ Pa"], ["Density & pressure", "Total pressure 12 m under water (atm 1.01 × 10⁵ Pa)", "2.19 × 10⁵ Pa"], ["Upthrust", "What causes upthrust?", "Difference in hydrostatic pressure between bottom and top surfaces"], ["Upthrust", "Upthrust equation", "F = ρgV, ρ = fluid density, V = submerged volume"], ["Upthrust", "State Archimedes' principle", "Upthrust = weight of fluid displaced"], ["Upthrust", "Condition for floating", "Upthrust = weight"], ["Upthrust", "Fraction submerged for wood of 600 kg m⁻³ in water", "0.60"], ["Upthrust", "Upthrust on 1.0 × 10⁻³ m³ fully submerged in water", "9.81 N"]], PPD=[["Nov 2023", "9702/13", "12", "Tension in a boom (moments)", "Some put the boom's weight at its far end instead of its centre.", "A uniform object's weight acts at its midpoint."], ["Jun 2023", "9702/12", "12", "Moments about X for a rod", "The most popular wrong answer put the rod's weight at end Y.", "Weight acts at the centre of gravity, which is the middle for a uniform rod."], ["Jun 2023", "9702/12", "11", "Moment of F about O", "Some used F × WO instead of the perpendicular distance from O to the line of F.", "Moment = F × perpendicular distance to the line of action."], ["Jun 2023", "9702/11", "13", "Tension from a force triangle", "Some confused cos θ and sin θ.", "Label the angle in the triangle before choosing sin or cos."], ["Nov 2023", "9702/12", "13", "Ball on a string in an airflow", "The most popular wrong answer used 0.15 sin 30.", "Draw the closed force triangle and check which side is opposite the angle."], ["Mar 2024", "9702/12", "17", "Conditions for equilibrium", "Students chose options with only one condition.", "Equilibrium means zero resultant force AND zero resultant moment."], ["Nov 2023", "9702/23", "3(a)", "State the conditions for equilibrium", "Students left out the resultant moment, and some confused moment with momentum.", "Two conditions. Moment (turning) is not momentum (mv)."], ["Jun 2023", "9702/22", "2(a)", "Define centre of gravity", "Students said it is where weight \"actually\" acts, or talked about mass.", "The point where the (whole) weight may be considered to act."], ["Nov 2022", "9702/23", "3(a)", "State the principle of moments", "Many defined the moment of a force instead.", "For a body in equilibrium, Σ clockwise moments = Σ anticlockwise moments about the same point."], ["Jun 2023", "9702/21", "2(a)", "Moments about a hinge", "Students used the wrong perpendicular distances and mixed up clockwise and anticlockwise.", "Sketch each force's line of action and its d⊥."], ["Jun 2023", "9702/22", "2(b)", "Principle of moments with an angled cable", "Students did not resolve the tension perpendicular to the beam, and added moments instead of subtracting.", "Use only the perpendicular component. Opposite senses subtract."], ["Nov 2022", "9702/22", "3(b)", "Beam held by a cable", "Students used the full beam length for the beam's weight and assumed the horizontal component was zero.", "Weight acts at half the length. A cable at an angle has two components."], ["Nov 2023", "9702/12", "14", "Upthrust on cylinders X and Y", "Students misjudged the pressure difference between top and bottom.", "Equal volumes in the same fluid give equal upthrust (F = ρgV)."], ["Jun 2023", "9702/11", "15", "Ball floating in water", "Many gave the percentage below the surface when asked for the percentage above.", "Read exactly which fraction is asked for."], ["Jun 2023", "9702/13", "14", "Upthrust", "Students found Archimedes' principle hard to apply.", "Upthrust = weight of fluid displaced = ρ_fluid g V_submerged."], ["Jun 2023", "9702/21", "4(c)–(d)", "Pressure change and new tension", "Students used one pressure instead of the change, forgot g, and gave the upthrust as the new tension.", "Δp = ρgΔh. New tension = old tension − upthrust."], ["Nov 2022", "9702/13", "15", "Pressure under a cube", "Just over half were correct.", "p = W/A = ρL³g/L² = ρgL."], ["Nov 2022", "9702/23", "3(c)(iii)", "Moments with weight and upthrust", "Most included only one of the two forces.", "Every force on the body has a moment. Include both."], ["Mar 2024", "9702/12", "12", "Pressure at the bottom of a borehole", "Students found it difficult.", "Add the ρgh contributions of each fluid layer."], ["Nov 2023", "9702/21", "1(b)(i)", "Volume of a sphere", "Many used the wrong formula.", "V = (4/3)πr³. Also needed for density and upthrust."]], QZD=[["The moment of a force about a point is", ["force × distance from the point", "force × perpendicular distance from the point to the line of action", "force ÷ distance", "force × distance moved"], 1, "\"Perpendicular\" and \"line of action\" are the marking points.", "Jun 2023 9702/12 Q11", false], ["A uniform 2.0 m rod of weight 30 N is hinged at one end and held horizontal by a vertical string at the other end. Tension?", ["60 N", "30 N", "15 N", "7.5 N"], 2, "Moments about the hinge: T × 2.0 = 30 × 1.0, so T = 15 N. 30 N comes from putting the weight at the end.", "Nov 2023 9702/13 Q12", true], ["A body is in equilibrium when", ["resultant force is zero", "resultant moment is zero", "both resultant force and resultant moment are zero", "it is at rest"], 2, "Both conditions are needed. A body moving at constant velocity can also be in equilibrium.", "Mar 2024 9702/12 Q17", false], ["A block floats with 30% of its volume above water (ρ = 1000 kg m⁻³). Its density is", ["300 kg m⁻³", "700 kg m⁻³", "1300 kg m⁻³", "1000 kg m⁻³"], 1, "Fraction submerged = 0.70 = ρ_block/ρ_water, so 700 kg m⁻³.", "Jun 2023 9702/11 Q15", true], ["An aluminium cylinder and a wooden cylinder of equal volume are held fully under water. Upthrust is", ["bigger on aluminium", "bigger on wood", "equal", "zero on wood"], 2, "F = ρ_water g V. Same V gives the same upthrust. The object's density does not matter.", "Nov 2023 9702/12 Q14", false], ["A cube of side L and density ρ rests on a face. The pressure it exerts is", ["ρgL³", "ρgL²", "ρgL", "ρg/L"], 2, "p = W/A = ρL³g ÷ L² = ρgL.", "Nov 2022 9702/13 Q15", true], ["Two 10 N forces form a couple, with lines of action 0.30 m apart. Torque?", ["6.0 N m", "3.0 N m", "1.5 N m", "33 N m"], 1, "Torque = one force × separation = 10 × 0.30 = 3.0 N m.", "", true], ["Pressure increase going from 5 m to 15 m deep in water?", ["4.9 × 10⁴ Pa", "9.8 × 10⁴ Pa", "1.5 × 10⁵ Pa", "1.0 × 10⁴ Pa"], 1, "Δp = ρgΔh = 1000 × 9.81 × 10 = 9.8 × 10⁴ Pa.", "Jun 2023 9702/21 Q4(c)", true]], SRC=[["Nov 2022 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2022/9702_w22_er.pdf"], ["Jun 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2023/9702_s23_er.pdf"], ["Nov 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2023/9702_w23_er.pdf"], ["Mar 2024 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2024/9702_m24_er.pdf"]];
+  function $(i){return document.getElementById(i);}
+  function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;}
+  var main=$('main'), slides=[].slice.call(document.querySelectorAll('.slide')), cur=0;
+  function secOf(s,k){
+    if(s.dataset.sec)return s.dataset.sec;
+    if(k===0)return 'start';
+    if(s.hasAttribute('data-traps')||s.dataset.title==='Mark-scheme wording')return 'exam';
+    return 'learn';
+  }
+  var SECN={start:'Start',learn:'Learn',lab:'Interactive lab',exam:'Exam technique',pp:'Past papers',quiz:'Quiz',fc:'Flashcards'};
+  slides.forEach(function(s,k){s.dataset.sec=secOf(s,k);});
+  function idx(sec){for(var k=0;k<slides.length;k++)if(slides[k].dataset.sec===sec)return k;return 0;}
+  /* section bar + toc */
+  var segs=$('segs'), toc=$('toc');
+  slides.forEach(function(s,k){
+    var b=el('button','sec-'+s.dataset.sec);b.type='button';b.title=(k+1)+'. '+s.dataset.title;b.setAttribute('aria-label',b.title);b.onclick=function(){show(k);};segs.appendChild(b);
+    var li=el('li'),bt=el('button','sec-'+s.dataset.sec);bt.type='button';bt.appendChild(el('i'));bt.appendChild(document.createTextNode((k+1)+'. '+s.dataset.title));bt.onclick=function(){show(k);closeD();};li.appendChild(bt);toc.appendChild(li);
+  });
+  function show(n,anim){
+    cur=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.hidden=(k!==cur);s.classList.remove('enter');});
+    if(anim!==false){void slides[cur].offsetWidth;slides[cur].classList.add('enter');}
+    [].forEach.call(segs.children,function(b,k){b.className='sec-'+slides[k].dataset.sec+(k<cur?' done':'')+(k===cur?' on':'');});
+    [].forEach.call(toc.querySelectorAll('button'),function(b,k){b.classList.toggle('on',k===cur);});
+    $('count').textContent=(cur+1)+' / '+slides.length+' · '+slides[cur].dataset.title;
+    $('pv').disabled=(cur===0);$('nx').disabled=(cur===slides.length-1);
+    main.scrollTop=0;
+    if(typeof sizePads==='function')requestAnimationFrame(sizePads);
+    var P=prog();if(P.v.indexOf(cur)<0)P.v.push(cur);P.last=cur;P.n=slides.length;P.t=Date.now();lsSet('hub:'+DECKID,P);
+  }
+  function prog(){var P=lsGet('hub:'+DECKID)||{};P.v=P.v||[];P.known=P.known||{};return P;}
+  $('pv').onclick=function(){show(cur-1);};$('nx').onclick=function(){show(cur+1);};
+  $('bPP').onclick=function(){show(idx('pp'));};$('bQuiz').onclick=function(){show(idx('quiz'));};$('bFC').onclick=function(){show(idx('fc'));};
+  function openD(){$('drawer').hidden=false;$('scrim').hidden=false;$('dClose').focus();}
+  function closeD(){$('drawer').hidden=true;$('scrim').hidden=true;}
+  $('bContents').onclick=openD;$('dClose').onclick=closeD;$('scrim').onclick=closeD;
+  /* swipe */
+  var sx=null,sy=null;
+  main.addEventListener('touchstart',function(e){var t=e.target;if(t.closest&&t.closest('input,.lab svg,.tw,.work,.formula,.pad')){sx=null;return;}sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  main.addEventListener('touchend',function(e){if(sx==null)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>70&&Math.abs(dy)<45){show(cur+(dx<0?1:-1));}sx=null;},{passive:true});
+  /* title slide: what's inside */
+  var ins=document.querySelector('[data-inside]');
+  if(ins){
+    var nW=document.querySelectorAll('.work').length;
+    var tiles=[['learn',slides.filter(function(s){return s.dataset.sec==='learn';}).length,'concept slides'],['learn',nW,'worked examples'],['lab',slides.filter(function(s){return s.dataset.sec==='lab';}).length,'interactive lab'],['pp',PPD.length,'real past-paper traps'],['quiz',QZD.length,'quiz questions'],['fc',CARDS.length,'flashcards']];
+    tiles.forEach(function(t){var b=el('button','sec-'+t[0]);b.type='button';b.appendChild(el('b',null,String(t[1])));b.appendChild(el('span',null,t[2]));b.onclick=function(){show(idx(t[0]));};ins.appendChild(b);});
+  }
+
+  /* stylus working pads */
+  var PADSTORE={}, PADS=[], penSeen=false, DECK=document.title;
+  try{penSeen=localStorage.getItem('pad:penSeen')==='1';}catch(e){}
+  function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}}
+  function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  function makePad(key,label){
+    var sk='pad:'+DECK+':'+key;
+    var st=PADSTORE[key]||(PADSTORE[key]={strokes:lsGet(sk)||[],tool:'pen',col:0,big:false,penOnly:null});
+    var wrap=el('div','pad'),bar=el('div','padbar'),tools=el('div','padtools');
+    bar.appendChild(el('span','padlab',label));
+    function tb(txt,title,fn){var b=el('button','pt',txt);b.type='button';b.title=title;b.setAttribute('aria-label',title);b.onclick=fn;tools.appendChild(b);return b;}
+    var CV=['--ink','--accent','--bad'],CN=['Black pen','Colour pen','Red pen'];
+    var cb=CV.map(function(v,i){var b=tb('',CN[i],function(){st.tool='pen';st.col=i;sync();});b.className='pt dot';b.style.setProperty('--dc','var('+v+')');return b;});
+    var er=tb('Eraser','Eraser',function(){st.tool=st.tool==='eraser'?'pen':'eraser';sync();});
+    tb('Undo','Undo last stroke',function(){st.strokes.pop();save();redraw();});
+    var clr=tb('Clear','Clear the pad',function(){if(clr.dataset.c){st.strokes=[];save();redraw();clr.dataset.c='';clr.textContent='Clear';}else{clr.dataset.c='1';clr.textContent='Tap again to clear';setTimeout(function(){clr.dataset.c='';clr.textContent='Clear';},2500);}});
+    var po=tb('Pen only','Pen only: ignore finger and palm touches',function(){st.penOnly=!penOnly();sync();});
+    var bg=tb('Bigger','Make the pad taller',function(){st.big=!st.big;sync();size();});
+    bar.appendChild(tools);wrap.appendChild(bar);
+    var cv=el('canvas','padcv');cv.setAttribute('aria-label',label+': draw here with your stylus');wrap.appendChild(cv);
+    wrap.appendChild(el('div','padnote','Saved on this device. Once you use a stylus, finger and palm touches are ignored on the pads.'));
+    var ctx=cv.getContext('2d'),W=0,cur=null;
+    function penOnly(){return st.penOnly===null?penSeen:st.penOnly;}
+    function sync(){cb.forEach(function(b,i){b.setAttribute('aria-pressed',String(st.tool==='pen'&&st.col===i));});er.setAttribute('aria-pressed',String(st.tool==='eraser'));po.setAttribute('aria-pressed',String(penOnly()));bg.textContent=st.big?'Smaller':'Bigger';cv.style.height=(st.big?560:280)+'px';}
+    function size(){var r=cv.getBoundingClientRect();if(!r.width)return;var d=window.devicePixelRatio||1;W=r.width;cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0);redraw();}
+    function col(i){return getComputedStyle(wrap).getPropertyValue(CV[i]).trim()||'#111';}
+    function wid(s,pr){return s.e?24:(s.pen?1.1+pr*3.2:2.4);}
+    function seg(s,i){var k=W/s.bw,p=s.p;ctx.save();ctx.lineCap='round';ctx.lineJoin='round';
+      if(s.e)ctx.globalCompositeOperation='destination-out';
+      ctx.strokeStyle=ctx.fillStyle=s.e?'#000':col(s.c);
+      if(i===0){ctx.beginPath();ctx.arc(p[0][0]*k,p[0][1]*k,wid(s,p[0][2])*k/2,0,7);ctx.fill();}
+      else{ctx.lineWidth=wid(s,p[i][2])*k;ctx.beginPath();ctx.moveTo(p[i-1][0]*k,p[i-1][1]*k);ctx.lineTo(p[i][0]*k,p[i][1]*k);ctx.stroke();}
+      ctx.restore();}
+    function redraw(){ctx.clearRect(0,0,cv.width,cv.height);st.strokes.forEach(function(s){for(var i=0;i<s.p.length;i++)seg(s,i);});}
+    function save(){lsSet(sk,st.strokes);}
+    function pt(e){var r=cv.getBoundingClientRect();return [Math.round((e.clientX-r.left)*10)/10,Math.round((e.clientY-r.top)*10)/10,Math.round((e.pressure||0.5)*100)/100];}
+    cv.addEventListener('pointerdown',function(e){
+      if(e.pointerType==='pen'&&!penSeen){penSeen=true;try{localStorage.setItem('pad:penSeen','1');}catch(x){}PADS.forEach(function(p){p.sync();});}
+      if(e.pointerType==='touch'&&penOnly())return;
+      if(cur)return;
+      e.preventDefault();try{cv.setPointerCapture(e.pointerId);}catch(x){}
+      cur={bw:W,c:st.col,e:st.tool==='eraser'||(e.buttons&32)?1:0,pen:e.pointerType==='pen'?1:0,p:[pt(e)],id:e.pointerId};
+      st.strokes.push(cur);seg(cur,0);document.documentElement.classList.add('inking');
+    });
+    cv.addEventListener('pointermove',function(e){
+      if(!cur||e.pointerId!==cur.id)return;e.preventDefault();
+      var evs=e.getCoalescedEvents?e.getCoalescedEvents():[e];if(!evs.length)evs=[e];
+      evs.forEach(function(v){cur.p.push(pt(v));seg(cur,cur.p.length-1);});
+    });
+    function end(e){if(!cur||e.pointerId!==cur.id)return;var s=cur;cur=null;delete s.id;save();document.documentElement.classList.remove('inking');try{var sel=window.getSelection();if(sel)sel.removeAllRanges();}catch(x){}}
+    cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+    function isStylus(e){var ts=e.changedTouches||[];for(var i=0;i<ts.length;i++){if(ts[i].touchType==='stylus')return true;}return false;}
+    function tblock(e){if(isStylus(e)||!penOnly()||cur){if(e.cancelable)e.preventDefault();}}
+    cv.addEventListener('touchstart',tblock,{passive:false});
+    cv.addEventListener('touchmove',tblock,{passive:false});
+    cv.addEventListener('touchend',tblock,{passive:false});
+    ['contextmenu','selectstart','dragstart','gesturestart'].forEach(function(t){wrap.addEventListener(t,function(e){e.preventDefault();});});
+    sync();
+    var rec={wrap:wrap,size:size,sync:sync};PADS.push(rec);
+    return wrap;
+  }
+  function sizePads(){PADS.forEach(function(p){if(p.wrap.offsetParent)p.size();});}
+  window.addEventListener('resize',sizePads);
+  try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){setTimeout(sizePads,50);});}catch(e){}
+  new MutationObserver(function(){setTimeout(sizePads,30);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  /* reveal working */
+  [].forEach.call(document.querySelectorAll('.work'),function(w,i){
+    var box=w.parentNode;if(!box.classList.contains('box'))return;var wrap=el('div'); wrap.id='wk'+i; wrap.hidden=true;
+    var btn=el('button','rv','Try it first, then show the working');btn.type='button';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',wrap.id);
+    box.insertBefore(makePad('w'+i,'Your working · use your stylus'),w);box.insertBefore(btn,w);box.insertBefore(wrap,w);
+    var n=w;while(n){var nx=n.nextSibling;wrap.appendChild(n);n=nx;}
+    btn.onclick=function(){var o=wrap.hidden;wrap.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.textContent=o?'Hide the working':'Try it first, then show the working';};
+  });
+  /* past papers */
+  var ppF='All', ppg=$('ppGrid'), ppc=$('ppChips');
+  ['All','Paper 1 (MCQ)','Paper 2 (structured)'].forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===ppF?'true':'false');b.onclick=function(){ppF=t;[].forEach.call(ppc.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});ppRender();};ppc.appendChild(b);});
+  function ppRender(){
+    ppg.innerHTML='';
+    PPD.forEach(function(r){
+      var p1=/\/1\d/.test(r[1]);if(ppF==='Paper 1 (MCQ)'&&!p1)return;if(ppF==='Paper 2 (structured)'&&p1)return;
+      var c=el('button','pp');c.type='button';c.setAttribute('aria-expanded','false');
+      c.appendChild(el('span','ref',r[0]+' · '+r[1]+' · Q'+r[2]));
+      c.appendChild(el('span','ask',r[3]));
+      c.appendChild(el('span','hint','What went wrong? Tap to reveal'));
+      var g=el('span','got');g.appendChild(el('b',null,'Common error: '));g.appendChild(document.createTextNode(r[4]));c.appendChild(g);
+      var f=el('span','fx');f.appendChild(el('b',null,'Do this instead: '));f.appendChild(document.createTextNode(r[5]));c.appendChild(f);
+      c.onclick=function(){var o=!c.classList.contains('open');c.classList.toggle('open',o);c.setAttribute('aria-expanded',String(o));};
+      ppg.appendChild(c);
+    });
+  }
+  ppRender();
+  var sp=$('ppSrc');sp.appendChild(document.createTextNode('Summarised from Cambridge 9702 Principal Examiner Reports: '));
+  SRC.forEach(function(s,i){var a=el('a',null,s[0]);a.href=s[1];a.target='_blank';a.rel='noopener';sp.appendChild(a);if(i<SRC.length-1)sp.appendChild(document.createTextNode(' · '));});
+  /* quiz */
+  var qi=0, score=0, answered=false, qz=$('quiz');
+  function qRender(){
+    qz.innerHTML='';
+    if(qi>=QZD.length){var P=prog();P.best=Math.max(P.best||0,score);P.qn=QZD.length;lsSet('hub:'+DECKID,P);var d=el('div','qdone');d.appendChild(el('b',null,score+' / '+QZD.length));d.appendChild(el('p',null,score===QZD.length?'Every trap dodged. Go to the flashcards next.':'Look at the past-paper cards for the ones you missed, then try again.'));var r=el('button','qnext','Try again');r.type='button';r.onclick=function(){qi=0;score=0;qRender();};d.appendChild(r);qz.appendChild(d);return;}
+    var q=QZD[qi];answered=false;
+    var m=el('div','qmeta');m.appendChild(el('span',null,'Question '+(qi+1)+' of '+QZD.length));m.appendChild(el('span',null,'Score '+score));qz.appendChild(m);
+    var bar=el('div','qbar');var bi=el('i');bi.style.width=(qi/QZD.length*100)+'%';bar.appendChild(bi);qz.appendChild(bar);
+    qz.appendChild(el('div','qq',q[0]));
+    if(q[5]){qz.appendChild(makePad('q'+qi,'Working space'));requestAnimationFrame(sizePads);}
+    var os=el('div','qopts'),btns=[];
+    q[1].forEach(function(o,k){var b=el('button','qopt');b.type='button';b.appendChild(el('span','L','ABCD'[k]));b.appendChild(el('span',null,o));b.onclick=function(){if(answered)return;answered=true;if(k===q[2])score++;btns.forEach(function(x,j){x.disabled=true;if(j===q[2])x.classList.add('right');else if(j===k)x.classList.add('wrong');});
+      var fb=el('div','qfb');fb.appendChild(el('div',null,(k===q[2]?'Correct. ':'Not quite. The answer is '+'ABCD'[q[2]]+'. ')+q[3]));if(q[4])fb.appendChild(el('div','r','Trap seen in: '+q[4]));qz.appendChild(fb);
+      var n=el('button','qnext',qi===QZD.length-1?'See your score':'Next question');n.type='button';n.onclick=function(){qi++;qRender();};qz.appendChild(n);n.focus();};btns.push(b);os.appendChild(b);});
+    qz.appendChild(os);
+  }
+  qRender();
+  /* flashcards */
+  var topic="All", order=[], pos=0, flipped=false, known=prog().known;
+  function saveKnown(){var P=prog();P.known=known;P.kn=CARDS.length;lsSet('hub:'+DECKID,P);}
+  var topics=["All"];CARDS.forEach(function(c){if(topics.indexOf(c[0])<0)topics.push(c[0]);});
+  var chipsEl=$('chips'), cardEl=$('card'), metaEl=$('meta');
+  topics.forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===topic?'true':'false');b.onclick=function(){topic=t;[].forEach.call(chipsEl.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});build(false);};chipsEl.appendChild(b);});
+  function build(shuf){order=[];CARDS.forEach(function(c,k){if(topic==="All"||c[0]===topic)order.push(k);});if(shuf){for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}}pos=0;flipped=false;render();}
+  function render(){
+    if(!order.length)return;var c=CARDS[order[pos]];
+    cardEl.classList.toggle('flip',flipped);
+    $('fSide').textContent='Question · '+c[0];$('fQ').textContent=c[1];$('fA').textContent=c[2];
+    var n=0;order.forEach(function(k){if(known[k])n++;});
+    metaEl.textContent='Card '+(pos+1)+' of '+order.length+' · Known: '+n+' of '+order.length;
+  }
+  function move(d){var was=flipped;flipped=false;cardEl.classList.remove('flip');setTimeout(function(){pos=(pos+d+order.length)%order.length;render();},was?260:0);}
+  function flip(){flipped=!flipped;cardEl.classList.toggle('flip',flipped);}
+  cardEl.onclick=flip;cardEl.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();flip();}};
+  $('flip').onclick=flip;$('next').onclick=function(){move(1);};$('prev').onclick=function(){move(-1);};
+  $('shuffle').onclick=function(){build(true);};$('reset').onclick=function(){known={};saveKnown();build(false);};
+  $('know').onclick=function(){known[order[pos]]=true;saveKnown();move(1);};$('again').onclick=function(){delete known[order[pos]];saveKnown();move(1);};
+  document.addEventListener('keydown',function(e){
+    var t=e.target;if(t&&(t.tagName==='INPUT'))return;
+    if(e.key==='Escape'){closeD();return;}
+    if(!$('drawer').hidden)return;
+    if(t&&t.tagName==='BUTTON'&&(e.key===' '||e.key==='Enter'))return;
+    if(slides[cur].dataset.sec==='fc'){if(e.key===' '){e.preventDefault();flip();}else if(e.key==='ArrowRight')move(1);else if(e.key==='ArrowLeft')move(-1);}
+    else{if(e.key==='ArrowRight'||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);}
+  });
+  build(false);
+  var hm=/^#s(\d+)$/.exec(location.hash||'');show(hm?(+hm[1]-1):0,false);
+})();
+</script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}/* links to other sites open outside the app */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\"http\"]");if(a&&a.host!==location.host){a.target="_blank";a.rel="noopener";}});</script></body></html>

@@ -1,0 +1,824 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Study Hub"><meta name="theme-color" content="#EEF0F3" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0D1117" media="(prefers-color-scheme: dark)"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;overscroll-behavior:none}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Physical Quantities and Units</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: lab-notebook sheets on a dot grid. Header with topic badge + segmented section bar; one sheet at a time; contents drawer; bottom nav. Each deck has its own accent. */
+:root{
+  --bg:#EEF0F3; --dot:rgba(30,40,60,.13); --sheet:#FFFFFF; --sheet2:#F4F6F9; --ink:#141A24; --muted:#556070; --line:#D5DBE3;
+  --accent:#4B47C9; --on-accent:#FFFFFF; --soft:color-mix(in srgb,var(--accent) 12%,var(--sheet));
+  --warm:#B5560F; --good:#23784A; --bad:#C0392B; --badbg:#FCEEEC; --goodbg:#E9F6EE; --eli:#FFF6D9; --eliline:#E2B53C; --lab:#6A4FD6; --grid2:rgba(40,80,140,.11);
+  --shadow:0 1px 2px rgba(20,26,36,.06),0 8px 24px rgba(20,26,36,.07);
+  --display:"Unbounded","Trebuchet MS",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1117; --dot:rgba(220,230,245,.07); --sheet:#161C25; --sheet2:#1D2530; --ink:#E7ECF2; --muted:#9AA6B5; --line:#2A3441;
+    --accent:#A3A0FF; --on-accent:#0D1117; --warm:#F0A15C; --good:#6CCB8F; --bad:#FF8C7E; --badbg:#2B1D1F; --goodbg:#16261C; --eli:#2A2617; --eliline:#B8933A; --lab:#A994FF; --grid2:rgba(200,220,255,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+    --bg:#0D1117; --dot:rgba(220,230,245,.07); --sheet:#161C25; --sheet2:#1D2530; --ink:#E7ECF2; --muted:#9AA6B5; --line:#2A3441;
+    --accent:#A3A0FF; --on-accent:#0D1117; --warm:#F0A15C; --good:#6CCB8F; --bad:#FF8C7E; --badbg:#2B1D1F; --goodbg:#16261C; --eli:#2A2617; --eliline:#B8933A; --lab:#A994FF; --grid2:rgba(200,220,255,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.2px);background-size:22px 22px;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.app{display:flex;flex-direction:column;height:100%}
+header.bar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.badge{flex:none;width:42px;height:42px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:center;font:700 16px var(--display)}
+.ttl{min-width:0;flex:1}
+.ttl small{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ttl b{display:block;font:700 15px var(--display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.hb{font:700 13px var(--body);padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;white-space:nowrap}
+.hb.pri{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.segs{display:flex;gap:3px;padding:8px 16px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.segs button{flex:1;height:7px;border:0;border-radius:4px;padding:0;cursor:pointer;background:var(--sc);opacity:.22;min-width:0}
+.segs button.done{opacity:.55}.segs button.on{opacity:1;transform:scaleY(1.5)}
+.sec-learn{--sc:var(--accent)}.sec-lab{--sc:var(--lab)}.sec-exam{--sc:var(--bad)}.sec-pp{--sc:var(--warm)}.sec-quiz{--sc:var(--good)}.sec-fc{--sc:var(--ink)}.sec-start{--sc:var(--muted)}
+main{flex:1;min-height:0;overflow-y:auto;padding:22px 16px 40px}
+.slide{position:relative;max-width:1000px;margin:0 auto;min-width:0;background:var(--sheet);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:clamp(20px,4vw,40px);overflow:hidden}
+.slide[hidden]{display:none}
+.slide.enter{animation:in .28s ease-out}
+@keyframes in{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+.kicker{display:inline-block;font:600 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--soft);border-radius:999px;padding:4px 10px;margin:0 0 12px}
+h1,h2{font-family:var(--display);font-weight:700;line-height:1.1;margin:0 0 14px;text-wrap:balance}
+h1{font-size:clamp(32px,6.5vw,58px);letter-spacing:-.02em;max-width:14ch}
+h2{font-size:clamp(22px,3.8vw,34px);letter-spacing:-.01em}
+h3{font-family:var(--body);font-weight:700;font-size:18px;margin:0 0 6px}
+p{margin:0 0 12px;max-width:70ch}
+.lead{font-size:19px;color:var(--muted);max-width:58ch}
+.bignum{position:absolute;right:-10px;top:-30px;font:700 clamp(140px,26vw,260px)/1 var(--display);color:transparent;-webkit-text-stroke:2px var(--accent);opacity:.18;pointer-events:none;user-select:none}
+.inside{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:10px;margin:18px 0}
+.inside button{text-align:left;border:1px solid var(--line);background:var(--sheet2);border-radius:12px;padding:12px 14px;cursor:pointer;color:var(--ink);font:inherit}
+.inside button b{display:block;font:700 26px var(--display);color:var(--sc)}
+.inside button span{font-size:14px;color:var(--muted)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));margin:0 0 14px}
+.box{background:var(--sheet2);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.box.hl{background:var(--sheet);border:2px solid var(--accent)}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.formula{font:600 clamp(15px,3vw,21px) var(--mono);background:var(--soft);border-radius:10px;padding:12px 16px;margin:8px 0 14px;overflow-x:auto;white-space:nowrap;color:var(--ink)}
+.tag{display:inline-block;font:500 12px var(--mono);padding:3px 9px;border-radius:6px;background:var(--sheet2);border:1px solid var(--line);color:var(--muted)}
+ul,ol{margin:0 0 12px;padding-left:22px;max-width:72ch}
+li{margin-bottom:5px}
+.tw{overflow-x:auto;margin:0 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:16px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--sheet2)}
+tr:last-child td{border-bottom:0}
+.num{font-variant-numeric:tabular-nums}
+.ok{color:var(--good);font-weight:700}.no{color:var(--bad);font-weight:700}
+.fig{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:10px;margin:0 0 14px}
+.fig svg{width:100%;height:auto;max-height:300px;display:block}
+.fig figcaption{font-size:14px;color:var(--muted);padding:4px 6px}
+.s-axis{stroke:var(--ink);stroke-width:1.6;fill:none}
+.s-a{stroke:var(--accent);stroke-width:2.6;fill:none}
+.s-w{stroke:var(--warm);stroke-width:2.6;fill:none}
+.s-g{stroke:var(--good);stroke-width:2.6;fill:none}
+.s-b{stroke:var(--bad);stroke-width:2.6;fill:none}
+.s-d{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4;fill:none}
+.s-t{fill:var(--ink);font:600 12px var(--mono)}
+.s-m{fill:var(--muted);font:500 11px var(--mono)}
+.s-dot{fill:var(--warm)}
+.s-fa{fill:var(--accent);fill-opacity:.14;stroke:none}
+.s-fill{fill:var(--sheet2);stroke:var(--ink);stroke-width:1.4}
+.s-ink{fill:var(--ink)}
+.s-track{fill:var(--sheet2);stroke:var(--line)}
+.s-barw{fill:var(--warm)}.s-barg{fill:var(--good)}
+.def{background:var(--goodbg);border-radius:10px;padding:12px 16px;margin:0 0 14px;border-left:4px solid var(--good)}
+.def b.lab{display:block;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--good);margin-bottom:4px}
+.eli5{position:relative;background:var(--eli);border:2px dashed var(--eliline);border-radius:16px;padding:14px 16px 14px 62px;margin:0 0 14px;font-size:17.5px;min-width:0}
+.eli5::before{content:"5";position:absolute;left:14px;top:14px;width:34px;height:34px;border-radius:50%;background:var(--eliline);color:#1b1607;font:700 17px var(--display);display:flex;align-items:center;justify-content:center;transform:rotate(-8deg)}
+.eli5 b.lab{display:block;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warm);margin-bottom:4px}
+.eli5 p:last-child{margin-bottom:0}
+.trap{position:relative;background:var(--badbg);border-radius:12px;padding:12px 16px 12px 46px;min-width:0}
+.trap::before{content:"!";position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:6px;background:var(--bad);color:var(--sheet);font:700 15px var(--display);display:flex;align-items:center;justify-content:center}
+.trap h3{color:var(--bad);font-size:16.5px}
+.trap p{margin:0 0 6px}.trap p:last-child{margin:0}
+.fix{color:var(--good);font-weight:700}
+.lo{font:600 12px var(--mono);color:var(--accent);white-space:nowrap}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding-left:36px;margin-bottom:9px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:25px;height:25px;border-radius:8px;background:var(--accent);color:var(--on-accent);font:700 13px var(--mono);display:flex;align-items:center;justify-content:center}
+.work{font:400 14.5px/1.75 var(--mono);background:var(--sheet2);border:1px dashed var(--line);border-radius:8px;padding:10px 14px;margin:6px 0 10px;overflow-x:auto;white-space:pre}
+.rv{display:inline-flex;align-items:center;gap:8px;font:700 14px var(--body);color:var(--accent);background:var(--soft);border:1px solid var(--accent);border-radius:999px;padding:7px 14px;cursor:pointer;margin:4px 0 8px}
+.rv::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.rv[aria-expanded="true"]::before{transform:rotate(-135deg) translateY(-1px)}
+/* labs */
+.lab{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:start;background:var(--sheet2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 10px}
+.lab svg{width:100%;height:auto;display:block;background:var(--sheet);border:1px solid var(--line);border-radius:10px}
+.ctls{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ctl{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:15px}
+.ctl span{display:flex;justify-content:space-between;gap:8px}
+.ctl output{font:600 14px var(--mono);color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+.readout{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15.5px;display:flex;flex-direction:column;gap:4px;margin-top:10px}
+.readout b{font-family:var(--mono);font-weight:600}
+.mut{color:var(--muted);font-size:14.5px}
+.mono{font:500 13.5px var(--mono);overflow-x:auto;white-space:nowrap}
+.sw{display:inline-block;width:12px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.sw-a{background:var(--accent)}.sw-w{background:var(--warm)}.sw-g{background:var(--good)}
+.okt{color:var(--good);font-weight:700}.badt{color:var(--bad);font-weight:700}.warnline{color:var(--bad);font-weight:700}
+.seg-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;align-self:flex-start}
+.seg-toggle button{font:700 14px var(--body);padding:7px 14px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.seg-toggle button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+/* past papers */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.chip{font:700 13px var(--body);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.ppgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}
+.pp{display:flex;flex-direction:column;gap:6px;text-align:left;font:inherit;color:inherit;background:var(--sheet);border:1px solid var(--line);border-top:4px solid var(--warm);border-radius:12px;padding:12px 14px;cursor:pointer;min-width:0}
+.pp .ref{font:600 12px var(--mono);color:var(--warm);letter-spacing:.03em}
+.pp .ask{font-weight:700;font-size:16px}
+.pp .hint{font-size:13.5px;color:var(--muted)}
+.pp .got{display:none;background:var(--badbg);border-radius:8px;padding:8px 10px;font-size:15px}
+.pp .fx{display:none;background:var(--goodbg);border-radius:8px;padding:8px 10px;font-size:15px}
+.pp.open .got,.pp.open .fx{display:block}.pp.open .hint{display:none}
+.pp .got b{color:var(--bad)}.pp .fx b{color:var(--good)}
+.src{font-size:13.5px;color:var(--muted);margin-top:14px}
+.src a{color:var(--accent)}
+/* quiz */
+.qz{background:var(--sheet2);border:1px solid var(--line);border-radius:14px;padding:18px}
+.qmeta{display:flex;justify-content:space-between;gap:10px;font:600 13px var(--mono);color:var(--muted);margin-bottom:8px;flex-wrap:wrap}
+.qbar{height:6px;background:var(--line);border-radius:3px;margin-bottom:14px;overflow:hidden}.qbar i{display:block;height:100%;background:var(--good);width:0;transition:width .25s}
+.qq{font:700 clamp(18px,3vw,22px)/1.35 var(--body);margin-bottom:14px}
+.qopts{display:grid;gap:8px}
+.qopt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:inherit;color:var(--ink);background:var(--sheet);border:2px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.qopt .L{flex:none;width:26px;height:26px;border-radius:7px;background:var(--sheet2);border:1px solid var(--line);font:700 13px var(--mono);display:flex;align-items:center;justify-content:center}
+.qopt.right{border-color:var(--good);background:var(--goodbg)}.qopt.wrong{border-color:var(--bad);background:var(--badbg)}
+.qopt:disabled{cursor:default}
+.qfb{margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--sheet);border:1px solid var(--line)}
+.qfb .r{font:600 12px var(--mono);color:var(--warm);margin-top:6px}
+.qnext{margin-top:12px;font:700 15px var(--body);padding:9px 16px;border-radius:999px;border:0;background:var(--accent);color:var(--on-accent);cursor:pointer}
+.qdone{text-align:center;padding:20px}.qdone b{display:block;font:700 48px var(--display);color:var(--good)}
+/* flashcards */
+.fc-scene{perspective:1200px}
+.fc-inner{display:grid;transition:transform .5s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d;cursor:pointer;border-radius:16px}
+.fc-inner.flip{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;min-height:250px;border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;border:2px solid var(--line);background:var(--sheet)}
+.face.back{transform:rotateY(180deg);background:var(--soft);border-color:var(--accent)}
+.face .side{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warm);margin-bottom:10px}
+.face .txt{font:600 clamp(19px,3.6vw,26px)/1.3 var(--body)}
+.face .hint{margin-top:14px;font-size:14px;color:var(--muted)}
+.fc-tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.fc-tools button{font:700 14px var(--body);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.fc-tools .good{border-color:var(--good);color:var(--good)}
+.fc-tools .bad{border-color:var(--bad);color:var(--bad)}
+.fc-meta{font:600 13px var(--mono);color:var(--muted);margin:6px 0}
+
+/* stylus working pad */
+.pad,.pad *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html.inking,html.inking *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+.padcv{-webkit-tap-highlight-color:transparent}
+.pad{margin:10px 0 12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--sheet)}
+.padbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:6px 8px;background:var(--sheet2);border-bottom:1px solid var(--line)}
+.padlab{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-left:4px}
+.padtools{display:flex;flex-wrap:wrap;gap:6px}
+.pt{font:700 13px var(--body);padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-height:36px}
+.pt[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.pt.dot{width:36px;padding:0;position:relative}
+.pt.dot::after{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--dc)}
+.pt.dot[aria-pressed="true"]{background:var(--soft);border:2px solid var(--accent)}
+.padcv{display:block;width:100%;height:280px;touch-action:none;cursor:crosshair;background-color:var(--sheet);background-image:linear-gradient(var(--grid2) 1px,transparent 1px),linear-gradient(90deg,var(--grid2) 1px,transparent 1px);background-size:20px 20px}
+.padnote{font-size:13px;color:var(--muted);padding:5px 10px;border-top:1px solid var(--line);background:var(--sheet2)}
+.hubb{flex:none;font:700 13px var(--body);text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:var(--sheet2)}
+/* nav + drawer */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--sheet);border-top:1px solid var(--line)}
+.nav button{font:700 15px var(--body);padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-width:88px}
+.nav #nx{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.nav button:disabled{opacity:.35;cursor:default}
+.count{font:600 13px var(--mono);color:var(--muted);text-align:center;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.scrim{position:fixed;inset:0;background:rgba(10,14,20,.45);z-index:20}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(360px,88vw);background:var(--sheet);border-left:1px solid var(--line);z-index:21;display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top,0px)) 0 env(safe-area-inset-bottom,0px)}
+.drawer h3{font:700 15px var(--display);padding:0 18px 10px;margin:0;display:flex;justify-content:space-between;align-items:center}
+.drawer ol{list-style:none;margin:0;padding:0 8px 20px;overflow-y:auto;max-width:none}
+.drawer li{margin:0}
+.drawer li button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;font:inherit;font-size:15px;background:none;border:0;color:var(--ink);padding:8px 10px;border-radius:8px;cursor:pointer}
+.drawer li button i{flex:none;width:10px;height:10px;border-radius:3px;background:var(--sc)}
+.drawer li button.on{background:var(--soft);font-weight:700}
+.drawer .x{font:700 13px var(--body);border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:5px 10px;cursor:pointer}
+button:focus-visible,.pp:focus-visible,.fc-inner:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:560px){.hb.opt{display:none}.ttl small{display:none}}
+@media (prefers-reduced-motion:reduce){.slide.enter{animation:none}.fc-inner,.qbar i{transition:none}.segs button.on{transform:none}}
+</style>
+
+<div class="app">
+  <header class="bar">
+    <a class="hubb" href="index.html">Hub</a><div class="badge" aria-hidden="true">01</div>
+    <div class="ttl"><small>CIE 9702 · AS Physics · Topic 1</small><b>Physical quantities</b></div>
+    <div class="acts">
+      <button class="hb" id="bContents" type="button">Contents</button>
+      <button class="hb opt" id="bPP" type="button">Past papers</button>
+      <button class="hb opt" id="bQuiz" type="button">Quiz</button>
+      <button class="hb pri" id="bFC" type="button">Flashcards</button>
+    </div>
+  </header>
+  <div class="segs" id="segs" aria-label="Slides"></div>
+  <main id="main">
+
+    <section class="slide" data-title="Title">
+      <div class="bignum" aria-hidden="true">01</div>
+      <p class="kicker">AS Level Physics · Topic 1</p>
+      <h1>Physical quantities and units</h1>
+      <p class="lead">Every learning outcome in syllabus sections 1.1 to 1.4, with worked examples, "explain it to a 5-year-old" boxes, exam traps and flashcards.</p>
+      <div class="tw"><table>
+        <tr><th>Syllabus</th><th>You must be able to</th></tr>
+        <tr><td class="lo">1.1</td><td>Know a quantity is a number and a unit. Make sensible estimates.</td></tr>
+        <tr><td class="lo">1.2</td><td>Recall the 5 base units, build derived units, check homogeneity, use prefixes p to T.</td></tr>
+        <tr><td class="lo">1.3</td><td>Systematic and random errors, precision vs accuracy, combining uncertainties.</td></tr>
+        <tr><td class="lo">1.4</td><td>Scalars and vectors, adding and subtracting vectors, resolving into components.</td></tr>
+        <tr><td>Exam</td><td>Traps, mark-scheme wording, real past-paper errors, trap quiz, flashcards</td></tr>
+      </table></div>
+      <div class="inside" data-inside></div>
+      <p class="tag">Syllabus source: Cambridge International AS &amp; A Level Physics 9702 syllabus, exams 2025–2027</p>
+    </section>
+
+    <section class="slide" data-title="Physical quantities">
+      <p class="kicker">1.1 · Physical quantities</p>
+      <h2>A quantity is a number times a unit</h2>
+      <p>A physical quantity is anything you can measure. It always has two parts: a <b>numerical magnitude</b> and a <b>unit</b>. "Length = 3.2" is meaningless. "Length = 3.2 m" is a physical quantity.</p>
+      <div class="formula">quantity = number × unit &nbsp;&nbsp; e.g. 3.2 m = 3.2 × (1 m)</div>
+      <p>Because a quantity is a product, you can do algebra on units. This is why a table heading is written <b>length / m</b>: dividing the quantity by its unit leaves a pure number that goes in the table.</p>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b>
+        <p>If I say "I'll give you 5", you would ask "5 what? Sweets? Biscuits? Elephants?" The number alone tells you nothing. The unit is the "what". Physics always needs both.</p>
+      </div>
+      <div class="def"><b class="lab">Table headings in Paper 3</b>Write <b>quantity / unit</b>, for example <b>I / mA</b>. The syllabus also accepts "I (mA)" or "I in mA", but never "I mA" or just "mA".</div>
+    </section>
+
+    <section class="slide" data-title="Estimates">
+      <p class="kicker">1.1 · Estimation</p>
+      <h2>Know the size of everyday things</h2>
+      <p>Paper 1 often asks "Which estimate is reasonable?" You only need the right <b>order of magnitude</b> (the power of ten). Learn these benchmarks.</p>
+      <div class="tw"><table>
+        <tr><th>Quantity</th><th>Reasonable value</th></tr>
+        <tr><td>Mass of an adult</td><td class="num">about 70 kg</td></tr>
+        <tr><td>Mass of an apple / its weight</td><td class="num">about 0.1 kg / about 1 N</td></tr>
+        <tr><td>Mass of a car</td><td class="num">about 1000 kg</td></tr>
+        <tr><td>Height of a door</td><td class="num">about 2 m</td></tr>
+        <tr><td>Thickness of a sheet of paper</td><td class="num">about 0.1 mm = 1 × 10⁻⁴ m</td></tr>
+        <tr><td>Walking speed / car on a highway</td><td class="num">about 1.5 m s⁻¹ / about 30 m s⁻¹</td></tr>
+        <tr><td>Speed of sound in air</td><td class="num">about 330 m s⁻¹</td></tr>
+        <tr><td>Density of water / air</td><td class="num">1000 kg m⁻³ / about 1.2 kg m⁻³</td></tr>
+        <tr><td>Atmospheric pressure</td><td class="num">about 1 × 10⁵ Pa</td></tr>
+        <tr><td>Power of a kettle</td><td class="num">about 2 kW</td></tr>
+        <tr><td>Wavelength of visible light</td><td class="num">400–700 nm (stated in the syllabus, 7.4)</td></tr>
+      </table></div>
+      <p><b>Method:</b> if a question gives four options, check each against a benchmark and reject the ones that are 100 times too big or too small.</p>
+    </section>
+
+    <section class="slide" data-title="SI base units">
+      <p class="kicker">1.2.1 · SI base quantities</p>
+      <h2>The five base units you must recall</h2>
+      <div class="tw"><table>
+        <tr><th>Base quantity</th><th>SI base unit</th><th>Symbol</th></tr>
+        <tr><td>mass</td><td>kilogram</td><td class="num">kg</td></tr>
+        <tr><td>length</td><td>metre</td><td class="num">m</td></tr>
+        <tr><td>time</td><td>second</td><td class="num">s</td></tr>
+        <tr><td>electric current</td><td>ampere</td><td class="num">A</td></tr>
+        <tr><td>thermodynamic temperature</td><td>kelvin</td><td class="num">K</td></tr>
+      </table></div>
+      <p>At A Level (topic 15) you add <b>amount of substance, mole (mol)</b>. Every other unit in the syllabus is <b>derived</b> from these.</p>
+      <div class="grid">
+        <div class="trap"><h3>Trap: these are not base units</h3><p>newton, joule, coulomb, volt, °C, gram. A <b>coulomb</b> is A s. The base unit of mass is the <b>kilogram</b>, even though it has a prefix.</p></div>
+        <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Base units are like LEGO bricks. You can't break them into smaller bricks. Every other unit is a model built by sticking these bricks together.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Derived units">
+      <p class="kicker">1.2.2 · Derived units</p>
+      <h2>Build any unit from its defining equation</h2>
+      <p>To get the base units of a quantity, write its <b>defining equation</b>, then replace every quantity with its base units.</p>
+      <div class="box hl"><h3>Worked example: the watt</h3>
+        <div class="work">force   F = ma        → kg × m s⁻²        = kg m s⁻²
+work    W = Fs        → kg m s⁻² × m      = kg m² s⁻²
+power   P = W/t       → kg m² s⁻² ÷ s     = kg m² s⁻³</div>
+      </div>
+      <div class="tw"><table>
+        <tr><th>Quantity</th><th>Equation used</th><th>Derived unit</th><th>SI base units</th></tr>
+        <tr><td>force</td><td>F = ma</td><td>N</td><td class="num">kg m s⁻²</td></tr>
+        <tr><td>energy, work</td><td>W = Fs</td><td>J</td><td class="num">kg m² s⁻²</td></tr>
+        <tr><td>power</td><td>P = W/t</td><td>W</td><td class="num">kg m² s⁻³</td></tr>
+        <tr><td>pressure</td><td>p = F/A</td><td>Pa</td><td class="num">kg m⁻¹ s⁻²</td></tr>
+        <tr><td>momentum</td><td>p = mv</td><td>N s</td><td class="num">kg m s⁻¹</td></tr>
+        <tr><td>density</td><td>ρ = m/V</td><td>—</td><td class="num">kg m⁻³</td></tr>
+        <tr><td>charge</td><td>Q = It</td><td>C</td><td class="num">A s</td></tr>
+        <tr><td>potential difference</td><td>V = W/Q</td><td>V</td><td class="num">kg m² s⁻³ A⁻¹</td></tr>
+        <tr><td>resistance</td><td>R = V/I</td><td>Ω</td><td class="num">kg m² s⁻³ A⁻²</td></tr>
+        <tr><td>frequency</td><td>f = 1/T</td><td>Hz</td><td class="num">s⁻¹</td></tr>
+      </table></div>
+    </section>
+
+    <section class="slide" data-title="Homogeneity">
+      <p class="kicker">1.2.3 · Homogeneity</p>
+      <h2>Both sides must have the same base units</h2>
+      <p>An equation is <b>homogeneous</b> if every term, on both sides, has the same SI base units. You can add or equate only like with like.</p>
+      <div class="box hl"><h3>Worked example: is s = ut + ½at² homogeneous?</h3>
+        <div class="work">s          → m
+ut         → m s⁻¹ × s      = m
+½at²       → m s⁻² × s²     = m   (½ has no unit)</div>
+        <p>Every term is in metres, so the equation is homogeneous.</p>
+      </div>
+      <div class="box"><h3>Worked example: find the unit of a constant</h3>
+        <p>Drag force F = kv². Rearrange: k = F/v² → kg m s⁻² ÷ m² s⁻² = <b>kg m⁻¹</b>.</p>
+      </div>
+      <div class="grid">
+        <div class="trap"><h3>Trap: homogeneous does not mean correct</h3><p>s = ut + at² is homogeneous but wrong. Base units cannot check pure numbers like ½ or 2π, and cannot spot a missing term. Homogeneity is necessary, not sufficient.</p></div>
+        <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>You can't say "3 apples = 3 bananas". Even though the numbers match, the things don't. An equation must match apples with apples.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Prefixes">
+      <p class="kicker">1.2.4 · Prefixes</p>
+      <h2>The ten prefixes from pico to tera</h2>
+      <div class="tw"><table>
+        <tr><th>Prefix</th><th>Symbol</th><th>Factor</th><th>Prefix</th><th>Symbol</th><th>Factor</th></tr>
+        <tr><td>pico</td><td>p</td><td class="num">10⁻¹²</td><td>deci</td><td>d</td><td class="num">10⁻¹</td></tr>
+        <tr><td>nano</td><td>n</td><td class="num">10⁻⁹</td><td>kilo</td><td>k</td><td class="num">10³</td></tr>
+        <tr><td>micro</td><td>μ</td><td class="num">10⁻⁶</td><td>mega</td><td>M</td><td class="num">10⁶</td></tr>
+        <tr><td>milli</td><td>m</td><td class="num">10⁻³</td><td>giga</td><td>G</td><td class="num">10⁹</td></tr>
+        <tr><td>centi</td><td>c</td><td class="num">10⁻²</td><td>tera</td><td>T</td><td class="num">10¹²</td></tr>
+      </table></div>
+      <div class="trap"><h3>Trap: squared and cubed units</h3>
+        <p>The prefix is cubed or squared too. 1 cm = 10⁻² m, so 1 cm² = (10⁻²)² m² = <b>10⁻⁴ m²</b> and 1 cm³ = <b>10⁻⁶ m³</b>. 1 mm² = 10⁻⁶ m², 1 mm³ = 10⁻⁹ m³.</p>
+        <p class="fix">Density: 1 g cm⁻³ = 10⁻³ kg ÷ 10⁻⁶ m³ = 1000 kg m⁻³.</p>
+      </div>
+      <p style="margin-top:14px"><b>Capital matters:</b> m (milli) and M (mega) differ by 10⁹. Write μ carefully, not u.</p>
+    </section>
+
+    <section class="slide" data-title="Errors">
+      <p class="kicker">1.3.1 · Errors</p>
+      <h2>Systematic errors and random errors</h2>
+      <div class="grid">
+        <div class="box"><h3>Systematic error</h3>
+          <ul><li>Every reading is wrong by the <b>same amount or the same fraction</b>, in the same direction.</li>
+          <li>Causes: a <b>zero error</b> (meter reads 0.02 A with no current), a badly calibrated instrument, reading a scale from the same wrong angle every time.</li>
+          <li><b>Repeating and averaging does not remove it.</b></li>
+          <li>Fix: check and correct the zero, recalibrate, or use a graph intercept.</li></ul></div>
+        <div class="box"><h3>Random error</h3>
+          <ul><li>Readings are scattered <b>unpredictably</b> above and below the true value.</li>
+          <li>Causes: reaction time with a stop-watch, a fluctuating reading, judging when a pendulum passes a point.</li>
+          <li>Fix: <b>repeat and average</b>, or plot a graph and draw a best-fit line.</li></ul></div>
+      </div>
+      <div class="box hl"><h3>Zero error example</h3><p>A micrometer reads +0.03 mm when fully closed. A wire reads 0.52 mm. True diameter = 0.52 − 0.03 = <b>0.49 mm</b>. Every reading carries that same +0.03 mm, which is why it is systematic.</p></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>A bathroom scale that always adds 2 kg is a <b>systematic</b> error. It is wrong the same way every time. A wobbly scale that shows a different number each time you step on it has <b>random</b> error.</p></div>
+    </section>
+
+    <section class="slide" data-title="Precision vs accuracy">
+      <p class="kicker">1.3.2 · Precision and accuracy</p>
+      <h2>Close together versus close to the truth</h2>
+      <div class="grid">
+        <div class="def"><b class="lab">Accuracy</b>How close a measurement (or the mean of measurements) is to the <b>true value</b>. Reduced by systematic error.</div>
+        <div class="def"><b class="lab">Precision</b>How close repeated measurements are to <b>each other</b> (small spread). Reduced by random error.</div>
+      </div>
+      <figure class="fig">
+        <svg viewBox="0 0 400 130" role="img" aria-label="Three targets: accurate and precise, precise not accurate, accurate not precise">
+          <g transform="translate(70,58)"><circle class="s-fill" r="40"/><circle class="s-d" r="25"/><circle class="s-d" r="10"/>
+            <circle class="s-dot" cx="2" cy="-1" r="3.5"/><circle class="s-dot" cx="-3" cy="2" r="3.5"/><circle class="s-dot" cx="1" cy="4" r="3.5"/><circle class="s-dot" cx="4" cy="-3" r="3.5"/></g>
+          <g transform="translate(200,58)"><circle class="s-fill" r="40"/><circle class="s-d" r="25"/><circle class="s-d" r="10"/>
+            <circle class="s-dot" cx="22" cy="-20" r="3.5"/><circle class="s-dot" cx="18" cy="-17" r="3.5"/><circle class="s-dot" cx="21" cy="-15" r="3.5"/><circle class="s-dot" cx="24" cy="-18" r="3.5"/></g>
+          <g transform="translate(330,58)"><circle class="s-fill" r="40"/><circle class="s-d" r="25"/><circle class="s-d" r="10"/>
+            <circle class="s-dot" cx="-22" cy="10" r="3.5"/><circle class="s-dot" cx="20" cy="16" r="3.5"/><circle class="s-dot" cx="-8" cy="-26" r="3.5"/><circle class="s-dot" cx="14" cy="-14" r="3.5"/></g>
+          <text class="s-t" x="22" y="122">accurate + precise</text>
+          <text class="s-t" x="148" y="122">precise, not accurate</text>
+          <text class="s-t" x="276" y="122">accurate*, not precise</text>
+        </svg>
+        <figcaption>*The scattered shots average out near the centre, so the mean is accurate but individual readings are not precise.</figcaption>
+      </figure>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Throwing balls at a bin. If all your balls land in one tight pile next to the bin, you are <b>precise</b> but not <b>accurate</b>. If they land in the bin, you are accurate.</p></div>
+    </section>
+
+    <section class="slide" data-title="Uncertainty rules">
+      <p class="kicker">1.3.3 · Combining uncertainties</p>
+      <h2>Absolute, fractional and percentage uncertainty</h2>
+      <p>If x = 4.0 ± 0.2 cm, the <b>absolute</b> uncertainty is Δx = 0.2 cm, the <b>fractional</b> uncertainty is Δx/x = 0.05, and the <b>percentage</b> uncertainty is 5%.</p>
+      <div class="tw"><table>
+        <tr><th>Calculation</th><th>Rule</th><th>Example</th></tr>
+        <tr><td>y = a + b or a − b</td><td><b>Add absolute</b> uncertainties</td><td class="num">Δy = Δa + Δb</td></tr>
+        <tr><td>y = ab or a/b</td><td><b>Add percentage</b> (or fractional)</td><td class="num">%y = %a + %b</td></tr>
+        <tr><td>y = aⁿ</td><td><b>Multiply % by n</b></td><td class="num">%(a³) = 3 × %a</td></tr>
+        <tr><td>y = k × a (k exact)</td><td>Constant adds nothing</td><td class="num">%(2πr) = %r</td></tr>
+        <tr><td>y = √a</td><td>n = ½</td><td class="num">%y = ½ × %a</td></tr>
+      </table></div>
+      <div class="box hl"><h3>Worked example</h3>
+        <p>I = 2.0 ± 0.1 A and R = 10.0 ± 0.2 Ω. Find P = I²R with its uncertainty.</p>
+        <div class="work">%I = 0.1/2.0 × 100 = 5%      %R = 0.2/10.0 × 100 = 2%
+%P = 2 × 5 + 2 = 12%
+P  = 2.0² × 10.0 = 40 W      ΔP = 12% of 40 = 4.8 W
+P  = 40 ± 5 W</div>
+      </div>
+      <p>Give the absolute uncertainty to 1 (sometimes 2) significant figures, and round the value to the same decimal place. For repeated readings in the practical, uncertainty = <b>half the range</b>.</p>
+    </section>
+
+    <section class="slide" data-title="Uncertainty traps">
+      <p class="kicker">1.3.3 · Uncertainty in practice</p>
+      <h2>Three situations that catch students</h2>
+      <div class="grid">
+        <div class="box"><h3>1. Radius from diameter</h3><p>d = 4.00 ± 0.02 mm (0.5%). Then r = 2.00 ± 0.01 mm. The <b>percentage stays 0.5%</b>. Halving the value halves the absolute uncertainty too.</p></div>
+        <div class="box"><h3>2. Taking a difference</h3><p>x₁ = 50.0 ± 0.5 cm, x₂ = 48.0 ± 0.5 cm. x₁ − x₂ = 2.0 ± 1.0 cm, a <b>50%</b> uncertainty. Subtracting close values makes the % uncertainty huge.</p></div>
+        <div class="box"><h3>3. Area of a wire</h3><p>A = πd²/4. If %d = 2%, then %A = <b>4%</b>. π and 4 are exact.</p></div>
+      </div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>If you are not sure about a number, and you multiply it by itself, you get twice as unsure. Mistakes pile up; they never cancel in these rules.</p></div>
+    </section>
+
+    <section class="slide" data-title="Scalars and vectors">
+      <p class="kicker">1.4.1 · Scalars and vectors</p>
+      <h2>Size only, or size and direction</h2>
+      <div class="grid">
+        <div class="def"><b class="lab">Scalar</b>A quantity with magnitude only.</div>
+        <div class="def"><b class="lab">Vector</b>A quantity with magnitude and direction.</div>
+      </div>
+      <div class="tw"><table>
+        <tr><th>Scalars</th><th>Vectors</th></tr>
+        <tr><td>distance, speed, mass, time, energy, work, power, pressure, density, temperature, volume, charge</td><td>displacement, velocity, acceleration, force (including weight), momentum, electric field strength</td></tr>
+      </table></div>
+      <div class="grid">
+        <div class="trap"><h3>Trap: pressure and work are scalars</h3><p>Work is made from two vectors (F and s) but is a scalar. Pressure acts in all directions in a fluid, so it is a scalar. A common Paper 1 question asks for the pair "one scalar, one vector".</p></div>
+        <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>"Walk 10 steps" is a scalar. "Walk 10 steps towards the door" is a vector. The direction is the extra bit.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Adding vectors">
+      <p class="kicker">1.4.2 · Adding and subtracting</p>
+      <h2>Tip to tail, then measure the gap</h2>
+      <figure class="fig">
+        <svg viewBox="0 0 400 170" role="img" aria-label="Vector A then vector B drawn tip to tail; resultant from start of A to end of B">
+          <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="s-ink"/></marker></defs>
+          <path class="s-a" d="M40 140 H220" marker-end="url(#ar)"/>
+          <path class="s-w" d="M220 140 V40" marker-end="url(#ar)"/>
+          <path class="s-g" d="M40 140 L218 42" marker-end="url(#ar)"/>
+          <text class="s-t" x="120" y="160">A = 12 N east</text>
+          <text class="s-t" x="228" y="94">B = 5 N north</text>
+          <text class="s-t" x="60" y="80">R = 13 N</text>
+          <text class="s-m" x="74" y="132">θ</text>
+        </svg>
+        <figcaption>Perpendicular vectors: R = √(12² + 5²) = 13 N, θ = tan⁻¹(5/12) = 22.6° north of east.</figcaption>
+      </figure>
+      <ul>
+        <li><b>Perpendicular:</b> Pythagoras for size, tan⁻¹ for angle. Always give the direction.</li>
+        <li><b>Not perpendicular:</b> scale drawing, or the cosine rule a² = b² + c² − 2bc cos A (listed in the syllabus maths requirements).</li>
+        <li><b>Subtracting:</b> A − B = A + (−B). Reverse B, then add tip to tail.</li>
+      </ul>
+      <div class="box hl"><h3>Worked example: change in velocity</h3>
+        <p>A ball hits a wall at 5.0 m s⁻¹ and rebounds at 4.0 m s⁻¹. Take towards the wall as positive. Δv = v − u = (−4.0) − (+5.0) = <b>−9.0 m s⁻¹</b>, so 9.0 m s⁻¹ away from the wall. Not 1.0 m s⁻¹.</p>
+        <p>A car turns from 10 m s⁻¹ north to 10 m s⁻¹ east. Its speed is unchanged, but Δv = 10 east + 10 south = <b>14.1 m s⁻¹ towards the south-east</b>.</p>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Components">
+      <p class="kicker">1.4.3 · Resolving</p>
+      <h2>Split one vector into two perpendicular parts</h2>
+      <figure class="fig">
+        <svg viewBox="0 0 400 170" role="img" aria-label="Force F at angle theta to horizontal split into F cos theta horizontal and F sin theta vertical">
+          <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="s-ink"/></marker></defs>
+          <path class="s-a" d="M60 140 L250 40" marker-end="url(#ar2)"/>
+          <path class="s-w" d="M60 140 H250" marker-end="url(#ar2)"/>
+          <path class="s-g" d="M252 140 V44" marker-end="url(#ar2)"/>
+          <path class="s-d" d="M95 140 A35 35 0 0 0 91 124"/>
+          <text class="s-t" x="130" y="80">F</text>
+          <text class="s-m" x="100" y="134">θ</text>
+          <text class="s-t" x="120" y="160">F cos θ (horizontal)</text>
+          <text class="s-t" x="260" y="94">F sin θ (vertical)</text>
+        </svg>
+        <figcaption>θ measured from the horizontal. The side next to the angle takes cos.</figcaption>
+      </figure>
+      <div class="box hl"><h3>Worked example</h3><p>A 50 N force at 30° above the horizontal. Horizontal = 50 cos 30° = <b>43.3 N</b>. Vertical = 50 sin 30° = <b>25.0 N</b>. Check: √(43.3² + 25²) = 50 N.</p></div>
+      <div class="box"><h3>On a slope at angle θ</h3><p>Weight mg splits into <b>mg sin θ down the slope</b> and <b>mg cos θ into the slope</b>. Check with θ = 0: flat ground gives 0 along the slope, which makes sense.</p></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Pulling a toy cart with a rope held up high: part of your pull drags the cart forward, and part lifts it up. Resolving just finds out how much goes each way.</p></div>
+    </section>
+
+    
+    <section class="slide" data-title="Lab: resolve a force" data-sec="lab">
+      <p class="kicker">Interactive lab · 1.4.3</p>
+      <h2>Resolve a force yourself</h2>
+      <p>Move the sliders. Watch which component gets cos θ and which gets sin θ, and check that the two parts always rebuild F by Pythagoras.</p>
+      <div class="lab">
+        <div class="ctls">
+          <label class="ctl" for="l1F"><span>Force F <output id="l1Fo">50 N</output></span><input type="range" id="l1F" min="5" max="100" value="50"></label>
+          <label class="ctl" for="l1T"><span>Angle θ above the horizontal <output id="l1To">30°</output></span><input type="range" id="l1T" min="0" max="90" value="30"></label>
+          <div class="readout">
+            <div><span class="sw sw-w"></span>Horizontal = F cos θ = <b id="l1H"></b></div>
+            <div><span class="sw sw-g"></span>Vertical = F sin θ = <b id="l1V"></b></div>
+            <div class="mut">Check: √(H² + V²) = <b id="l1C"></b></div>
+          </div>
+          <p class="mut">Try θ = 0° and θ = 90°. The component next to the angle always takes cos.</p>
+        </div>
+        <svg id="l1s" viewBox="0 0 320 230" role="img" aria-label="Force arrow with its horizontal and vertical components">
+          <defs><marker id="l1m" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" class="s-ink"/></marker></defs>
+          <path class="s-axis" d="M30 210 H310 M30 210 V14"/>
+          <path id="l1h" class="s-w" marker-end="url(#l1m)"/>
+          <path id="l1v" class="s-g" marker-end="url(#l1m)"/>
+          <path id="l1f" class="s-a" marker-end="url(#l1m)" style="stroke-width:3.2"/>
+          <path id="l1arc" class="s-d"/>
+          <text id="l1th" class="s-m">θ</text>
+          <text id="l1fl" class="s-t">F</text>
+        </svg>
+      </div>
+      <script>
+      (function(){
+        var F=document.getElementById('l1F'),T=document.getElementById('l1T');
+        function upd(){
+          var f=+F.value,t=+T.value,r=t*Math.PI/180,k=1.85,x0=30,y0=210;
+          var h=f*Math.cos(r),v=f*Math.sin(r),ex=x0+h*k,ey=y0-v*k;
+          document.getElementById('l1Fo').textContent=f+' N';
+          document.getElementById('l1To').textContent=t+'°';
+          document.getElementById('l1H').textContent=h.toFixed(1)+' N';
+          document.getElementById('l1V').textContent=v.toFixed(1)+' N';
+          document.getElementById('l1C').textContent=Math.sqrt(h*h+v*v).toFixed(1)+' N';
+          document.getElementById('l1f').setAttribute('d','M'+x0+' '+y0+' L'+ex.toFixed(1)+' '+ey.toFixed(1));
+          document.getElementById('l1h').setAttribute('d',h*k>6?'M'+x0+' '+(y0+0)+' L'+ex.toFixed(1)+' '+y0:'');
+          document.getElementById('l1v').setAttribute('d',v*k>6?'M'+ex.toFixed(1)+' '+y0+' L'+ex.toFixed(1)+' '+ey.toFixed(1):'');
+          var R=36,ax=x0+R*Math.cos(r),ay=y0-R*Math.sin(r);
+          document.getElementById('l1arc').setAttribute('d','M'+(x0+R)+' '+y0+' A'+R+' '+R+' 0 0 0 '+ax.toFixed(1)+' '+ay.toFixed(1));
+          var tl=document.getElementById('l1th');tl.setAttribute('x',x0+46*Math.cos(r/2));tl.setAttribute('y',y0-46*Math.sin(r/2)+4);
+          var fl=document.getElementById('l1fl');fl.setAttribute('x',(x0+ex)/2-14);fl.setAttribute('y',(y0+ey)/2-6);
+        }
+        F.oninput=T.oninput=upd;upd();
+      })();
+      </script>
+    </section>
+
+    <section class="slide" data-title="Exam traps" data-traps>
+      <p class="kicker">Exam traps · Topic 1</p>
+      <h2>Where marks are lost</h2>
+      <p>Patterns from 9702 examiner reports and mark schemes for this topic. The Past papers slide shows the exact questions.</p>
+      <div class="grid">
+        <div class="trap"><h3>Wrong "base units"</h3><p>Answering N, J or C when asked for SI <b>base</b> units, or listing °C.</p><p class="fix">Reduce everything to kg, m, s, A, K.</p></div>
+        <div class="trap"><h3>Prefix and power-of-ten slips</h3><p>Converting cm² or mm³ as if they were cm or mm. Not checking whether an answer is a sensible size.</p><p class="fix">Square or cube the prefix. Sanity-check every answer.</p></div>
+        <div class="trap"><h3>"Averaging removes systematic error"</h3><p>It does not. Averaging reduces only random error.</p><p class="fix">Systematic: recalibrate or correct zero error.</p></div>
+        <div class="trap"><h3>Precision and accuracy swapped</h3><p>Saying a precise instrument is accurate.</p><p class="fix">Precision = spread. Accuracy = closeness to true value.</p></div>
+        <div class="trap"><h3>Uncertainty with powers</h3><p>Forgetting to double the % for a squared term, or doubling it when finding radius from diameter.</p><p class="fix">Power n multiplies the %. Halving does not change the %.</p></div>
+        <div class="trap"><h3>Too many significant figures</h3><p>Writing 40.0 ± 4.8 W.</p><p class="fix">Uncertainty to 1 s.f., value to match: 40 ± 5 W.</p></div>
+        <div class="trap"><h3>sin and cos swapped</h3><p>The most common resolving error.</p><p class="fix">Draw the triangle. Adjacent to θ gets cos.</p></div>
+        <div class="trap"><h3>Adding vectors as numbers</h3><p>3 N + 4 N at right angles is 5 N, not 7 N. A rebound Δv is a sum of speeds, not a difference.</p><p class="fix">Choose a positive direction first.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Mark-scheme wording">
+      <p class="kicker">Definitions to learn word for word</p>
+      <h2>What examiners want to read</h2>
+      <div class="tw"><table>
+        <tr><th>Term</th><th>Answer that scores</th></tr>
+        <tr><td>Physical quantity</td><td>A numerical magnitude and a unit</td></tr>
+        <tr><td>Scalar</td><td>Has magnitude only</td></tr>
+        <tr><td>Vector</td><td>Has magnitude and direction</td></tr>
+        <tr><td>Systematic error</td><td>Error of the same size (or fraction) and sign in every reading; not reduced by averaging</td></tr>
+        <tr><td>Random error</td><td>Unpredictable scatter of readings about the true value; reduced by averaging repeated readings</td></tr>
+        <tr><td>Zero error</td><td>Instrument shows a non-zero reading when the true value is zero</td></tr>
+        <tr><td>Accuracy</td><td>Closeness of a value to the true value</td></tr>
+        <tr><td>Precision</td><td>Closeness of repeated readings to each other</td></tr>
+        <tr><td>Homogeneous equation</td><td>Each term has the same SI base units</td></tr>
+      </table></div>
+    </section>
+
+    <section class="slide" data-title="Past papers" data-sec="pp">
+      <p class="kicker">Real past-paper evidence</p>
+      <h2>What students actually got wrong</h2>
+      <p>Each card is a real 9702 question that Cambridge's examiners commented on. Read what was asked, decide what the trap is, then tap to check.</p>
+      <div class="chips" id="ppChips"></div>
+      <div class="ppgrid" id="ppGrid"></div>
+      <p class="src" id="ppSrc"></p>
+    </section>
+
+    <section class="slide" data-title="Trap quiz" data-sec="quiz">
+      <p class="kicker">Trap quiz</p>
+      <h2>Can you dodge the traps?</h2>
+      <p>Each question is built around a trap from the past papers. The wrong options are the answers students really chose.</p>
+      <div class="qz" id="quiz"></div>
+    </section>
+
+    <section class="slide" data-title="Flashcards" data-sec="fc">
+      <p class="kicker">Flashcards</p>
+      <h2>Test yourself</h2>
+      <div class="chips" id="chips"></div>
+      <div class="fc-scene"><div class="fc-inner" id="card" role="button" tabindex="0" aria-live="polite">
+        <div class="face front"><div class="side" id="fSide"></div><div class="txt" id="fQ"></div><div class="hint">Tap to flip</div></div>
+        <div class="face back"><div class="side">Answer</div><div class="txt" id="fA"></div><div class="hint">Tap to flip back</div></div>
+      </div></div>
+      <div class="fc-tools">
+        <button type="button" id="prev">Previous</button>
+        <button type="button" id="flip">Flip</button>
+        <button type="button" id="next">Next</button>
+        <button type="button" class="good" id="know">I knew it</button>
+        <button type="button" class="bad" id="again">Practise again</button>
+        <button type="button" id="shuffle">Shuffle</button>
+        <button type="button" id="reset">Reset</button>
+      </div>
+      <div class="fc-meta" id="meta"></div>
+      <p class="tag">Keys: Space flips, arrow keys move between cards</p>
+    </section>
+
+  </main>
+  <nav class="nav">
+    <button type="button" id="pv">Back</button>
+    <div class="count" id="count"></div>
+    <button type="button" id="nx">Next</button>
+  </nav>
+</div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Contents">
+  <h3>Contents <button class="x" id="dClose" type="button">Close</button></h3>
+  <ol id="toc"></ol>
+</aside>
+
+<script>
+(function(){
+  var DECKID='d1';
+  var CARDS=[["Quantities", "What two parts does every physical quantity have?", "A numerical magnitude and a unit"], ["Quantities", "Estimate the weight of an apple", "About 1 N (mass about 0.1 kg)"], ["Quantities", "Estimate atmospheric pressure", "About 1 × 10⁵ Pa"], ["Quantities", "Range of wavelengths of visible light", "400 nm to 700 nm"], ["Units", "List the five SI base quantities and units in the 9702 AS syllabus", "mass kg, length m, time s, current A, temperature K"], ["Units", "Is the newton a base unit?", "No. N = kg m s⁻²"], ["Units", "SI base units of energy", "kg m² s⁻²"], ["Units", "SI base units of power", "kg m² s⁻³"], ["Units", "SI base units of pressure", "kg m⁻¹ s⁻²"], ["Units", "SI base units of charge", "A s"], ["Units", "SI base units of potential difference (volt)", "kg m² s⁻³ A⁻¹"], ["Units", "What does homogeneous mean?", "Every term in the equation has the same SI base units"], ["Units", "Does a homogeneous equation have to be correct?", "No. Pure numbers (like ½) can't be checked and terms could be missing"], ["Units", "F = kv². Unit of k?", "kg m⁻¹"], ["Prefixes", "Value of pico (p)", "10⁻¹²"], ["Prefixes", "Value of nano (n)", "10⁻⁹"], ["Prefixes", "Value of micro (μ)", "10⁻⁶"], ["Prefixes", "Value of giga (G)", "10⁹"], ["Prefixes", "Value of tera (T)", "10¹²"], ["Prefixes", "1 cm³ in m³", "1 × 10⁻⁶ m³"], ["Prefixes", "1 mm² in m²", "1 × 10⁻⁶ m²"], ["Prefixes", "1 g cm⁻³ in kg m⁻³", "1000 kg m⁻³"], ["Errors", "Define systematic error", "Same size (or fraction) and sign in every reading. Not reduced by averaging"], ["Errors", "Define random error", "Unpredictable scatter of readings about the true value. Reduced by repeating and averaging"], ["Errors", "What is a zero error?", "A non-zero reading when the true value is zero. A type of systematic error"], ["Errors", "Define accuracy", "How close a value is to the true value"], ["Errors", "Define precision", "How close repeated readings are to each other"], ["Errors", "Uncertainty rule for y = a + b or a − b", "Add the absolute uncertainties"], ["Errors", "Uncertainty rule for y = ab or a/b", "Add the percentage (fractional) uncertainties"], ["Errors", "%d = 3%. Find % uncertainty in d²", "6%"], ["Errors", "d = 4.00 ± 0.02 mm. Find r with uncertainty", "2.00 ± 0.01 mm (same 0.5%)"], ["Errors", "Uncertainty from repeated readings in a practical", "Half the range of the readings"], ["Vectors", "Define a vector", "A quantity with magnitude and direction"], ["Vectors", "Is pressure a scalar or a vector?", "Scalar"], ["Vectors", "Is work a scalar or a vector?", "Scalar"], ["Vectors", "12 N east + 5 N north. Resultant?", "13 N at 22.6° north of east"], ["Vectors", "Horizontal component of F at θ above horizontal", "F cos θ"], ["Vectors", "Component of weight down a slope of angle θ", "mg sin θ"], ["Vectors", "Ball hits wall at 5 m s⁻¹, rebounds at 4 m s⁻¹. Size of Δv?", "9 m s⁻¹, away from the wall"]], PPD=[["Nov 2023", "9702/22", "1(a)", "Identify the SI base quantities from a list", "The most common error was picking charge instead of current.", "Charge is derived (Q = It). The base quantities are mass, length, time, current and temperature."], ["Mar 2024", "9702/12", "1", "Choose the SI base units", "Students mixed up SI units with SI base units, for example g and kg.", "The base unit of mass is the kilogram. The gram is an SI unit but not the base unit."], ["Nov 2023", "9702/12", "2", "Which is an SI base quantity?", "The popular wrong answer was the second, which is a unit, not a quantity.", "Quantity = what you measure (time). Unit = what you measure it in (s)."], ["Nov 2022", "9702/12", "1", "Units versus physical quantities", "Many treated the kelvin as a physical quantity.", "Kelvin is a unit. Thermodynamic temperature is the quantity."], ["Nov 2022", "9702/21", "1(a)", "Units versus quantities", "Some called force a derived unit and the coulomb a derived quantity, which is the wrong way round.", "Force is a derived quantity. The newton and the coulomb are derived units."], ["Jun 2023", "9702/13", "1", "What is a physical quantity?", "Some thought a physical quantity must have an SI unit or be written in base units.", "Any number with a unit is a physical quantity, e.g. 3 inches or 5 g."], ["Jun 2023", "9702/21", "1(b)", "Find the base units in an equation", "Some used hertz as a base unit, or took I as current (ampere) when it meant intensity.", "Hz = s⁻¹. Read what each symbol stands for in that question."], ["Nov 2022", "9702/22", "1(b)", "Base units of power", "Some left the newton in the answer, or gave the base units of work instead.", "Go all the way down: kg m² s⁻³."], ["Jun 2023", "9702/22", "1(b)", "Base units of a pressure difference", "Some thought a difference in pressure has no units.", "A difference of two pressures is still a pressure: kg m⁻¹ s⁻²."], ["Nov 2023", "9702/21", "1(b)(ii)", "% uncertainty in a radius from the % uncertainty in volume", "Many multiplied the volume's % uncertainty by 3 instead of dividing.", "V ∝ r³, so %V = 3 × %r. Going back to r, divide by 3."], ["Nov 2022", "9702/22", "1(c)(ii)", "Uncertainty in v from a cube-root relationship", "Some added percentage uncertainties but forgot to divide by 3.", "For a power n, multiply the % by n. A cube root has n = ⅓."], ["Nov 2023", "9702/23", "1(b)", "% uncertainty involving a diameter", "Some doubled the diameter's % uncertainty when it was not squared, and others did not double it when it was.", "Double only if the diameter is squared in the formula."], ["Jun 2023", "9702/22", "1(c)", "Explain the % uncertainty in k", "Explanations were vague. The examiners wanted it stated that R's % uncertainty is multiplied by 4.", "Name the quantity and its power: R appears as R⁴."], ["Nov 2022", "9702/21", "1(c)(i)", "Combine uncertainties in F, m and r", "Some subtracted the uncertainty in m instead of adding it.", "Uncertainties always add, even when the quantity is divided."], ["Nov 2023", "9702/12", "3", "Uncertainty from max and min values", "The absolute uncertainty was calculated wrongly.", "Absolute uncertainty = ½ × (maximum − minimum)."], ["Nov 2022", "9702/21", "1(b)", "Precision and accuracy", "Precise was confused with accurate, and accuracy answers were vague.", "Precision = small spread. Accuracy = close to the true value."], ["Jun 2023", "9702/23", "1(b)", "Why was the timing inaccurate?", "\"Human error\" scored nothing.", "Give a specific reason, e.g. reaction time when starting and stopping the stopwatch."], ["Jun 2023", "9702/11", "2", "Atoms in 50 cm³ of metal", "Power-of-ten error converting cm³ to m³.", "1 cm³ = 10⁻⁶ m³ (cube the 10⁻²)."], ["Mar 2024", "9702/12", "11", "Weight of a line of small cubes", "Students did not apply the cubic scale factor.", "Volume scales with length³."], ["Jun 2023", "9702/13", "4", "Vector X = Y − Z", "Many chose diagrams showing other combinations instead of Y − Z.", "Y − Z = Y + (−Z): reverse Z, then add tip to tail."], ["Nov 2023", "9702/12", "4", "Resolve forces on an aeroplane", "sin θ and cos θ were swapped.", "Draw the right-angled triangle. The side next to θ uses cos."], ["Nov 2023", "9702/23", "1(a)", "Scalar or vector?", "Many believed upthrust is a scalar.", "Upthrust is a force, so it is a vector."]], QZD=[["Which is an SI base quantity?", ["force", "electric charge", "electric current", "energy"], 2, "The five AS base quantities are mass, length, time, current and temperature. Charge = current × time, so it is derived.", "Nov 2023 9702/22 Q1(a)", false], ["Which of these is a unit, not a physical quantity?", ["temperature", "kelvin", "time", "mass"], 1, "Kelvin is the unit of thermodynamic temperature.", "Nov 2022 9702/12 Q1", false], ["d = 2.00 ± 0.02 mm. What is the % uncertainty in A = πd²/4?", ["0.5%", "1%", "2%", "4%"], 2, "%d = 1%. d is squared, so %A = 2 × 1% = 2%. π and 4 are exact.", "", true], ["A sphere's volume has a 3% uncertainty. What is the % uncertainty in its radius?", ["9%", "3%", "1%", "0.5%"], 2, "V ∝ r³, so %V = 3 × %r, which gives %r = 3% ÷ 3 = 1%.", "Nov 2023 9702/21 Q1(b)(ii)", true], ["1.0 cm³ is equal to", ["1.0 × 10⁻² m³", "1.0 × 10⁻³ m³", "1.0 × 10⁻⁶ m³", "1.0 × 10⁻⁹ m³"], 2, "(10⁻² m)³ = 10⁻⁶ m³.", "Jun 2023 9702/11 Q2", true], ["Which pair is one scalar and one vector, in that order?", ["speed, mass", "pressure, upthrust", "force, energy", "velocity, displacement"], 1, "Pressure is a scalar. Upthrust is a force, so it is a vector.", "Nov 2023 9702/23 Q1(a)", false], ["The true value is 6.0. Readings are 4.9, 5.0, 5.1, 5.0. They are", ["accurate and precise", "precise but not accurate", "accurate but not precise", "neither"], 1, "The spread is small (precise), but the readings are far from 6.0 (not accurate). This suggests a systematic error.", "", false], ["A 20 N force acts at 30° above the horizontal. Its vertical component is", ["17.3 N", "10.0 N", "11.5 N", "20 N"], 1, "Vertical = 20 sin 30° = 10.0 N. 17.3 N is the horizontal component.", "Nov 2023 9702/12 Q4", true], ["The SI base units of pressure are", ["kg m s⁻²", "kg m⁻¹ s⁻²", "kg m⁻² s⁻²", "N m⁻²"], 1, "p = F/A = kg m s⁻² ÷ m² = kg m⁻¹ s⁻². N m⁻² is correct but not in base units.", "", true]], SRC=[["Nov 2022 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2022/9702_w22_er.pdf"], ["Jun 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2023/9702_s23_er.pdf"], ["Nov 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2023/9702_w23_er.pdf"], ["Mar 2024 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2024/9702_m24_er.pdf"]];
+  function $(i){return document.getElementById(i);}
+  function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;}
+  var main=$('main'), slides=[].slice.call(document.querySelectorAll('.slide')), cur=0;
+  function secOf(s,k){
+    if(s.dataset.sec)return s.dataset.sec;
+    if(k===0)return 'start';
+    if(s.hasAttribute('data-traps')||s.dataset.title==='Mark-scheme wording')return 'exam';
+    return 'learn';
+  }
+  var SECN={start:'Start',learn:'Learn',lab:'Interactive lab',exam:'Exam technique',pp:'Past papers',quiz:'Quiz',fc:'Flashcards'};
+  slides.forEach(function(s,k){s.dataset.sec=secOf(s,k);});
+  function idx(sec){for(var k=0;k<slides.length;k++)if(slides[k].dataset.sec===sec)return k;return 0;}
+  /* section bar + toc */
+  var segs=$('segs'), toc=$('toc');
+  slides.forEach(function(s,k){
+    var b=el('button','sec-'+s.dataset.sec);b.type='button';b.title=(k+1)+'. '+s.dataset.title;b.setAttribute('aria-label',b.title);b.onclick=function(){show(k);};segs.appendChild(b);
+    var li=el('li'),bt=el('button','sec-'+s.dataset.sec);bt.type='button';bt.appendChild(el('i'));bt.appendChild(document.createTextNode((k+1)+'. '+s.dataset.title));bt.onclick=function(){show(k);closeD();};li.appendChild(bt);toc.appendChild(li);
+  });
+  function show(n,anim){
+    cur=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.hidden=(k!==cur);s.classList.remove('enter');});
+    if(anim!==false){void slides[cur].offsetWidth;slides[cur].classList.add('enter');}
+    [].forEach.call(segs.children,function(b,k){b.className='sec-'+slides[k].dataset.sec+(k<cur?' done':'')+(k===cur?' on':'');});
+    [].forEach.call(toc.querySelectorAll('button'),function(b,k){b.classList.toggle('on',k===cur);});
+    $('count').textContent=(cur+1)+' / '+slides.length+' · '+slides[cur].dataset.title;
+    $('pv').disabled=(cur===0);$('nx').disabled=(cur===slides.length-1);
+    main.scrollTop=0;
+    if(typeof sizePads==='function')requestAnimationFrame(sizePads);
+    var P=prog();if(P.v.indexOf(cur)<0)P.v.push(cur);P.last=cur;P.n=slides.length;P.t=Date.now();lsSet('hub:'+DECKID,P);
+  }
+  function prog(){var P=lsGet('hub:'+DECKID)||{};P.v=P.v||[];P.known=P.known||{};return P;}
+  $('pv').onclick=function(){show(cur-1);};$('nx').onclick=function(){show(cur+1);};
+  $('bPP').onclick=function(){show(idx('pp'));};$('bQuiz').onclick=function(){show(idx('quiz'));};$('bFC').onclick=function(){show(idx('fc'));};
+  function openD(){$('drawer').hidden=false;$('scrim').hidden=false;$('dClose').focus();}
+  function closeD(){$('drawer').hidden=true;$('scrim').hidden=true;}
+  $('bContents').onclick=openD;$('dClose').onclick=closeD;$('scrim').onclick=closeD;
+  /* swipe */
+  var sx=null,sy=null;
+  main.addEventListener('touchstart',function(e){var t=e.target;if(t.closest&&t.closest('input,.lab svg,.tw,.work,.formula,.pad')){sx=null;return;}sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  main.addEventListener('touchend',function(e){if(sx==null)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>70&&Math.abs(dy)<45){show(cur+(dx<0?1:-1));}sx=null;},{passive:true});
+  /* title slide: what's inside */
+  var ins=document.querySelector('[data-inside]');
+  if(ins){
+    var nW=document.querySelectorAll('.work').length;
+    var tiles=[['learn',slides.filter(function(s){return s.dataset.sec==='learn';}).length,'concept slides'],['learn',nW,'worked examples'],['lab',slides.filter(function(s){return s.dataset.sec==='lab';}).length,'interactive lab'],['pp',PPD.length,'real past-paper traps'],['quiz',QZD.length,'quiz questions'],['fc',CARDS.length,'flashcards']];
+    tiles.forEach(function(t){var b=el('button','sec-'+t[0]);b.type='button';b.appendChild(el('b',null,String(t[1])));b.appendChild(el('span',null,t[2]));b.onclick=function(){show(idx(t[0]));};ins.appendChild(b);});
+  }
+
+  /* stylus working pads */
+  var PADSTORE={}, PADS=[], penSeen=false, DECK=document.title;
+  try{penSeen=localStorage.getItem('pad:penSeen')==='1';}catch(e){}
+  function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}}
+  function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  function makePad(key,label){
+    var sk='pad:'+DECK+':'+key;
+    var st=PADSTORE[key]||(PADSTORE[key]={strokes:lsGet(sk)||[],tool:'pen',col:0,big:false,penOnly:null});
+    var wrap=el('div','pad'),bar=el('div','padbar'),tools=el('div','padtools');
+    bar.appendChild(el('span','padlab',label));
+    function tb(txt,title,fn){var b=el('button','pt',txt);b.type='button';b.title=title;b.setAttribute('aria-label',title);b.onclick=fn;tools.appendChild(b);return b;}
+    var CV=['--ink','--accent','--bad'],CN=['Black pen','Colour pen','Red pen'];
+    var cb=CV.map(function(v,i){var b=tb('',CN[i],function(){st.tool='pen';st.col=i;sync();});b.className='pt dot';b.style.setProperty('--dc','var('+v+')');return b;});
+    var er=tb('Eraser','Eraser',function(){st.tool=st.tool==='eraser'?'pen':'eraser';sync();});
+    tb('Undo','Undo last stroke',function(){st.strokes.pop();save();redraw();});
+    var clr=tb('Clear','Clear the pad',function(){if(clr.dataset.c){st.strokes=[];save();redraw();clr.dataset.c='';clr.textContent='Clear';}else{clr.dataset.c='1';clr.textContent='Tap again to clear';setTimeout(function(){clr.dataset.c='';clr.textContent='Clear';},2500);}});
+    var po=tb('Pen only','Pen only: ignore finger and palm touches',function(){st.penOnly=!penOnly();sync();});
+    var bg=tb('Bigger','Make the pad taller',function(){st.big=!st.big;sync();size();});
+    bar.appendChild(tools);wrap.appendChild(bar);
+    var cv=el('canvas','padcv');cv.setAttribute('aria-label',label+': draw here with your stylus');wrap.appendChild(cv);
+    wrap.appendChild(el('div','padnote','Saved on this device. Once you use a stylus, finger and palm touches are ignored on the pads.'));
+    var ctx=cv.getContext('2d'),W=0,cur=null;
+    function penOnly(){return st.penOnly===null?penSeen:st.penOnly;}
+    function sync(){cb.forEach(function(b,i){b.setAttribute('aria-pressed',String(st.tool==='pen'&&st.col===i));});er.setAttribute('aria-pressed',String(st.tool==='eraser'));po.setAttribute('aria-pressed',String(penOnly()));bg.textContent=st.big?'Smaller':'Bigger';cv.style.height=(st.big?560:280)+'px';}
+    function size(){var r=cv.getBoundingClientRect();if(!r.width)return;var d=window.devicePixelRatio||1;W=r.width;cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0);redraw();}
+    function col(i){return getComputedStyle(wrap).getPropertyValue(CV[i]).trim()||'#111';}
+    function wid(s,pr){return s.e?24:(s.pen?1.1+pr*3.2:2.4);}
+    function seg(s,i){var k=W/s.bw,p=s.p;ctx.save();ctx.lineCap='round';ctx.lineJoin='round';
+      if(s.e)ctx.globalCompositeOperation='destination-out';
+      ctx.strokeStyle=ctx.fillStyle=s.e?'#000':col(s.c);
+      if(i===0){ctx.beginPath();ctx.arc(p[0][0]*k,p[0][1]*k,wid(s,p[0][2])*k/2,0,7);ctx.fill();}
+      else{ctx.lineWidth=wid(s,p[i][2])*k;ctx.beginPath();ctx.moveTo(p[i-1][0]*k,p[i-1][1]*k);ctx.lineTo(p[i][0]*k,p[i][1]*k);ctx.stroke();}
+      ctx.restore();}
+    function redraw(){ctx.clearRect(0,0,cv.width,cv.height);st.strokes.forEach(function(s){for(var i=0;i<s.p.length;i++)seg(s,i);});}
+    function save(){lsSet(sk,st.strokes);}
+    function pt(e){var r=cv.getBoundingClientRect();return [Math.round((e.clientX-r.left)*10)/10,Math.round((e.clientY-r.top)*10)/10,Math.round((e.pressure||0.5)*100)/100];}
+    cv.addEventListener('pointerdown',function(e){
+      if(e.pointerType==='pen'&&!penSeen){penSeen=true;try{localStorage.setItem('pad:penSeen','1');}catch(x){}PADS.forEach(function(p){p.sync();});}
+      if(e.pointerType==='touch'&&penOnly())return;
+      if(cur)return;
+      e.preventDefault();try{cv.setPointerCapture(e.pointerId);}catch(x){}
+      cur={bw:W,c:st.col,e:st.tool==='eraser'||(e.buttons&32)?1:0,pen:e.pointerType==='pen'?1:0,p:[pt(e)],id:e.pointerId};
+      st.strokes.push(cur);seg(cur,0);document.documentElement.classList.add('inking');
+    });
+    cv.addEventListener('pointermove',function(e){
+      if(!cur||e.pointerId!==cur.id)return;e.preventDefault();
+      var evs=e.getCoalescedEvents?e.getCoalescedEvents():[e];if(!evs.length)evs=[e];
+      evs.forEach(function(v){cur.p.push(pt(v));seg(cur,cur.p.length-1);});
+    });
+    function end(e){if(!cur||e.pointerId!==cur.id)return;var s=cur;cur=null;delete s.id;save();document.documentElement.classList.remove('inking');try{var sel=window.getSelection();if(sel)sel.removeAllRanges();}catch(x){}}
+    cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+    function isStylus(e){var ts=e.changedTouches||[];for(var i=0;i<ts.length;i++){if(ts[i].touchType==='stylus')return true;}return false;}
+    function tblock(e){if(isStylus(e)||!penOnly()||cur){if(e.cancelable)e.preventDefault();}}
+    cv.addEventListener('touchstart',tblock,{passive:false});
+    cv.addEventListener('touchmove',tblock,{passive:false});
+    cv.addEventListener('touchend',tblock,{passive:false});
+    ['contextmenu','selectstart','dragstart','gesturestart'].forEach(function(t){wrap.addEventListener(t,function(e){e.preventDefault();});});
+    sync();
+    var rec={wrap:wrap,size:size,sync:sync};PADS.push(rec);
+    return wrap;
+  }
+  function sizePads(){PADS.forEach(function(p){if(p.wrap.offsetParent)p.size();});}
+  window.addEventListener('resize',sizePads);
+  try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){setTimeout(sizePads,50);});}catch(e){}
+  new MutationObserver(function(){setTimeout(sizePads,30);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  /* reveal working */
+  [].forEach.call(document.querySelectorAll('.work'),function(w,i){
+    var box=w.parentNode;if(!box.classList.contains('box'))return;var wrap=el('div'); wrap.id='wk'+i; wrap.hidden=true;
+    var btn=el('button','rv','Try it first, then show the working');btn.type='button';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',wrap.id);
+    box.insertBefore(makePad('w'+i,'Your working · use your stylus'),w);box.insertBefore(btn,w);box.insertBefore(wrap,w);
+    var n=w;while(n){var nx=n.nextSibling;wrap.appendChild(n);n=nx;}
+    btn.onclick=function(){var o=wrap.hidden;wrap.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.textContent=o?'Hide the working':'Try it first, then show the working';};
+  });
+  /* past papers */
+  var ppF='All', ppg=$('ppGrid'), ppc=$('ppChips');
+  ['All','Paper 1 (MCQ)','Paper 2 (structured)'].forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===ppF?'true':'false');b.onclick=function(){ppF=t;[].forEach.call(ppc.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});ppRender();};ppc.appendChild(b);});
+  function ppRender(){
+    ppg.innerHTML='';
+    PPD.forEach(function(r){
+      var p1=/\/1\d/.test(r[1]);if(ppF==='Paper 1 (MCQ)'&&!p1)return;if(ppF==='Paper 2 (structured)'&&p1)return;
+      var c=el('button','pp');c.type='button';c.setAttribute('aria-expanded','false');
+      c.appendChild(el('span','ref',r[0]+' · '+r[1]+' · Q'+r[2]));
+      c.appendChild(el('span','ask',r[3]));
+      c.appendChild(el('span','hint','What went wrong? Tap to reveal'));
+      var g=el('span','got');g.appendChild(el('b',null,'Common error: '));g.appendChild(document.createTextNode(r[4]));c.appendChild(g);
+      var f=el('span','fx');f.appendChild(el('b',null,'Do this instead: '));f.appendChild(document.createTextNode(r[5]));c.appendChild(f);
+      c.onclick=function(){var o=!c.classList.contains('open');c.classList.toggle('open',o);c.setAttribute('aria-expanded',String(o));};
+      ppg.appendChild(c);
+    });
+  }
+  ppRender();
+  var sp=$('ppSrc');sp.appendChild(document.createTextNode('Summarised from Cambridge 9702 Principal Examiner Reports: '));
+  SRC.forEach(function(s,i){var a=el('a',null,s[0]);a.href=s[1];a.target='_blank';a.rel='noopener';sp.appendChild(a);if(i<SRC.length-1)sp.appendChild(document.createTextNode(' · '));});
+  /* quiz */
+  var qi=0, score=0, answered=false, qz=$('quiz');
+  function qRender(){
+    qz.innerHTML='';
+    if(qi>=QZD.length){var P=prog();P.best=Math.max(P.best||0,score);P.qn=QZD.length;lsSet('hub:'+DECKID,P);var d=el('div','qdone');d.appendChild(el('b',null,score+' / '+QZD.length));d.appendChild(el('p',null,score===QZD.length?'Every trap dodged. Go to the flashcards next.':'Look at the past-paper cards for the ones you missed, then try again.'));var r=el('button','qnext','Try again');r.type='button';r.onclick=function(){qi=0;score=0;qRender();};d.appendChild(r);qz.appendChild(d);return;}
+    var q=QZD[qi];answered=false;
+    var m=el('div','qmeta');m.appendChild(el('span',null,'Question '+(qi+1)+' of '+QZD.length));m.appendChild(el('span',null,'Score '+score));qz.appendChild(m);
+    var bar=el('div','qbar');var bi=el('i');bi.style.width=(qi/QZD.length*100)+'%';bar.appendChild(bi);qz.appendChild(bar);
+    qz.appendChild(el('div','qq',q[0]));
+    if(q[5]){qz.appendChild(makePad('q'+qi,'Working space'));requestAnimationFrame(sizePads);}
+    var os=el('div','qopts'),btns=[];
+    q[1].forEach(function(o,k){var b=el('button','qopt');b.type='button';b.appendChild(el('span','L','ABCD'[k]));b.appendChild(el('span',null,o));b.onclick=function(){if(answered)return;answered=true;if(k===q[2])score++;btns.forEach(function(x,j){x.disabled=true;if(j===q[2])x.classList.add('right');else if(j===k)x.classList.add('wrong');});
+      var fb=el('div','qfb');fb.appendChild(el('div',null,(k===q[2]?'Correct. ':'Not quite. The answer is '+'ABCD'[q[2]]+'. ')+q[3]));if(q[4])fb.appendChild(el('div','r','Trap seen in: '+q[4]));qz.appendChild(fb);
+      var n=el('button','qnext',qi===QZD.length-1?'See your score':'Next question');n.type='button';n.onclick=function(){qi++;qRender();};qz.appendChild(n);n.focus();};btns.push(b);os.appendChild(b);});
+    qz.appendChild(os);
+  }
+  qRender();
+  /* flashcards */
+  var topic="All", order=[], pos=0, flipped=false, known=prog().known;
+  function saveKnown(){var P=prog();P.known=known;P.kn=CARDS.length;lsSet('hub:'+DECKID,P);}
+  var topics=["All"];CARDS.forEach(function(c){if(topics.indexOf(c[0])<0)topics.push(c[0]);});
+  var chipsEl=$('chips'), cardEl=$('card'), metaEl=$('meta');
+  topics.forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===topic?'true':'false');b.onclick=function(){topic=t;[].forEach.call(chipsEl.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});build(false);};chipsEl.appendChild(b);});
+  function build(shuf){order=[];CARDS.forEach(function(c,k){if(topic==="All"||c[0]===topic)order.push(k);});if(shuf){for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}}pos=0;flipped=false;render();}
+  function render(){
+    if(!order.length)return;var c=CARDS[order[pos]];
+    cardEl.classList.toggle('flip',flipped);
+    $('fSide').textContent='Question · '+c[0];$('fQ').textContent=c[1];$('fA').textContent=c[2];
+    var n=0;order.forEach(function(k){if(known[k])n++;});
+    metaEl.textContent='Card '+(pos+1)+' of '+order.length+' · Known: '+n+' of '+order.length;
+  }
+  function move(d){var was=flipped;flipped=false;cardEl.classList.remove('flip');setTimeout(function(){pos=(pos+d+order.length)%order.length;render();},was?260:0);}
+  function flip(){flipped=!flipped;cardEl.classList.toggle('flip',flipped);}
+  cardEl.onclick=flip;cardEl.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();flip();}};
+  $('flip').onclick=flip;$('next').onclick=function(){move(1);};$('prev').onclick=function(){move(-1);};
+  $('shuffle').onclick=function(){build(true);};$('reset').onclick=function(){known={};saveKnown();build(false);};
+  $('know').onclick=function(){known[order[pos]]=true;saveKnown();move(1);};$('again').onclick=function(){delete known[order[pos]];saveKnown();move(1);};
+  document.addEventListener('keydown',function(e){
+    var t=e.target;if(t&&(t.tagName==='INPUT'))return;
+    if(e.key==='Escape'){closeD();return;}
+    if(!$('drawer').hidden)return;
+    if(t&&t.tagName==='BUTTON'&&(e.key===' '||e.key==='Enter'))return;
+    if(slides[cur].dataset.sec==='fc'){if(e.key===' '){e.preventDefault();flip();}else if(e.key==='ArrowRight')move(1);else if(e.key==='ArrowLeft')move(-1);}
+    else{if(e.key==='ArrowRight'||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);}
+  });
+  build(false);
+  var hm=/^#s(\d+)$/.exec(location.hash||'');show(hm?(+hm[1]-1):0,false);
+})();
+</script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}/* links to other sites open outside the app */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\"http\"]");if(a&&a.host!==location.host){a.target="_blank";a.rel="noopener";}});</script></body></html>

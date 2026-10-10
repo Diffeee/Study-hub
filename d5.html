@@ -1,0 +1,715 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Study Hub"><meta name="theme-color" content="#EEF0F3" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#0D1117" media="(prefers-color-scheme: dark)"><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-180.png"><link rel="icon" href="icon-192.png"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;overscroll-behavior:none}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<title>Work, Energy and Power</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: lab-notebook sheets on a dot grid. Header with topic badge + segmented section bar; one sheet at a time; contents drawer; bottom nav. Each deck has its own accent. */
+:root{
+  --bg:#EEF0F3; --dot:rgba(30,40,60,.13); --sheet:#FFFFFF; --sheet2:#F4F6F9; --ink:#141A24; --muted:#556070; --line:#D5DBE3;
+  --accent:#A0600A; --on-accent:#FFFFFF; --soft:color-mix(in srgb,var(--accent) 12%,var(--sheet));
+  --warm:#B5560F; --good:#23784A; --bad:#C0392B; --badbg:#FCEEEC; --goodbg:#E9F6EE; --eli:#FFF6D9; --eliline:#E2B53C; --lab:#6A4FD6; --grid2:rgba(40,80,140,.11);
+  --shadow:0 1px 2px rgba(20,26,36,.06),0 8px 24px rgba(20,26,36,.07);
+  --display:"Unbounded","Trebuchet MS",system-ui,sans-serif;
+  --body:"Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1117; --dot:rgba(220,230,245,.07); --sheet:#161C25; --sheet2:#1D2530; --ink:#E7ECF2; --muted:#9AA6B5; --line:#2A3441;
+    --accent:#F2B04D; --on-accent:#0D1117; --warm:#F0A15C; --good:#6CCB8F; --bad:#FF8C7E; --badbg:#2B1D1F; --goodbg:#16261C; --eli:#2A2617; --eliline:#B8933A; --lab:#A994FF; --grid2:rgba(200,220,255,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+    --bg:#0D1117; --dot:rgba(220,230,245,.07); --sheet:#161C25; --sheet2:#1D2530; --ink:#E7ECF2; --muted:#9AA6B5; --line:#2A3441;
+    --accent:#F2B04D; --on-accent:#0D1117; --warm:#F0A15C; --good:#6CCB8F; --bad:#FF8C7E; --badbg:#2B1D1F; --goodbg:#16261C; --eli:#2A2617; --eliline:#B8933A; --lab:#A994FF; --grid2:rgba(200,220,255,.08);
+    --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35); color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background-color:var(--bg);background-image:radial-gradient(var(--dot) 1.1px,transparent 1.2px);background-size:22px 22px;color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.55}
+.app{display:flex;flex-direction:column;height:100%}
+header.bar{display:flex;align-items:center;gap:12px;padding:10px 16px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.badge{flex:none;width:42px;height:42px;border-radius:10px;background:var(--accent);color:var(--on-accent);display:flex;align-items:center;justify-content:center;font:700 16px var(--display)}
+.ttl{min-width:0;flex:1}
+.ttl small{display:block;font:600 11px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.ttl b{display:block;font:700 15px var(--display);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acts{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.hb{font:700 13px var(--body);padding:7px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;white-space:nowrap}
+.hb.pri{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.segs{display:flex;gap:3px;padding:8px 16px;background:var(--sheet);border-bottom:1px solid var(--line)}
+.segs button{flex:1;height:7px;border:0;border-radius:4px;padding:0;cursor:pointer;background:var(--sc);opacity:.22;min-width:0}
+.segs button.done{opacity:.55}.segs button.on{opacity:1;transform:scaleY(1.5)}
+.sec-learn{--sc:var(--accent)}.sec-lab{--sc:var(--lab)}.sec-exam{--sc:var(--bad)}.sec-pp{--sc:var(--warm)}.sec-quiz{--sc:var(--good)}.sec-fc{--sc:var(--ink)}.sec-start{--sc:var(--muted)}
+main{flex:1;min-height:0;overflow-y:auto;padding:22px 16px 40px}
+.slide{position:relative;max-width:1000px;margin:0 auto;min-width:0;background:var(--sheet);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow);padding:clamp(20px,4vw,40px);overflow:hidden}
+.slide[hidden]{display:none}
+.slide.enter{animation:in .28s ease-out}
+@keyframes in{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:none}}
+.kicker{display:inline-block;font:600 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent);background:var(--soft);border-radius:999px;padding:4px 10px;margin:0 0 12px}
+h1,h2{font-family:var(--display);font-weight:700;line-height:1.1;margin:0 0 14px;text-wrap:balance}
+h1{font-size:clamp(32px,6.5vw,58px);letter-spacing:-.02em;max-width:14ch}
+h2{font-size:clamp(22px,3.8vw,34px);letter-spacing:-.01em}
+h3{font-family:var(--body);font-weight:700;font-size:18px;margin:0 0 6px}
+p{margin:0 0 12px;max-width:70ch}
+.lead{font-size:19px;color:var(--muted);max-width:58ch}
+.bignum{position:absolute;right:-10px;top:-30px;font:700 clamp(140px,26vw,260px)/1 var(--display);color:transparent;-webkit-text-stroke:2px var(--accent);opacity:.18;pointer-events:none;user-select:none}
+.inside{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));gap:10px;margin:18px 0}
+.inside button{text-align:left;border:1px solid var(--line);background:var(--sheet2);border-radius:12px;padding:12px 14px;cursor:pointer;color:var(--ink);font:inherit}
+.inside button b{display:block;font:700 26px var(--display);color:var(--sc)}
+.inside button span{font-size:14px;color:var(--muted)}
+.grid{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));margin:0 0 14px}
+.box{background:var(--sheet2);border:1px solid var(--line);border-radius:12px;padding:16px;min-width:0}
+.box.hl{background:var(--sheet);border:2px solid var(--accent)}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.formula{font:600 clamp(15px,3vw,21px) var(--mono);background:var(--soft);border-radius:10px;padding:12px 16px;margin:8px 0 14px;overflow-x:auto;white-space:nowrap;color:var(--ink)}
+.tag{display:inline-block;font:500 12px var(--mono);padding:3px 9px;border-radius:6px;background:var(--sheet2);border:1px solid var(--line);color:var(--muted)}
+ul,ol{margin:0 0 12px;padding-left:22px;max-width:72ch}
+li{margin-bottom:5px}
+.tw{overflow-x:auto;margin:0 0 14px;border:1px solid var(--line);border-radius:10px;background:var(--sheet)}
+table{border-collapse:collapse;width:100%;min-width:460px;font-size:16px}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font:600 11.5px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:var(--sheet2)}
+tr:last-child td{border-bottom:0}
+.num{font-variant-numeric:tabular-nums}
+.ok{color:var(--good);font-weight:700}.no{color:var(--bad);font-weight:700}
+.fig{background:var(--sheet);border:1px solid var(--line);border-radius:12px;padding:10px;margin:0 0 14px}
+.fig svg{width:100%;height:auto;max-height:300px;display:block}
+.fig figcaption{font-size:14px;color:var(--muted);padding:4px 6px}
+.s-axis{stroke:var(--ink);stroke-width:1.6;fill:none}
+.s-a{stroke:var(--accent);stroke-width:2.6;fill:none}
+.s-w{stroke:var(--warm);stroke-width:2.6;fill:none}
+.s-g{stroke:var(--good);stroke-width:2.6;fill:none}
+.s-b{stroke:var(--bad);stroke-width:2.6;fill:none}
+.s-d{stroke:var(--muted);stroke-width:1;stroke-dasharray:4 4;fill:none}
+.s-t{fill:var(--ink);font:600 12px var(--mono)}
+.s-m{fill:var(--muted);font:500 11px var(--mono)}
+.s-dot{fill:var(--warm)}
+.s-fa{fill:var(--accent);fill-opacity:.14;stroke:none}
+.s-fill{fill:var(--sheet2);stroke:var(--ink);stroke-width:1.4}
+.s-ink{fill:var(--ink)}
+.s-track{fill:var(--sheet2);stroke:var(--line)}
+.s-barw{fill:var(--warm)}.s-barg{fill:var(--good)}
+.def{background:var(--goodbg);border-radius:10px;padding:12px 16px;margin:0 0 14px;border-left:4px solid var(--good)}
+.def b.lab{display:block;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--good);margin-bottom:4px}
+.eli5{position:relative;background:var(--eli);border:2px dashed var(--eliline);border-radius:16px;padding:14px 16px 14px 62px;margin:0 0 14px;font-size:17.5px;min-width:0}
+.eli5::before{content:"5";position:absolute;left:14px;top:14px;width:34px;height:34px;border-radius:50%;background:var(--eliline);color:#1b1607;font:700 17px var(--display);display:flex;align-items:center;justify-content:center;transform:rotate(-8deg)}
+.eli5 b.lab{display:block;font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warm);margin-bottom:4px}
+.eli5 p:last-child{margin-bottom:0}
+.trap{position:relative;background:var(--badbg);border-radius:12px;padding:12px 16px 12px 46px;min-width:0}
+.trap::before{content:"!";position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:6px;background:var(--bad);color:var(--sheet);font:700 15px var(--display);display:flex;align-items:center;justify-content:center}
+.trap h3{color:var(--bad);font-size:16.5px}
+.trap p{margin:0 0 6px}.trap p:last-child{margin:0}
+.fix{color:var(--good);font-weight:700}
+.lo{font:600 12px var(--mono);color:var(--accent);white-space:nowrap}
+.steps{counter-reset:s;list-style:none;padding:0}
+.steps li{counter-increment:s;position:relative;padding-left:36px;margin-bottom:9px}
+.steps li::before{content:counter(s);position:absolute;left:0;top:1px;width:25px;height:25px;border-radius:8px;background:var(--accent);color:var(--on-accent);font:700 13px var(--mono);display:flex;align-items:center;justify-content:center}
+.work{font:400 14.5px/1.75 var(--mono);background:var(--sheet2);border:1px dashed var(--line);border-radius:8px;padding:10px 14px;margin:6px 0 10px;overflow-x:auto;white-space:pre}
+.rv{display:inline-flex;align-items:center;gap:8px;font:700 14px var(--body);color:var(--accent);background:var(--soft);border:1px solid var(--accent);border-radius:999px;padding:7px 14px;cursor:pointer;margin:4px 0 8px}
+.rv::before{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px)}
+.rv[aria-expanded="true"]::before{transform:rotate(-135deg) translateY(-1px)}
+/* labs */
+.lab{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));align-items:start;background:var(--sheet2);border:1px solid var(--line);border-radius:14px;padding:16px;margin:0 0 10px}
+.lab svg{width:100%;height:auto;display:block;background:var(--sheet);border:1px solid var(--line);border-radius:10px}
+.ctls{display:flex;flex-direction:column;gap:12px;min-width:0}
+.ctl{display:flex;flex-direction:column;gap:4px;font-weight:700;font-size:15px}
+.ctl span{display:flex;justify-content:space-between;gap:8px}
+.ctl output{font:600 14px var(--mono);color:var(--accent)}
+input[type=range]{width:100%;accent-color:var(--accent);height:28px}
+.readout{background:var(--sheet);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:15.5px;display:flex;flex-direction:column;gap:4px;margin-top:10px}
+.readout b{font-family:var(--mono);font-weight:600}
+.mut{color:var(--muted);font-size:14.5px}
+.mono{font:500 13.5px var(--mono);overflow-x:auto;white-space:nowrap}
+.sw{display:inline-block;width:12px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle}
+.sw-a{background:var(--accent)}.sw-w{background:var(--warm)}.sw-g{background:var(--good)}
+.okt{color:var(--good);font-weight:700}.badt{color:var(--bad);font-weight:700}.warnline{color:var(--bad);font-weight:700}
+.seg-toggle{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;align-self:flex-start}
+.seg-toggle button{font:700 14px var(--body);padding:7px 14px;border:0;background:var(--sheet);color:var(--ink);cursor:pointer}
+.seg-toggle button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+/* past papers */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.chip{font:700 13px var(--body);padding:6px 12px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.ppgrid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr))}
+.pp{display:flex;flex-direction:column;gap:6px;text-align:left;font:inherit;color:inherit;background:var(--sheet);border:1px solid var(--line);border-top:4px solid var(--warm);border-radius:12px;padding:12px 14px;cursor:pointer;min-width:0}
+.pp .ref{font:600 12px var(--mono);color:var(--warm);letter-spacing:.03em}
+.pp .ask{font-weight:700;font-size:16px}
+.pp .hint{font-size:13.5px;color:var(--muted)}
+.pp .got{display:none;background:var(--badbg);border-radius:8px;padding:8px 10px;font-size:15px}
+.pp .fx{display:none;background:var(--goodbg);border-radius:8px;padding:8px 10px;font-size:15px}
+.pp.open .got,.pp.open .fx{display:block}.pp.open .hint{display:none}
+.pp .got b{color:var(--bad)}.pp .fx b{color:var(--good)}
+.src{font-size:13.5px;color:var(--muted);margin-top:14px}
+.src a{color:var(--accent)}
+/* quiz */
+.qz{background:var(--sheet2);border:1px solid var(--line);border-radius:14px;padding:18px}
+.qmeta{display:flex;justify-content:space-between;gap:10px;font:600 13px var(--mono);color:var(--muted);margin-bottom:8px;flex-wrap:wrap}
+.qbar{height:6px;background:var(--line);border-radius:3px;margin-bottom:14px;overflow:hidden}.qbar i{display:block;height:100%;background:var(--good);width:0;transition:width .25s}
+.qq{font:700 clamp(18px,3vw,22px)/1.35 var(--body);margin-bottom:14px}
+.qopts{display:grid;gap:8px}
+.qopt{display:flex;gap:12px;align-items:flex-start;text-align:left;font:inherit;color:var(--ink);background:var(--sheet);border:2px solid var(--line);border-radius:10px;padding:10px 12px;cursor:pointer}
+.qopt .L{flex:none;width:26px;height:26px;border-radius:7px;background:var(--sheet2);border:1px solid var(--line);font:700 13px var(--mono);display:flex;align-items:center;justify-content:center}
+.qopt.right{border-color:var(--good);background:var(--goodbg)}.qopt.wrong{border-color:var(--bad);background:var(--badbg)}
+.qopt:disabled{cursor:default}
+.qfb{margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--sheet);border:1px solid var(--line)}
+.qfb .r{font:600 12px var(--mono);color:var(--warm);margin-top:6px}
+.qnext{margin-top:12px;font:700 15px var(--body);padding:9px 16px;border-radius:999px;border:0;background:var(--accent);color:var(--on-accent);cursor:pointer}
+.qdone{text-align:center;padding:20px}.qdone b{display:block;font:700 48px var(--display);color:var(--good)}
+/* flashcards */
+.fc-scene{perspective:1200px}
+.fc-inner{display:grid;transition:transform .5s cubic-bezier(.3,.7,.3,1);transform-style:preserve-3d;cursor:pointer;border-radius:16px}
+.fc-inner.flip{transform:rotateY(180deg)}
+.face{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden;min-height:250px;border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:center;border:2px solid var(--line);background:var(--sheet)}
+.face.back{transform:rotateY(180deg);background:var(--soft);border-color:var(--accent)}
+.face .side{font:600 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--warm);margin-bottom:10px}
+.face .txt{font:600 clamp(19px,3.6vw,26px)/1.3 var(--body)}
+.face .hint{margin-top:14px;font-size:14px;color:var(--muted)}
+.fc-tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 6px}
+.fc-tools button{font:700 14px var(--body);padding:9px 14px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer}
+.fc-tools .good{border-color:var(--good);color:var(--good)}
+.fc-tools .bad{border-color:var(--bad);color:var(--bad)}
+.fc-meta{font:600 13px var(--mono);color:var(--muted);margin:6px 0}
+
+/* stylus working pad */
+.pad,.pad *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html.inking,html.inking *{-webkit-user-select:none!important;user-select:none!important;-webkit-touch-callout:none!important}
+.padcv{-webkit-tap-highlight-color:transparent}
+.pad{margin:10px 0 12px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--sheet)}
+.padbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:6px 8px;background:var(--sheet2);border-bottom:1px solid var(--line)}
+.padlab{font:600 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-left:4px}
+.padtools{display:flex;flex-wrap:wrap;gap:6px}
+.pt{font:700 13px var(--body);padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-height:36px}
+.pt[aria-pressed="true"]{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.pt.dot{width:36px;padding:0;position:relative}
+.pt.dot::after{content:"";position:absolute;inset:10px;border-radius:50%;background:var(--dc)}
+.pt.dot[aria-pressed="true"]{background:var(--soft);border:2px solid var(--accent)}
+.padcv{display:block;width:100%;height:280px;touch-action:none;cursor:crosshair;background-color:var(--sheet);background-image:linear-gradient(var(--grid2) 1px,transparent 1px),linear-gradient(90deg,var(--grid2) 1px,transparent 1px);background-size:20px 20px}
+.padnote{font-size:13px;color:var(--muted);padding:5px 10px;border-top:1px solid var(--line);background:var(--sheet2)}
+.hubb{flex:none;font:700 13px var(--body);text-decoration:none;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:7px 11px;background:var(--sheet2)}
+/* nav + drawer */
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:var(--sheet);border-top:1px solid var(--line)}
+.nav button{font:700 15px var(--body);padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:var(--sheet);color:var(--ink);cursor:pointer;min-width:88px}
+.nav #nx{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.nav button:disabled{opacity:.35;cursor:default}
+.count{font:600 13px var(--mono);color:var(--muted);text-align:center;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.scrim{position:fixed;inset:0;background:rgba(10,14,20,.45);z-index:20}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(360px,88vw);background:var(--sheet);border-left:1px solid var(--line);z-index:21;display:flex;flex-direction:column;padding:calc(14px + env(safe-area-inset-top,0px)) 0 env(safe-area-inset-bottom,0px)}
+.drawer h3{font:700 15px var(--display);padding:0 18px 10px;margin:0;display:flex;justify-content:space-between;align-items:center}
+.drawer ol{list-style:none;margin:0;padding:0 8px 20px;overflow-y:auto;max-width:none}
+.drawer li{margin:0}
+.drawer li button{display:flex;gap:10px;align-items:center;width:100%;text-align:left;font:inherit;font-size:15px;background:none;border:0;color:var(--ink);padding:8px 10px;border-radius:8px;cursor:pointer}
+.drawer li button i{flex:none;width:10px;height:10px;border-radius:3px;background:var(--sc)}
+.drawer li button.on{background:var(--soft);font-weight:700}
+.drawer .x{font:700 13px var(--body);border:1px solid var(--line);background:var(--sheet);color:var(--ink);border-radius:999px;padding:5px 10px;cursor:pointer}
+button:focus-visible,.pp:focus-visible,.fc-inner:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+@media (max-width:560px){.hb.opt{display:none}.ttl small{display:none}}
+@media (prefers-reduced-motion:reduce){.slide.enter{animation:none}.fc-inner,.qbar i{transition:none}.segs button.on{transform:none}}
+</style>
+
+<div class="app">
+  <header class="bar">
+    <a class="hubb" href="index.html">Hub</a><div class="badge" aria-hidden="true">05</div>
+    <div class="ttl"><small>CIE 9702 · AS Physics · Topic 5</small><b>Work, energy, power</b></div>
+    <div class="acts">
+      <button class="hb" id="bContents" type="button">Contents</button>
+      <button class="hb opt" id="bPP" type="button">Past papers</button>
+      <button class="hb opt" id="bQuiz" type="button">Quiz</button>
+      <button class="hb pri" id="bFC" type="button">Flashcards</button>
+    </div>
+  </header>
+  <div class="segs" id="segs" aria-label="Slides"></div>
+  <main id="main">
+
+    <section class="slide" data-title="Title">
+      <div class="bignum" aria-hidden="true">05</div>
+      <p class="kicker">AS Level Physics · Topic 5</p>
+      <h1>Work, energy and power</h1>
+      <p class="lead">Work done by a force, conservation of energy, GPE and KE with their derivations, efficiency, power and P = Fv.</p>
+      <div class="tw"><table>
+        <tr><th>Syllabus</th><th>You must be able to</th></tr>
+        <tr><td class="lo">5.1.1</td><td>Work done = force × displacement in the direction of the force</td></tr>
+        <tr><td class="lo">5.1.2</td><td>Recall and apply conservation of energy</td></tr>
+        <tr><td class="lo">5.2.1–2</td><td>Derive and use ΔE<sub>P</sub> = mgΔh</td></tr>
+        <tr><td class="lo">5.2.3–4</td><td>Derive and use E<sub>K</sub> = ½mv²</td></tr>
+        <tr><td class="lo">5.1.3–4</td><td>Efficiency = useful output ÷ total input</td></tr>
+        <tr><td class="lo">5.1.5–6</td><td>Power = work done per unit time, P = W/t</td></tr>
+        <tr><td class="lo">5.1.7</td><td>Derive and use P = Fv</td></tr>
+        <tr><td>Exam</td><td>Traps, mark-scheme wording, real past-paper errors, trap quiz, flashcards</td></tr>
+      </table></div>
+      <div class="inside" data-inside></div>
+      <p class="tag">Syllabus source: Cambridge International AS &amp; A Level Physics 9702 syllabus, exams 2025–2027</p>
+    </section>
+
+    <section class="slide" data-title="Work done">
+      <p class="kicker">5.1.1 · Work</p>
+      <h2>Work = force × displacement in the direction of the force</h2>
+      <div class="formula">W = F s cos θ &nbsp; (θ = angle between F and s; unit J = N m)</div>
+      <p>Work done is the <b>energy transferred</b> by a force. 1 J is the work done when a force of 1 N moves its point of application 1 m in the direction of the force.</p>
+      <div class="box hl"><h3>Worked example</h3><p>A sledge is pulled 50 m along flat ground by a rope at 30° above the horizontal with tension 80 N. Only the horizontal component does work: W = 80 cos 30° × 50 = <b>3.46 × 10³ J</b>.</p></div>
+      <div class="grid">
+        <div class="box"><h3>When is no work done?</h3><ul><li>Force <b>perpendicular</b> to motion (cos 90° = 0): e.g. the normal force on a car on a flat road, or the centripetal force in circular motion.</li><li><b>No displacement</b>: holding a heavy bag still does no work on the bag.</li></ul></div>
+        <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>In physics, "work" only counts if your push actually moves something along the way you're pushing. Pushing a wall all day? Zero work, even though you're tired!</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Conservation of energy">
+      <p class="kicker">5.1.2 · Conservation</p>
+      <h2>Energy is never created or destroyed</h2>
+      <div class="def"><b class="lab">Principle of conservation of energy</b>Energy cannot be created or destroyed. It can only be transferred from one form to another. The total energy of a closed system is constant.</div>
+      <div class="tw"><table>
+        <tr><th>Situation</th><th>Energy transfer</th></tr>
+        <tr><td>Ball falling (no air resistance)</td><td>GPE → KE</td></tr>
+        <tr><td>Ball falling at terminal velocity</td><td>GPE → thermal energy (work done against drag); KE constant</td></tr>
+        <tr><td>Car braking</td><td>KE → thermal energy in brakes</td></tr>
+        <tr><td>Inelastic collision</td><td>Some KE → thermal, sound, deformation</td></tr>
+        <tr><td>Rifle firing</td><td>Chemical → KE of bullet and rifle (+ thermal, sound)</td></tr>
+      </table></div>
+      <p>The key working equation in problems: <b>energy at start = energy at end + work done against resistive forces</b>.</p>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Energy is like sweets passed around a circle of friends. Sweets move from hand to hand, but the total number of sweets never changes. Some might fall on the floor (heat), but they still exist.</p></div>
+    </section>
+
+    <section class="slide" data-title="GPE">
+      <p class="kicker">5.2.1 and 5.2.2 · Gravitational potential energy</p>
+      <h2>Deriving ΔE<sub>P</sub> = mgΔh from W = Fs</h2>
+      <ol class="steps">
+        <li>Lift a mass m at constant speed through height Δh. The upward force needed equals the weight: F = mg.</li>
+        <li>The force and the displacement are in the same direction, so work done W = FΔh = mgΔh.</li>
+        <li>This work is stored as gravitational potential energy: <b>ΔE<sub>P</sub> = mgΔh</b>.</li>
+      </ol>
+      <p>Valid in a <b>uniform</b> gravitational field (g constant), which is true for heights small compared with Earth's radius.</p>
+      <div class="box hl"><h3>Worked example</h3><p>A 60 kg student climbs stairs of vertical height 3.0 m. ΔE<sub>P</sub> = 60 × 9.81 × 3.0 = <b>1770 J</b>. The length of the staircase does not matter, only the vertical height.</p></div>
+      <div class="trap"><h3>Trap</h3><p>On a slope, Δh is the <b>vertical</b> rise, not the length along the slope. For a 5.0 m slope at 30°, Δh = 5.0 sin 30° = 2.5 m.</p></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>When you carry a ball up the stairs, you "charge it up" with energy. When it rolls back down, that stored energy comes out as movement.</p></div>
+    </section>
+
+    <section class="slide" data-title="KE">
+      <p class="kicker">5.2.3 and 5.2.4 · Kinetic energy</p>
+      <h2>Deriving E<sub>K</sub> = ½mv² from the equations of motion</h2>
+      <ol class="steps">
+        <li>A constant resultant force F acts on mass m, initially at rest, over a distance s. Work done W = Fs.</li>
+        <li>Newton's second law: F = ma.</li>
+        <li>Equation of motion with u = 0: v² = 2as, so s = v² / 2a.</li>
+        <li>W = Fs = ma × v²/2a = ½mv². This work becomes kinetic energy: <b>E<sub>K</sub> = ½mv²</b>.</li>
+      </ol>
+      <div class="box hl"><h3>Worked example</h3><p>A 1200 kg car speeds up from 10 m s⁻¹ to 20 m s⁻¹. ΔE<sub>K</sub> = ½ × 1200 × (20² − 10²) = ½ × 1200 × 300 = <b>1.8 × 10⁵ J</b>.</p></div>
+      <div class="grid">
+        <div class="trap"><h3>Trap: (Δv)² instead of Δ(v²)</h3><p>½ × 1200 × (20 − 10)² = 6.0 × 10⁴ J is <b>wrong</b>. Find each KE, then subtract.</p></div>
+        <div class="box"><h3>v is squared</h3><p>Double the speed and KE becomes <b>4 times</b> bigger. That is why braking distance rises so quickly with speed.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Energy problems">
+      <p class="kicker">5.1.2 applied · Solving with energy</p>
+      <h2>Energy methods skip the time and the direction</h2>
+      <div class="box hl"><h3>Worked example 1: slope with friction</h3>
+        <p>A 3.0 kg block slides from rest down a slope 5.0 m long with a vertical drop of 2.0 m. Friction is a constant 4.0 N. Find its speed at the bottom.</p>
+        <div class="work">GPE lost           = 3.0 × 9.81 × 2.0 = 58.9 J
+work against friction = 4.0 × 5.0     = 20.0 J   (distance along the slope)
+KE gained          = 58.9 − 20.0       = 38.9 J
+½ × 3.0 × v² = 38.9  →  v = 5.09 m s⁻¹</div>
+      </div>
+      <div class="box"><h3>Worked example 2: no friction</h3>
+        <p>A pendulum bob is released from 0.45 m above its lowest point. mgh = ½mv², so m cancels: v = √(2gh) = √(2 × 9.81 × 0.45) = <b>2.97 m s⁻¹</b>, whatever the mass.</p>
+      </div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>On a slide, you start with "height energy". At the bottom, it has turned into "speed energy". If the slide is sticky, some of it turns into warm bottom instead, so you go slower.</p></div>
+    </section>
+
+    <section class="slide" data-title="Efficiency">
+      <p class="kicker">5.1.3 and 5.1.4 · Efficiency</p>
+      <h2>How much of the input is useful</h2>
+      <div class="def"><b class="lab">Efficiency</b>The ratio of useful energy output from a system to the total energy input. It can also be written with power.</div>
+      <div class="formula">efficiency = useful energy output ÷ total energy input (× 100%)</div>
+      <div class="box hl"><h3>Worked example</h3>
+        <p>An electric motor lifts a 50 kg load through 12 m in 20 s. Its electrical input power is 400 W.</p>
+        <div class="work">useful output = mgΔh = 50 × 9.81 × 12 = 5886 J
+total input   = P × t = 400 × 20    = 8000 J
+efficiency    = 5886 / 8000          = 0.736 = 73.6%
+useful power  = 5886 / 20            = 294 W</div>
+        <p>The other 2114 J is wasted, mostly as thermal energy in the motor.</p>
+      </div>
+      <div class="grid">
+        <div class="trap"><h3>Trap</h3><p>Efficiency above 100% means you have swapped input and output. Efficiency has <b>no unit</b>.</p></div>
+        <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>You pour 10 cups of juice into a funnel, but 3 spill on the floor. 7 out of 10 reached the bottle. That's 70% efficient.</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Power">
+      <p class="kicker">5.1.5 and 5.1.6 · Power</p>
+      <h2>Power is the rate of doing work</h2>
+      <div class="def"><b class="lab">Power</b>Work done per unit time (rate of energy transfer). Unit W = J s⁻¹.</div>
+      <div class="formula">P = W / t</div>
+      <div class="box hl"><h3>Worked example</h3><p>The 60 kg student runs up the 3.0 m stairs in 4.0 s. P = mgΔh / t = 1770 / 4.0 = <b>441 W</b>. Walking up in 12 s, the same work gives only 147 W.</p></div>
+      <div class="tw"><table>
+        <tr><th>Unit trick</th><th>Meaning</th></tr>
+        <tr><td>1 W</td><td>1 J transferred every second</td></tr>
+        <tr><td>kW, MW</td><td>10³ W, 10⁶ W</td></tr>
+        <tr><td>Base units of W</td><td>kg m² s⁻³</td></tr>
+      </table></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>Two kids carry the same box up the stairs. One runs, one walks. They did the same work, but the runner was more powerful because he did it faster.</p></div>
+    </section>
+
+    <section class="slide" data-title="P = Fv">
+      <p class="kicker">5.1.7 · Derivation and use</p>
+      <h2>Deriving P = Fv</h2>
+      <ol class="steps">
+        <li>P = W / t (definition of power).</li>
+        <li>W = Fs when force and displacement are in the same direction.</li>
+        <li>P = Fs / t, and s / t = v, so <b>P = Fv</b>.</li>
+      </ol>
+      <p>Here F is the force <b>doing the work</b> (e.g. the driving force of the engine), and v is the velocity in the direction of that force at that instant.</p>
+      <div class="box hl"><h3>Worked example 1: constant speed on the level</h3><p>A car travels at a constant 25 m s⁻¹ against a total resistive force of 800 N. Constant velocity means driving force = resistance = 800 N. P = 800 × 25 = <b>2.0 × 10⁴ W</b>.</p></div>
+      <div class="box"><h3>Worked example 2: up a hill</h3>
+        <p>A 1000 kg car climbs a 5.0° slope at a constant 20 m s⁻¹. Resistive force 500 N.</p>
+        <div class="work">component of weight down slope = 1000 × 9.81 × sin 5.0° = 855 N
+driving force = 500 + 855 = 1355 N
+P = 1355 × 20 = 2.71 × 10⁴ W</div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Top speed">
+      <p class="kicker">5.1.7 · Power and acceleration</p>
+      <h2>Why a car has a top speed</h2>
+      <p>At maximum power, driving force F = P / v. As v rises, F falls, while drag rises. Top speed is reached when <b>driving force = resistive force</b>, so the resultant force and acceleration are zero.</p>
+      <div class="box hl"><h3>Worked example</h3>
+        <p>A 1200 kg car has a maximum power of 60 kW. (a) Its top speed is 40 m s⁻¹. Find the resistive force at top speed. (b) At 20 m s⁻¹, at maximum power, the resistive force is 900 N. Find the acceleration.</p>
+        <div class="work">(a) F = P / v = 60 000 / 40 = 1500 N = resistive force
+(b) driving force = 60 000 / 20 = 3000 N
+    resultant = 3000 − 900 = 2100 N
+    a = 2100 / 1200 = 1.75 m s⁻²</div>
+      </div>
+      <div class="trap"><h3>Trap: which F?</h3><p>In P = Fv use the <b>driving</b> force, not the resultant force. In F = ma use the <b>resultant</b> force. Mixing these up is the most common error in this type of question.</p></div>
+      <div class="eli5"><b class="lab">Explain it to a 5-year-old</b><p>When you run, the air pushes back harder the faster you go. Eventually you're pushing as hard as you can and the air pushes back just as hard, so you can't go any faster.</p></div>
+    </section>
+
+    
+    <section class="slide" data-title="Lab: energy on a slope" data-sec="lab">
+      <p class="kicker">Interactive lab · 5.1–5.2</p>
+      <h2>Slide a block down a slope</h2>
+      <p>The block starts at rest. GPE lost = work done against friction + KE gained. Friction acts along the whole slope length, while GPE uses only the vertical height.</p>
+      <div class="lab">
+        <div class="ctls">
+          <label class="ctl" for="l5m"><span>Mass m <output id="l5mo"></output></span><input type="range" id="l5m" min="1" max="10" step="0.5" value="3"></label>
+          <label class="ctl" for="l5h"><span>Vertical height h <output id="l5ho"></output></span><input type="range" id="l5h" min="0.5" max="5" step="0.1" value="2"></label>
+          <label class="ctl" for="l5a"><span>Slope angle θ <output id="l5ao"></output></span><input type="range" id="l5a" min="10" max="70" value="24"></label>
+          <label class="ctl" for="l5f"><span>Friction force f <output id="l5fo"></output></span><input type="range" id="l5f" min="0" max="30" step="0.5" value="4"></label>
+          <div class="readout">
+            <div>Slope length = h / sin θ = <b id="l5s"></b></div>
+            <div><span class="sw sw-a"></span>GPE lost = mgh = <b id="l5g"></b></div>
+            <div><span class="sw sw-w"></span>Work against friction = f × length = <b id="l5wf"></b></div>
+            <div><span class="sw sw-g"></span>KE at bottom = <b id="l5k"></b> → v = <b id="l5v"></b></div>
+          </div>
+        </div>
+        <div>
+          <svg id="l5svg" viewBox="0 0 340 200" role="img" aria-label="Slope drawn to scale with an energy bar below">
+            <path id="l5tri" class="s-fill"/>
+            <rect id="l5blk" class="s-ink" width="14" height="14"/>
+            <text id="l5ht" class="s-m"></text>
+            <rect x="20" y="168" width="300" height="18" rx="3" class="s-track"/>
+            <rect id="l5bw" x="20" y="168" height="18" class="s-barw"/>
+            <rect id="l5bk" y="168" height="18" class="s-barg"/>
+            <text class="s-m" x="20" y="162">where the GPE goes</text>
+          </svg>
+        </div>
+      </div>
+      <script>
+      (function(){
+        function $(i){return document.getElementById(i);}
+        function upd(){
+          var g=9.81,m=+$('l5m').value,h=+$('l5h').value,a=+$('l5a').value*Math.PI/180,f=+$('l5f').value;
+          var s=h/Math.sin(a),G=m*g*h,Wf=f*s,K=G-Wf;
+          $('l5mo').textContent=m+' kg';$('l5ho').textContent=h.toFixed(1)+' m';$('l5ao').textContent=$('l5a').value+'°';$('l5fo').textContent=f+' N';
+          $('l5s').textContent=s.toFixed(2)+' m';$('l5g').textContent=G.toFixed(1)+' J';$('l5wf').textContent=Wf.toFixed(1)+' J';
+          if(K<=0){$('l5k').textContent='0';$('l5v').textContent='the block does not slide (f ≥ mg sin θ)';}
+          else{$('l5k').textContent=K.toFixed(1)+' J';$('l5v').textContent=Math.sqrt(2*K/m).toFixed(2)+' m s⁻¹';}
+          var sc=Math.min(28,280/(h/Math.tan(a)),120/h),bx=30,by=150,w=(h/Math.tan(a))*sc,hh=h*sc;
+          $('l5tri').setAttribute('d','M'+bx+' '+by+' L'+(bx)+' '+(by-hh)+' L'+(bx+w)+' '+by+' Z');
+          var b=$('l5blk');b.setAttribute('x',bx);b.setAttribute('y',by-hh-14);
+          var t=$('l5ht');t.setAttribute('x',bx+4);t.setAttribute('y',by-hh/2);t.textContent='h';
+          var fw=K<=0?300:300*Wf/G;$('l5bw').setAttribute('width',Math.min(300,fw));
+          var kb=$('l5bk');kb.setAttribute('x',20+Math.min(300,fw));kb.setAttribute('width',K<=0?0:300*K/G);
+        }
+        ['l5m','l5h','l5a','l5f'].forEach(function(i){$(i).oninput=upd;});upd();
+      })();
+      </script>
+    </section>
+
+    <section class="slide" data-title="Exam traps" data-traps>
+      <p class="kicker">Exam traps · Topic 5</p>
+      <h2>Where marks are lost</h2>
+      <p>Patterns from 9702 examiner reports and mark schemes for this topic. The Past papers slide shows the exact questions.</p>
+      <div class="grid">
+        <div class="trap"><h3>Work done definition</h3><p>"Force × distance" without direction.</p><p class="fix">Force × distance moved in the direction of the force.</p></div>
+        <div class="trap"><h3>Perpendicular forces</h3><p>Calculating work for a force at 90° to the motion.</p><p class="fix">Perpendicular force does zero work.</p></div>
+        <div class="trap"><h3>Slope height</h3><p>Using slope length in mgh.</p><p class="fix">Vertical height for GPE; slope length for work against friction.</p></div>
+        <div class="trap"><h3>Δ(v²) vs (Δv)²</h3><p>½m(v − u)² for change in KE.</p><p class="fix">½mv² − ½mu².</p></div>
+        <div class="trap"><h3>Power definition</h3><p>"Energy per second" or "work × time".</p><p class="fix">Work done per unit time.</p></div>
+        <div class="trap"><h3>P = Fv with resultant force</h3><p>Using F − resistance in P = Fv.</p><p class="fix">P = (driving force) × v.</p></div>
+        <div class="trap"><h3>Efficiency the wrong way up</h3><p>Answer above 100%, or a unit given.</p><p class="fix">useful out ÷ total in, no unit.</p></div>
+        <div class="trap"><h3>"Energy is lost"</h3><p>In explanations, "lost" without saying where it goes.</p><p class="fix">"Transferred to thermal energy (work done against friction/air resistance)".</p></div>
+      </div>
+    </section>
+
+    <section class="slide" data-title="Mark-scheme wording">
+      <p class="kicker">Definitions to learn word for word</p>
+      <h2>What examiners want to read</h2>
+      <div class="tw"><table>
+        <tr><th>Term</th><th>Answer that scores</th></tr>
+        <tr><td>Work done</td><td>Force × distance (displacement) moved in the direction of the force</td></tr>
+        <tr><td>Joule</td><td>Work done when a force of 1 N moves its point of application 1 m in the direction of the force</td></tr>
+        <tr><td>Conservation of energy</td><td>Energy cannot be created or destroyed; it can only be transferred from one form to another; total energy of a closed system is constant</td></tr>
+        <tr><td>Gravitational potential energy</td><td>Energy a mass has due to its position in a gravitational field</td></tr>
+        <tr><td>Kinetic energy</td><td>Energy a mass has due to its motion</td></tr>
+        <tr><td>Efficiency</td><td>Useful energy output ÷ total energy input</td></tr>
+        <tr><td>Power</td><td>Work done per unit time (rate of doing work)</td></tr>
+        <tr><td>Watt</td><td>1 joule per second</td></tr>
+      </table></div>
+    </section>
+
+    <section class="slide" data-title="Past papers" data-sec="pp">
+      <p class="kicker">Real past-paper evidence</p>
+      <h2>What students actually got wrong</h2>
+      <p>Each card is a real 9702 question that Cambridge's examiners commented on. Read what was asked, decide what the trap is, then tap to check.</p>
+      <div class="chips" id="ppChips"></div>
+      <div class="ppgrid" id="ppGrid"></div>
+      <p class="src" id="ppSrc"></p>
+    </section>
+
+    <section class="slide" data-title="Trap quiz" data-sec="quiz">
+      <p class="kicker">Trap quiz</p>
+      <h2>Can you dodge the traps?</h2>
+      <p>Each question is built around a trap from the past papers. The wrong options are the answers students really chose.</p>
+      <div class="qz" id="quiz"></div>
+    </section>
+
+    <section class="slide" data-title="Flashcards" data-sec="fc">
+      <p class="kicker">Flashcards</p>
+      <h2>Test yourself</h2>
+      <div class="chips" id="chips"></div>
+      <div class="fc-scene"><div class="fc-inner" id="card" role="button" tabindex="0" aria-live="polite">
+        <div class="face front"><div class="side" id="fSide"></div><div class="txt" id="fQ"></div><div class="hint">Tap to flip</div></div>
+        <div class="face back"><div class="side">Answer</div><div class="txt" id="fA"></div><div class="hint">Tap to flip back</div></div>
+      </div></div>
+      <div class="fc-tools">
+        <button type="button" id="prev">Previous</button>
+        <button type="button" id="flip">Flip</button>
+        <button type="button" id="next">Next</button>
+        <button type="button" class="good" id="know">I knew it</button>
+        <button type="button" class="bad" id="again">Practise again</button>
+        <button type="button" id="shuffle">Shuffle</button>
+        <button type="button" id="reset">Reset</button>
+      </div>
+      <div class="fc-meta" id="meta"></div>
+      <p class="tag">Keys: Space flips, arrow keys move between cards</p>
+    </section>
+
+  </main>
+  <nav class="nav">
+    <button type="button" id="pv">Back</button>
+    <div class="count" id="count"></div>
+    <button type="button" id="nx">Next</button>
+  </nav>
+</div>
+<div class="scrim" id="scrim" hidden></div>
+<aside class="drawer" id="drawer" hidden aria-label="Contents">
+  <h3>Contents <button class="x" id="dClose" type="button">Close</button></h3>
+  <ol id="toc"></ol>
+</aside>
+
+<script>
+(function(){
+  var DECKID='d5';
+  var CARDS=[["Work", "Define work done", "Force × distance moved in the direction of the force"], ["Work", "Work done by force F at angle θ to displacement s", "W = Fs cos θ"], ["Work", "Define the joule", "Work done when 1 N moves its point of application 1 m in the direction of the force"], ["Work", "Work done by a force perpendicular to the motion", "Zero"], ["Work", "80 N at 30° pulls a sledge 50 m. Work done?", "3.46 × 10³ J"], ["Work", "Work done is equal to what?", "Energy transferred"], ["Energy", "State the principle of conservation of energy", "Energy cannot be created or destroyed, only transferred between forms; total energy of a closed system is constant"], ["Energy", "Derive ΔEp = mgΔh: what force do you use?", "F = mg (lifting at constant speed), so W = mgΔh"], ["Energy", "When is ΔEp = mgΔh valid?", "In a uniform gravitational field (small heights near Earth)"], ["Energy", "Derive Ek = ½mv² in one line", "W = Fs = ma × v²/2a = ½mv²"], ["Energy", "Speed doubles. What happens to KE?", "Multiplies by 4"], ["Energy", "1200 kg car from 10 to 20 m s⁻¹. ΔKE?", "1.8 × 10⁵ J"], ["Energy", "On a slope, which length goes in mgh?", "The vertical height"], ["Energy", "Speed after falling 0.45 m from rest (no friction)", "2.97 m s⁻¹ (√(2gh))"], ["Energy", "Does mass affect the speed gained falling with no resistance?", "No, m cancels in mgh = ½mv²"], ["Energy", "Object falls at terminal velocity. Energy transfer?", "GPE → thermal energy; KE stays constant"], ["Efficiency", "Define efficiency", "Useful energy output ÷ total energy input"], ["Efficiency", "Unit of efficiency", "None (ratio or %)"], ["Efficiency", "Motor: 5886 J useful, 8000 J input. Efficiency?", "73.6%"], ["Power", "Define power", "Work done per unit time"], ["Power", "Power equation from definition", "P = W/t"], ["Power", "Derive P = Fv", "P = W/t = Fs/t = Fv"], ["Power", "SI base units of the watt", "kg m² s⁻³"], ["Power", "Car at constant 25 m s⁻¹, resistance 800 N. Power?", "2.0 × 10⁴ W"], ["Power", "Condition for a car's top speed", "Driving force = resistive force (resultant force zero)"], ["Power", "Which force goes in P = Fv?", "The driving force, not the resultant"], ["Power", "60 kW car at 20 m s⁻¹. Driving force?", "3000 N"], ["Power", "60 kg student climbs 3.0 m in 4.0 s. Power?", "441 W"]], PPD=[["Jun 2023", "9702/21", "1(a)(i)", "Define power", "Some wrote force × velocity.", "P = Fv is a result. The definition is work done per unit time."], ["Nov 2022", "9702/21", "3(a)", "Define power and derive P = Fv", "Some gave \"force × velocity\" as the definition, and some \"derived\" P = Fv by only checking units.", "Derive from P = W/t, W = Fs, s/t = v."], ["Nov 2022", "9702/22", "1(a)", "Define work done", "Some used distance instead of displacement or left out the direction.", "Force × displacement in the direction of the force."], ["Jun 2023", "9702/13", "15", "Work done on a suitcase", "The most common wrong answer said work is done carrying it horizontally at constant speed.", "The vertical supporting force is perpendicular to the motion, so it does no work."], ["Nov 2023", "9702/13", "17", "Rate of loss of GPE when falling at constant speed", "C was the most popular wrong answer.", "Rate = mg × (Δh/Δt) = mgv."], ["Jun 2023", "9702/12", "16", "Constant power: F against v graph", "Half were correct. B was the most common wrong graph.", "P = Fv is constant, so F ∝ 1/v (a curve)."], ["Nov 2022", "9702/21", "3(c)", "Car on a slope: weight component and power", "Students used mg cos θ instead of mg sin θ, and some ignored the resistive force.", "Driving force = resistive force + mg sin θ. Then P = Fv."], ["Jun 2023", "9702/21 & /22", "2(c)", "Change in GPE and KE", "Some confused mass with weight (e.g. used W in place of m in ½mv²).", "ΔE_P = mgΔh, E_K = ½mv². Convert weight ÷ g to get mass."], ["Jun 2023", "9702/22", "3(b)(ii)", "Calculate power", "Very weak students confused power with work done.", "Power = work ÷ time, in W."], ["Nov 2022", "9702/22", "1(c)(i), 4(a)", "Power and kinetic energy", "Students did not convert kW to W or g to kg, and some forgot to square v.", "Convert units first. v is squared in KE."], ["Nov 2023", "9702/22", "3(c)", "GPE and work against friction", "Students substituted the wrong GPE change and started from the wrong work done.", "Energy in = energy out + work against friction."], ["Nov 2023", "9702/23", "2(b)", "What happens to the energy", "Some said \"energy decreased\".", "Be specific: kinetic energy decreased. Total energy is always conserved."], ["Nov 2022", "9702/23", "3(d)", "Energy changes with no resistance", "Many described heat losses even though the question said resistive forces were negligible.", "Follow the question's assumptions."], ["Mar 2024", "9702/12", "18", "Smallest change in kinetic energy", "Students found this hard.", "With no losses, ΔKE = −ΔGPE, so the smallest height change gives the smallest KE change."], ["Jun 2023", "9702/21", "2(c)(iii)", "Resultant force on a moving block", "A common answer was \"no resultant force at all\", but the weight still acts.", "Only zero in the direction where the forces cancel."]], QZD=[["Work done is defined as", ["force × distance", "force × displacement in the direction of the force", "force × time", "energy per second"], 1, "Direction matters. The question to ask is how far the object moves along the force.", "Nov 2022 9702/22 Q1(a)", false], ["A person carries a suitcase horizontally at constant speed. Work done on it by the upward supporting force?", ["mgd", "mg × speed", "zero", "depends on speed"], 2, "The force is perpendicular to the displacement, and cos 90° = 0.", "Jun 2023 9702/13 Q15", false], ["An object of mass m falls at constant speed v. Rate of loss of GPE?", ["½mv²", "mgv", "mg/v", "mv"], 1, "d(mgh)/dt = mg × (dh/dt) = mgv.", "Nov 2023 9702/13 Q17", true], ["A car's engine works at constant power. As its speed increases, the driving force", ["increases", "stays the same", "decreases", "is zero"], 2, "F = P/v. Bigger v means smaller F.", "Jun 2023 9702/12 Q16", false], ["The component of a car's weight down a slope of angle θ is", ["mg cos θ", "mg sin θ", "mg tan θ", "mg"], 1, "Check θ = 0: a flat road gives no force along it, so sin.", "Nov 2022 9702/21 Q3(c)(i)", false], ["The speed of a ball triples. Its kinetic energy", ["triples", "is 6 times bigger", "is 9 times bigger", "is unchanged"], 2, "KE ∝ v², and 3² = 9.", "", true], ["Power is defined as", ["force × velocity", "work done per unit time", "energy × time", "force per unit area"], 1, "P = Fv is derived from the definition, not the definition itself.", "Jun 2023 9702/21 Q1(a)(i)", false], ["A motor takes 500 W and lifts 20 kg at a steady 1.5 m s⁻¹. Efficiency?", ["59%", "69%", "85%", "170%"], 0, "Useful power = mgv = 20 × 9.81 × 1.5 = 294 W, and 294/500 = 59%.", "", true]], SRC=[["Nov 2022 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2022/9702_w22_er.pdf"], ["Jun 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2023/9702_s23_er.pdf"], ["Nov 2023 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2023/9702_w23_er.pdf"], ["Mar 2024 examiner report", "https://bestexamhelp.com/exam/cambridge-international-a-level/physics-9702/2024/9702_m24_er.pdf"]];
+  function $(i){return document.getElementById(i);}
+  function el(t,c,txt){var e=document.createElement(t);if(c)e.className=c;if(txt!=null)e.textContent=txt;return e;}
+  var main=$('main'), slides=[].slice.call(document.querySelectorAll('.slide')), cur=0;
+  function secOf(s,k){
+    if(s.dataset.sec)return s.dataset.sec;
+    if(k===0)return 'start';
+    if(s.hasAttribute('data-traps')||s.dataset.title==='Mark-scheme wording')return 'exam';
+    return 'learn';
+  }
+  var SECN={start:'Start',learn:'Learn',lab:'Interactive lab',exam:'Exam technique',pp:'Past papers',quiz:'Quiz',fc:'Flashcards'};
+  slides.forEach(function(s,k){s.dataset.sec=secOf(s,k);});
+  function idx(sec){for(var k=0;k<slides.length;k++)if(slides[k].dataset.sec===sec)return k;return 0;}
+  /* section bar + toc */
+  var segs=$('segs'), toc=$('toc');
+  slides.forEach(function(s,k){
+    var b=el('button','sec-'+s.dataset.sec);b.type='button';b.title=(k+1)+'. '+s.dataset.title;b.setAttribute('aria-label',b.title);b.onclick=function(){show(k);};segs.appendChild(b);
+    var li=el('li'),bt=el('button','sec-'+s.dataset.sec);bt.type='button';bt.appendChild(el('i'));bt.appendChild(document.createTextNode((k+1)+'. '+s.dataset.title));bt.onclick=function(){show(k);closeD();};li.appendChild(bt);toc.appendChild(li);
+  });
+  function show(n,anim){
+    cur=Math.max(0,Math.min(slides.length-1,n));
+    slides.forEach(function(s,k){s.hidden=(k!==cur);s.classList.remove('enter');});
+    if(anim!==false){void slides[cur].offsetWidth;slides[cur].classList.add('enter');}
+    [].forEach.call(segs.children,function(b,k){b.className='sec-'+slides[k].dataset.sec+(k<cur?' done':'')+(k===cur?' on':'');});
+    [].forEach.call(toc.querySelectorAll('button'),function(b,k){b.classList.toggle('on',k===cur);});
+    $('count').textContent=(cur+1)+' / '+slides.length+' · '+slides[cur].dataset.title;
+    $('pv').disabled=(cur===0);$('nx').disabled=(cur===slides.length-1);
+    main.scrollTop=0;
+    if(typeof sizePads==='function')requestAnimationFrame(sizePads);
+    var P=prog();if(P.v.indexOf(cur)<0)P.v.push(cur);P.last=cur;P.n=slides.length;P.t=Date.now();lsSet('hub:'+DECKID,P);
+  }
+  function prog(){var P=lsGet('hub:'+DECKID)||{};P.v=P.v||[];P.known=P.known||{};return P;}
+  $('pv').onclick=function(){show(cur-1);};$('nx').onclick=function(){show(cur+1);};
+  $('bPP').onclick=function(){show(idx('pp'));};$('bQuiz').onclick=function(){show(idx('quiz'));};$('bFC').onclick=function(){show(idx('fc'));};
+  function openD(){$('drawer').hidden=false;$('scrim').hidden=false;$('dClose').focus();}
+  function closeD(){$('drawer').hidden=true;$('scrim').hidden=true;}
+  $('bContents').onclick=openD;$('dClose').onclick=closeD;$('scrim').onclick=closeD;
+  /* swipe */
+  var sx=null,sy=null;
+  main.addEventListener('touchstart',function(e){var t=e.target;if(t.closest&&t.closest('input,.lab svg,.tw,.work,.formula,.pad')){sx=null;return;}sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  main.addEventListener('touchend',function(e){if(sx==null)return;var dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>70&&Math.abs(dy)<45){show(cur+(dx<0?1:-1));}sx=null;},{passive:true});
+  /* title slide: what's inside */
+  var ins=document.querySelector('[data-inside]');
+  if(ins){
+    var nW=document.querySelectorAll('.work').length;
+    var tiles=[['learn',slides.filter(function(s){return s.dataset.sec==='learn';}).length,'concept slides'],['learn',nW,'worked examples'],['lab',slides.filter(function(s){return s.dataset.sec==='lab';}).length,'interactive lab'],['pp',PPD.length,'real past-paper traps'],['quiz',QZD.length,'quiz questions'],['fc',CARDS.length,'flashcards']];
+    tiles.forEach(function(t){var b=el('button','sec-'+t[0]);b.type='button';b.appendChild(el('b',null,String(t[1])));b.appendChild(el('span',null,t[2]));b.onclick=function(){show(idx(t[0]));};ins.appendChild(b);});
+  }
+
+  /* stylus working pads */
+  var PADSTORE={}, PADS=[], penSeen=false, DECK=document.title;
+  try{penSeen=localStorage.getItem('pad:penSeen')==='1';}catch(e){}
+  function lsGet(k){try{return JSON.parse(localStorage.getItem(k)||'null');}catch(e){return null;}}
+  function lsSet(k,v){try{localStorage.setItem(k,JSON.stringify(v));}catch(e){}}
+  function makePad(key,label){
+    var sk='pad:'+DECK+':'+key;
+    var st=PADSTORE[key]||(PADSTORE[key]={strokes:lsGet(sk)||[],tool:'pen',col:0,big:false,penOnly:null});
+    var wrap=el('div','pad'),bar=el('div','padbar'),tools=el('div','padtools');
+    bar.appendChild(el('span','padlab',label));
+    function tb(txt,title,fn){var b=el('button','pt',txt);b.type='button';b.title=title;b.setAttribute('aria-label',title);b.onclick=fn;tools.appendChild(b);return b;}
+    var CV=['--ink','--accent','--bad'],CN=['Black pen','Colour pen','Red pen'];
+    var cb=CV.map(function(v,i){var b=tb('',CN[i],function(){st.tool='pen';st.col=i;sync();});b.className='pt dot';b.style.setProperty('--dc','var('+v+')');return b;});
+    var er=tb('Eraser','Eraser',function(){st.tool=st.tool==='eraser'?'pen':'eraser';sync();});
+    tb('Undo','Undo last stroke',function(){st.strokes.pop();save();redraw();});
+    var clr=tb('Clear','Clear the pad',function(){if(clr.dataset.c){st.strokes=[];save();redraw();clr.dataset.c='';clr.textContent='Clear';}else{clr.dataset.c='1';clr.textContent='Tap again to clear';setTimeout(function(){clr.dataset.c='';clr.textContent='Clear';},2500);}});
+    var po=tb('Pen only','Pen only: ignore finger and palm touches',function(){st.penOnly=!penOnly();sync();});
+    var bg=tb('Bigger','Make the pad taller',function(){st.big=!st.big;sync();size();});
+    bar.appendChild(tools);wrap.appendChild(bar);
+    var cv=el('canvas','padcv');cv.setAttribute('aria-label',label+': draw here with your stylus');wrap.appendChild(cv);
+    wrap.appendChild(el('div','padnote','Saved on this device. Once you use a stylus, finger and palm touches are ignored on the pads.'));
+    var ctx=cv.getContext('2d'),W=0,cur=null;
+    function penOnly(){return st.penOnly===null?penSeen:st.penOnly;}
+    function sync(){cb.forEach(function(b,i){b.setAttribute('aria-pressed',String(st.tool==='pen'&&st.col===i));});er.setAttribute('aria-pressed',String(st.tool==='eraser'));po.setAttribute('aria-pressed',String(penOnly()));bg.textContent=st.big?'Smaller':'Bigger';cv.style.height=(st.big?560:280)+'px';}
+    function size(){var r=cv.getBoundingClientRect();if(!r.width)return;var d=window.devicePixelRatio||1;W=r.width;cv.width=Math.round(r.width*d);cv.height=Math.round(r.height*d);ctx.setTransform(d,0,0,d,0,0);redraw();}
+    function col(i){return getComputedStyle(wrap).getPropertyValue(CV[i]).trim()||'#111';}
+    function wid(s,pr){return s.e?24:(s.pen?1.1+pr*3.2:2.4);}
+    function seg(s,i){var k=W/s.bw,p=s.p;ctx.save();ctx.lineCap='round';ctx.lineJoin='round';
+      if(s.e)ctx.globalCompositeOperation='destination-out';
+      ctx.strokeStyle=ctx.fillStyle=s.e?'#000':col(s.c);
+      if(i===0){ctx.beginPath();ctx.arc(p[0][0]*k,p[0][1]*k,wid(s,p[0][2])*k/2,0,7);ctx.fill();}
+      else{ctx.lineWidth=wid(s,p[i][2])*k;ctx.beginPath();ctx.moveTo(p[i-1][0]*k,p[i-1][1]*k);ctx.lineTo(p[i][0]*k,p[i][1]*k);ctx.stroke();}
+      ctx.restore();}
+    function redraw(){ctx.clearRect(0,0,cv.width,cv.height);st.strokes.forEach(function(s){for(var i=0;i<s.p.length;i++)seg(s,i);});}
+    function save(){lsSet(sk,st.strokes);}
+    function pt(e){var r=cv.getBoundingClientRect();return [Math.round((e.clientX-r.left)*10)/10,Math.round((e.clientY-r.top)*10)/10,Math.round((e.pressure||0.5)*100)/100];}
+    cv.addEventListener('pointerdown',function(e){
+      if(e.pointerType==='pen'&&!penSeen){penSeen=true;try{localStorage.setItem('pad:penSeen','1');}catch(x){}PADS.forEach(function(p){p.sync();});}
+      if(e.pointerType==='touch'&&penOnly())return;
+      if(cur)return;
+      e.preventDefault();try{cv.setPointerCapture(e.pointerId);}catch(x){}
+      cur={bw:W,c:st.col,e:st.tool==='eraser'||(e.buttons&32)?1:0,pen:e.pointerType==='pen'?1:0,p:[pt(e)],id:e.pointerId};
+      st.strokes.push(cur);seg(cur,0);document.documentElement.classList.add('inking');
+    });
+    cv.addEventListener('pointermove',function(e){
+      if(!cur||e.pointerId!==cur.id)return;e.preventDefault();
+      var evs=e.getCoalescedEvents?e.getCoalescedEvents():[e];if(!evs.length)evs=[e];
+      evs.forEach(function(v){cur.p.push(pt(v));seg(cur,cur.p.length-1);});
+    });
+    function end(e){if(!cur||e.pointerId!==cur.id)return;var s=cur;cur=null;delete s.id;save();document.documentElement.classList.remove('inking');try{var sel=window.getSelection();if(sel)sel.removeAllRanges();}catch(x){}}
+    cv.addEventListener('pointerup',end);cv.addEventListener('pointercancel',end);
+    function isStylus(e){var ts=e.changedTouches||[];for(var i=0;i<ts.length;i++){if(ts[i].touchType==='stylus')return true;}return false;}
+    function tblock(e){if(isStylus(e)||!penOnly()||cur){if(e.cancelable)e.preventDefault();}}
+    cv.addEventListener('touchstart',tblock,{passive:false});
+    cv.addEventListener('touchmove',tblock,{passive:false});
+    cv.addEventListener('touchend',tblock,{passive:false});
+    ['contextmenu','selectstart','dragstart','gesturestart'].forEach(function(t){wrap.addEventListener(t,function(e){e.preventDefault();});});
+    sync();
+    var rec={wrap:wrap,size:size,sync:sync};PADS.push(rec);
+    return wrap;
+  }
+  function sizePads(){PADS.forEach(function(p){if(p.wrap.offsetParent)p.size();});}
+  window.addEventListener('resize',sizePads);
+  try{matchMedia('(prefers-color-scheme: dark)').addEventListener('change',function(){setTimeout(sizePads,50);});}catch(e){}
+  new MutationObserver(function(){setTimeout(sizePads,30);}).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  /* reveal working */
+  [].forEach.call(document.querySelectorAll('.work'),function(w,i){
+    var box=w.parentNode;if(!box.classList.contains('box'))return;var wrap=el('div'); wrap.id='wk'+i; wrap.hidden=true;
+    var btn=el('button','rv','Try it first, then show the working');btn.type='button';btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-controls',wrap.id);
+    box.insertBefore(makePad('w'+i,'Your working · use your stylus'),w);box.insertBefore(btn,w);box.insertBefore(wrap,w);
+    var n=w;while(n){var nx=n.nextSibling;wrap.appendChild(n);n=nx;}
+    btn.onclick=function(){var o=wrap.hidden;wrap.hidden=!o;btn.setAttribute('aria-expanded',String(o));btn.textContent=o?'Hide the working':'Try it first, then show the working';};
+  });
+  /* past papers */
+  var ppF='All', ppg=$('ppGrid'), ppc=$('ppChips');
+  ['All','Paper 1 (MCQ)','Paper 2 (structured)'].forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===ppF?'true':'false');b.onclick=function(){ppF=t;[].forEach.call(ppc.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});ppRender();};ppc.appendChild(b);});
+  function ppRender(){
+    ppg.innerHTML='';
+    PPD.forEach(function(r){
+      var p1=/\/1\d/.test(r[1]);if(ppF==='Paper 1 (MCQ)'&&!p1)return;if(ppF==='Paper 2 (structured)'&&p1)return;
+      var c=el('button','pp');c.type='button';c.setAttribute('aria-expanded','false');
+      c.appendChild(el('span','ref',r[0]+' · '+r[1]+' · Q'+r[2]));
+      c.appendChild(el('span','ask',r[3]));
+      c.appendChild(el('span','hint','What went wrong? Tap to reveal'));
+      var g=el('span','got');g.appendChild(el('b',null,'Common error: '));g.appendChild(document.createTextNode(r[4]));c.appendChild(g);
+      var f=el('span','fx');f.appendChild(el('b',null,'Do this instead: '));f.appendChild(document.createTextNode(r[5]));c.appendChild(f);
+      c.onclick=function(){var o=!c.classList.contains('open');c.classList.toggle('open',o);c.setAttribute('aria-expanded',String(o));};
+      ppg.appendChild(c);
+    });
+  }
+  ppRender();
+  var sp=$('ppSrc');sp.appendChild(document.createTextNode('Summarised from Cambridge 9702 Principal Examiner Reports: '));
+  SRC.forEach(function(s,i){var a=el('a',null,s[0]);a.href=s[1];a.target='_blank';a.rel='noopener';sp.appendChild(a);if(i<SRC.length-1)sp.appendChild(document.createTextNode(' · '));});
+  /* quiz */
+  var qi=0, score=0, answered=false, qz=$('quiz');
+  function qRender(){
+    qz.innerHTML='';
+    if(qi>=QZD.length){var P=prog();P.best=Math.max(P.best||0,score);P.qn=QZD.length;lsSet('hub:'+DECKID,P);var d=el('div','qdone');d.appendChild(el('b',null,score+' / '+QZD.length));d.appendChild(el('p',null,score===QZD.length?'Every trap dodged. Go to the flashcards next.':'Look at the past-paper cards for the ones you missed, then try again.'));var r=el('button','qnext','Try again');r.type='button';r.onclick=function(){qi=0;score=0;qRender();};d.appendChild(r);qz.appendChild(d);return;}
+    var q=QZD[qi];answered=false;
+    var m=el('div','qmeta');m.appendChild(el('span',null,'Question '+(qi+1)+' of '+QZD.length));m.appendChild(el('span',null,'Score '+score));qz.appendChild(m);
+    var bar=el('div','qbar');var bi=el('i');bi.style.width=(qi/QZD.length*100)+'%';bar.appendChild(bi);qz.appendChild(bar);
+    qz.appendChild(el('div','qq',q[0]));
+    if(q[5]){qz.appendChild(makePad('q'+qi,'Working space'));requestAnimationFrame(sizePads);}
+    var os=el('div','qopts'),btns=[];
+    q[1].forEach(function(o,k){var b=el('button','qopt');b.type='button';b.appendChild(el('span','L','ABCD'[k]));b.appendChild(el('span',null,o));b.onclick=function(){if(answered)return;answered=true;if(k===q[2])score++;btns.forEach(function(x,j){x.disabled=true;if(j===q[2])x.classList.add('right');else if(j===k)x.classList.add('wrong');});
+      var fb=el('div','qfb');fb.appendChild(el('div',null,(k===q[2]?'Correct. ':'Not quite. The answer is '+'ABCD'[q[2]]+'. ')+q[3]));if(q[4])fb.appendChild(el('div','r','Trap seen in: '+q[4]));qz.appendChild(fb);
+      var n=el('button','qnext',qi===QZD.length-1?'See your score':'Next question');n.type='button';n.onclick=function(){qi++;qRender();};qz.appendChild(n);n.focus();};btns.push(b);os.appendChild(b);});
+    qz.appendChild(os);
+  }
+  qRender();
+  /* flashcards */
+  var topic="All", order=[], pos=0, flipped=false, known=prog().known;
+  function saveKnown(){var P=prog();P.known=known;P.kn=CARDS.length;lsSet('hub:'+DECKID,P);}
+  var topics=["All"];CARDS.forEach(function(c){if(topics.indexOf(c[0])<0)topics.push(c[0]);});
+  var chipsEl=$('chips'), cardEl=$('card'), metaEl=$('meta');
+  topics.forEach(function(t){var b=el('button','chip',t);b.type='button';b.setAttribute('aria-pressed',t===topic?'true':'false');b.onclick=function(){topic=t;[].forEach.call(chipsEl.children,function(c){c.setAttribute('aria-pressed',c.textContent===t?'true':'false');});build(false);};chipsEl.appendChild(b);});
+  function build(shuf){order=[];CARDS.forEach(function(c,k){if(topic==="All"||c[0]===topic)order.push(k);});if(shuf){for(var i=order.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=order[i];order[i]=order[j];order[j]=t;}}pos=0;flipped=false;render();}
+  function render(){
+    if(!order.length)return;var c=CARDS[order[pos]];
+    cardEl.classList.toggle('flip',flipped);
+    $('fSide').textContent='Question · '+c[0];$('fQ').textContent=c[1];$('fA').textContent=c[2];
+    var n=0;order.forEach(function(k){if(known[k])n++;});
+    metaEl.textContent='Card '+(pos+1)+' of '+order.length+' · Known: '+n+' of '+order.length;
+  }
+  function move(d){var was=flipped;flipped=false;cardEl.classList.remove('flip');setTimeout(function(){pos=(pos+d+order.length)%order.length;render();},was?260:0);}
+  function flip(){flipped=!flipped;cardEl.classList.toggle('flip',flipped);}
+  cardEl.onclick=flip;cardEl.onkeydown=function(e){if(e.key==='Enter'){e.preventDefault();flip();}};
+  $('flip').onclick=flip;$('next').onclick=function(){move(1);};$('prev').onclick=function(){move(-1);};
+  $('shuffle').onclick=function(){build(true);};$('reset').onclick=function(){known={};saveKnown();build(false);};
+  $('know').onclick=function(){known[order[pos]]=true;saveKnown();move(1);};$('again').onclick=function(){delete known[order[pos]];saveKnown();move(1);};
+  document.addEventListener('keydown',function(e){
+    var t=e.target;if(t&&(t.tagName==='INPUT'))return;
+    if(e.key==='Escape'){closeD();return;}
+    if(!$('drawer').hidden)return;
+    if(t&&t.tagName==='BUTTON'&&(e.key===' '||e.key==='Enter'))return;
+    if(slides[cur].dataset.sec==='fc'){if(e.key===' '){e.preventDefault();flip();}else if(e.key==='ArrowRight')move(1);else if(e.key==='ArrowLeft')move(-1);}
+    else{if(e.key==='ArrowRight'||e.key==='PageDown')show(cur+1);else if(e.key==='ArrowLeft'||e.key==='PageUp')show(cur-1);}
+  });
+  build(false);
+  var hm=/^#s(\d+)$/.exec(location.hash||'');show(hm?(+hm[1]-1):0,false);
+})();
+</script>
+<script>if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){});});}/* links to other sites open outside the app */document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href^=\"http\"]");if(a&&a.host!==location.host){a.target="_blank";a.rel="noopener";}});</script></body></html>
